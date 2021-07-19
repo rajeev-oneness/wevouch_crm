@@ -26,6 +26,15 @@ import { BrandListComponent } from './component/admin/master/brand/brand-list/br
 import { BrandAddComponent } from './component/admin/master/brand/brand-add/brand-add.component';
 import { PackageListComponent } from './component/admin/package/package-list/package-list.component';
 import { PackageAddComponent } from './component/admin/package/package-add/package-add.component';
+import { SupportListComponent } from './component/admin/support/support-list/support-list.component';
+import { SupportAddComponent } from './component/admin/support/support-add/support-add.component';
+import { SendNotificationComponent } from './component/admin/notification/send-notification/send-notification.component';
+import { SendEmailComponent } from './component/admin/notification/send-email/send-email.component';
+import { SendSmsComponent } from './component/admin/notification/send-sms/send-sms.component';
+import { CustomerEditComponent } from './component/admin/customer/customer-edit/customer-edit.component';
+import { CategoryEditComponent } from './component/admin/master/category/category-edit/category-edit.component';
+import { BrandEditComponent } from './component/admin/master/brand/brand-edit/brand-edit.component';
+import { PackageEditComponent } from './component/admin/package/package-edit/package-edit.component';
 
 
 @NgModule({
@@ -54,6 +63,15 @@ import { PackageAddComponent } from './component/admin/package/package-add/packa
     BrandAddComponent,
     PackageListComponent,
     PackageAddComponent,
+    SupportListComponent,
+    SupportAddComponent,
+    SendNotificationComponent,
+    SendEmailComponent,
+    SendSmsComponent,
+    CustomerEditComponent,
+    CategoryEditComponent,
+    BrandEditComponent,
+    PackageEditComponent,
   ],
   imports: [
     BrowserModule,
