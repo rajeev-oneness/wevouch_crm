@@ -20,6 +20,13 @@ import { TicketReportListComponent } from './component/admin/report/ticket-repor
 import { TicketReportDetailComponent } from './component/admin/report/ticket-report/ticket-report-detail/ticket-report-detail.component';
 import { ProductReportListComponent } from './component/admin/report/product-report/product-report-list/product-report-list.component';
 import { ProductReportDetailComponent } from './component/admin/report/product-report/product-report-detail/product-report-detail.component';
+import { CategoryListComponent } from './component/admin/master/category/category-list/category-list.component';
+import { CategoryAddComponent } from './component/admin/master/category/category-add/category-add.component';
+import { BrandListComponent } from './component/admin/master/brand/brand-list/brand-list.component';
+import { BrandAddComponent } from './component/admin/master/brand/brand-add/brand-add.component';
+import { PackageListComponent } from './component/admin/package/package-list/package-list.component';
+import { PackageAddComponent } from './component/admin/package/package-add/package-add.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +47,13 @@ import { ProductReportDetailComponent } from './component/admin/report/product-r
     TicketReportListComponent,
     TicketReportDetailComponent,
     ProductReportListComponent,
-    ProductReportDetailComponent
+    ProductReportDetailComponent,
+    CategoryListComponent,
+    CategoryAddComponent,
+    BrandListComponent,
+    BrandAddComponent,
+    PackageListComponent,
+    PackageAddComponent,
   ],
   imports: [
     BrowserModule,
