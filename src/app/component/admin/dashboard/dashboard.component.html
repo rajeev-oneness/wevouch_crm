@@ -1,1 +1,296 @@
-<p>dashboard works!</p>
+<div class="row">
+    <div class="dashboard-menubar" id="sidebar">
+        <div class="image-wrapper logo-wrapper customer-logo">
+            <img src="./assets/img/WeVouch_Logo.png" class="img-fluid logo">
+        </div>
+        <nav class="border-top">
+            <!-- <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
+                <i class="fa fa-bars menu-button"></i>
+            </button> -->
+        <ul class="menu">
+            <li class="active"><a href="dashboard.html"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+            <li><a href="customer_list.html"><i class="fa fa-user" aria-hidden="true"></i>Customer</a></li>
+            <li><a href="tickets.html"><i class="fa fa-ticket" aria-hidden="true"></i>Tickets</a></li>
+            <li><a href="product_list.html"><i class="fa fa-product-hunt" aria-hidden="true"></i>Products</a></li>
+            <li><a href="#electronicsSubmenu1" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fas fa-file"></i>Reports</a>
+            <ul class="list-unstyled collapse" id="electronicsSubmenu1">
+                <li>
+                    <a href="customer_report.html"><i class="fas fa-file"></i>Customer Report</a>
+                </li>
+                <li>
+                    <a href="ticket_report.html"><i class="fas fa-file"></i>Ticket Report</a>
+                </li>
+                <li>
+                    <a href="product_report.html"><i class="fas fa-file"></i>Product Report</a>
+                </li>
+            </ul>
+            </li>
+            <li><a href="#electronicsSubmenu2" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fas fa-users"></i>Master</a>
+                <ul class="list-unstyled collapse" id="electronicsSubmenu2">
+                        <li>
+                            <a href="category_list.html"><i class="fas fa-chalkboard-teacher"></i>Category</a>
+                        </li>
+                        <li>
+                            <a href="brand_list.html"><i class="fas fa-user-plus"></i>Brand</a>
+                        </li>
+                </ul>
+            </li>
+            
+            <li><a href="package_list.html"><i class="fas fa-handshake" aria-hidden="true"></i>Package</a></li>
+            <li><a href=""><i class="fas fa-cog" aria-hidden="true"></i>Settings</a></li>
+            <li><a href="support_executive.html"><i class="fas fa-life-ring" aria-hidden="true"></i>Suppor Executives</a></li>
+            <li><a href="#electronicsSubmenu3" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-bell"></i>Notification</a>
+                <ul class="list-unstyled collapse" id="electronicsSubmenu3">
+                        <li>
+                            <a href="send_notification.html"><i class="fas fa-bell"></i>Send Notification</a>
+                        </li>
+                        <li>
+                            <a href="send_email.html"><i class="fas fa-envelope"></i>Send Email</a>
+                        </li>
+                        <li>
+                            <a href="send_sms.html"><i class="fas fa-sms"></i>Send SMS</a>
+                        </li>
+                </ul>
+            </li>				
+        </ul>
+    </nav>
+    </div>
+    <div class="dashboard-body" id="content">
+        <div class="dashboard-content">
+            <div class="row m-0 dashboard-content-header">
+                <div class="col-lg-6 d-flex">
+                    <a id="sidebarCollapse" href="javascript:void(0);">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                    <ul class="breadcrumb p-0">
+                        <li><a href="dashboard.html">Home</a></li>
+                        <li class="text-white"><i class="fa fa-chevron-right"></i></li>
+                        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="search-box-container">
+                        <!-- <div class="form-group search-box top-search-bar"> -->
+                        <!-- <input type="text" name="search-box"  placeholder="Search" -->
+                        <!-- > -->
+                        <!-- <button type="submit"> -->
+                        <!-- <i class="fa fa-search"></i> -->
+                        <!-- </button> -->
+                        <!-- </div> -->
+                        <div class="notification">
+                            <button class="notification-button">
+                                <i class="fa fa-bell"></i>
+                                <span class="badge-number">0</span>
+                            </button>
+                            <div class="user-wrapper mx-3">
+                                <!-- <img src="./assets/img/user.png" class="img-fluid user-img"> -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="dashboard-body-content-upper p-0">
+                <div class="row m-0">
+                    <div class="col-12 col-md-3 mb-3">
+                        <div class="card shadow-sm border-0">
+                           <div class="card-body gpcVCf">
+                                <div class="icon-sec w-25">
+                                    <img src="./assets/img/Total-Customers.png">
+                                </div>
+                                <div class="text-sec">
+                                    <h3>761 <span>Total Customers</span></h3>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mb-3">
+                        <div class="card shadow-sm border-0">
+                           <div class="card-body gpcVCf">
+                                <div class="icon-sec w-25">
+                                    <img src="./assets/img/new-Customers.png">
+                                </div>
+                                <div class="text-sec">
+                                    <h3>61 <span>New Customers</span></h3>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mb-3">
+                        <div class="card shadow-sm border-0">
+                           <div class="card-body gpcVCf">
+                                <div class="icon-sec w-25">
+                                    <img src="./assets/img/total-Products.png">
+                                </div>
+                                <div class="text-sec">
+                                    <h3>7,461 <span>Total Products</span></h3>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mb-3">
+                        <div class="card shadow-sm border-0">
+                           <div class="card-body gpcVCf">
+                                <div class="icon-sec w-25">
+                                    <img src="./assets/img/new-Products.png">
+                                </div>
+                                <div class="text-sec">
+                                    <h3>461 <span>New Products</span></h3>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mb-3">
+                        <div class="card shadow-sm border-0">
+                           <div class="card-body gpcVCf">
+                                <div class="icon-sec w-25">
+                                    <img src="./assets/img/total-tickets.png">
+                                </div>
+                                <div class="text-sec">
+                                    <h3>261 <span>Total Tickets</span></h3>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mb-3">
+                        <div class="card shadow-sm border-0">
+                           <div class="card-body gpcVCf">
+                                <div class="icon-sec w-25">
+                                    <img src="./assets/img/new-ticket.png">
+                                </div>
+                                <div class="text-sec">
+                                    <h3>75 <span>New Tickets</span></h3>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mb-3">
+                        <div class="card shadow-sm border-0">
+                           <div class="card-body gpcVCf">
+                                <div class="icon-sec w-25">
+                                    <img src="./assets/img/Ongoing-Tickets.png">
+                                </div>
+                                <div class="text-sec">
+                                    <h3>30 <span>Ongoing Tickets</span></h3>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mb-3">
+                        <div class="card shadow-sm border-0">
+                           <div class="card-body gpcVCf">
+                                <div class="icon-sec w-25">
+                                    <img src="./assets/img/complete-ticket.png">
+                                </div>
+                                <div class="text-sec">
+                                    <h3>90 <span>Completed Tickets</span></h3>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-0 mt-3 col-12">
+                    <div class="card border-0 shadow-sm col-12 p-0">
+                        <div class="card-header card-head">
+                            <h5 class="card-head-title">Latest Tickets</h5>
+                            <div >
+                                <div class="input-group ">
+                                    <div class="pr-3">
+                                        <select class="form-control">
+                                            <option>10 / page</option>
+                                            <option>20 / page</option>
+                                            <option>30 / page</option>
+                                            <option>40 / page</option>
+                                            <option>50 / page</option>
+                                        </select>
+                                    </div>
+                                    <input type="search" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary searchbtn" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive edit-table card-body pt-0 pb-0">
+                            <table class="table table-sm table-hover brand-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sr No</th>
+                                        <th>Ticket Id</th>
+                                        <th>Customer Name</th>
+                                        <th>Product</th>
+                                        <th>Brand</th>
+                                        <th>Category</th>
+                                        <th>Created At</th>
+                                        <th style="width:100px" class="text-center">Status</th>
+                                        <th style="width:80px" class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>03</td>
+                                        <td>1CD54</td>
+                                        <td>Jon Dow</td>
+                                        <td><img src="./assets/img/product3.png"></td>
+                                        <td>LG</td>
+                                        <td>TV</td>
+                                        <td>14/07/2021</td>
+                                        <td class="text-center"><span class="badge badge-success">Active</span></td>
+                                        <td class="text-center">
+                                            <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
+                                            <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>04</td>
+                                        <td>1CD54</td>
+                                        <td>Jon Dow</td>
+                                        <td><img src="./assets/img/product1.png"></td>
+                                        <td>Samsung</td>
+                                        <td>Radio</td>
+                                        <td>14/07/2021</td>
+                                        <td class="text-center"><span class="badge badge-success">Active</span></td>
+                                        <td class="text-center">
+                                            <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
+                                            <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>03</td>
+                                        <td>1CD54</td>
+                                        <td>Jon Dow</td>
+                                        <td><img src="./assets/img/product3.png"></td>
+                                        <td>LG</td>
+                                        <td>TV</td>
+                                        <td>14/07/2021</td>
+                                        <td class="text-center"><span class="badge badge-success">Active</span></td>
+                                        <td class="text-center">
+                                            <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
+                                            <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>04</td>
+                                        <td>1CD54</td>
+                                        <td>Jon Dow</td>
+                                        <td><img src="./assets/img/product1.png"></td>
+                                        <td>Samsung</td>
+                                        <td>Radio</td>
+                                        <td>14/07/2021</td>
+                                        <td class="text-center"><span class="badge badge-success">Active</span></td>
+                                        <td class="text-center">
+                                            <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
+                                            <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
