@@ -29,9 +29,18 @@ import { SupportAddComponent } from "./component/admin/support/support-add/suppo
 import { SendNotificationComponent } from "./component/admin/notification/send-notification/send-notification.component";
 import { SendEmailComponent } from "./component/admin/notification/send-email/send-email.component";
 import { SendSmsComponent } from "./component/admin/notification/send-sms/send-sms.component";
-
+import { LoginComponent } from "./component/auth/login/login.component";
+import { RegistrationComponent } from "./component/auth/registration/registration.component";
+import { ForgetComponent } from "./component/auth/password/forget/forget.component";
+import { ChangeComponent } from "./component/auth/password/change/change.component";
 const routes: Routes = [
   {path : '', component : DashboardComponent, pathMatch:'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'password', children: [
+    {path: 'forget', component: ForgetComponent},
+    {path: 'change', component: ChangeComponent},
+  ]},
   {path: 'admin', children: [
     {path : 'dashboard', component : DashboardComponent},
     {path : 'customer', children: [

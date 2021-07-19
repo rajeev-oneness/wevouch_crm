@@ -35,6 +35,10 @@ import { CustomerEditComponent } from './component/admin/customer/customer-edit/
 import { CategoryEditComponent } from './component/admin/master/category/category-edit/category-edit.component';
 import { BrandEditComponent } from './component/admin/master/brand/brand-edit/brand-edit.component';
 import { PackageEditComponent } from './component/admin/package/package-edit/package-edit.component';
+import { LoginComponent } from './component/auth/login/login.component';
+import { RegistrationComponent } from './component/auth/registration/registration.component';
+import { ForgetComponent } from './component/auth/password/forget/forget.component';
+import { ChangeComponent } from './component/auth/password/change/change.component';
 
 
 @NgModule({
@@ -72,6 +76,10 @@ import { PackageEditComponent } from './component/admin/package/package-edit/pac
     CategoryEditComponent,
     BrandEditComponent,
     PackageEditComponent,
+    LoginComponent,
+    RegistrationComponent,
+    ForgetComponent,
+    ChangeComponent,
   ],
   imports: [
     BrowserModule,

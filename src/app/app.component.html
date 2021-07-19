@@ -1,3 +1,3 @@
-<app-header></app-header>
+<app-header *ngIf="showHeaderFooterSidebar"></app-header>
 <router-outlet></router-outlet>
-<app-sidebar></app-sidebar>
+<app-sidebar *ngIf="showHeaderFooterSidebar"></app-sidebar>
