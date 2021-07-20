@@ -39,6 +39,7 @@ import { LoginComponent } from './component/auth/login/login.component';
 import { RegistrationComponent } from './component/auth/registration/registration.component';
 import { ForgetComponent } from './component/auth/password/forget/forget.component';
 import { ChangeComponent } from './component/auth/password/change/change.component';
+import { NgxUiLoaderModule } from "ngx-ui-loader";
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ChangeComponent } from './component/auth/password/change/change.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxUiLoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
