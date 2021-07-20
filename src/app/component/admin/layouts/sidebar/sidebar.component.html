@@ -7,48 +7,48 @@
             <i class="fa fa-bars menu-button"></i>
         </button> -->
         <ul class="menu">
-            <li class="active"><a href="admin/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
-            <li><a href="admin/customer/list"><i class="fa fa-user" aria-hidden="true"></i>Customer</a></li>
-            <li><a href="admin/ticket/list"><i class="fa fa-ticket" aria-hidden="true"></i>Tickets</a></li>
-            <li><a href="admin/product/list"><i class="fa fa-product-hunt" aria-hidden="true"></i>Products</a></li>
+            <li routerLinkActive="active"><a routerLink="admin/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+            <li routerLinkActive="active"><a routerLink="admin/customer/list"><i class="fa fa-user" aria-hidden="true"></i>Customer</a></li>
+            <li routerLinkActive="active"><a routerLink="admin/ticket/list"><i class="fa fa-ticket" aria-hidden="true"></i>Tickets</a></li>
+            <li routerLinkActive="active"><a routerLink="admin/product/list"><i class="fa fa-product-hunt" aria-hidden="true"></i>Products</a></li>
             <li><a href="#electronicsSubmenu1" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fas fa-file"></i>Reports</a>
             <ul class="list-unstyled collapse" id="electronicsSubmenu1">
-                <li>
-                    <a href="admin/customer/report/list"><i class="fas fa-file"></i>Customer Report</a>
+                <li routerLinkActive="active">
+                    <a routerLink="admin/customer/report/list"><i class="fas fa-file"></i>Customer Report</a>
                 </li>
-                <li>
-                    <a href="admin/ticket/report/list"><i class="fas fa-file"></i>Ticket Report</a>
+                <li routerLinkActive="active">
+                    <a routerLink="admin/ticket/report/list"><i class="fas fa-file"></i>Ticket Report</a>
                 </li>
-                <li>
-                    <a href="admin/product/report/list"><i class="fas fa-file"></i>Product Report</a>
+                <li routerLinkActive="active">
+                    <a routerLink="admin/product/report/list"><i class="fas fa-file"></i>Product Report</a>
                 </li>
             </ul>
             </li>
             <li><a href="#electronicsSubmenu2" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fas fa-users"></i>Master</a>
                 <ul class="list-unstyled collapse" id="electronicsSubmenu2">
-                        <li>
-                            <a href="admin/master/category/list"><i class="fas fa-chalkboard-teacher"></i>Category</a>
-                        </li>
-                        <li>
-                            <a href="admin/master/brand/list"><i class="fas fa-user-plus"></i>Brand</a>
-                        </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="admin/master/category/list"><i class="fas fa-chalkboard-teacher"></i>Category</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="admin/master/brand/list"><i class="fas fa-user-plus"></i>Brand</a>
+                    </li>
                 </ul>
             </li>
             
-            <li><a href="admin/package/list"><i class="fas fa-handshake" aria-hidden="true"></i>Package</a></li>
-            <li><a href=""><i class="fas fa-cog" aria-hidden="true"></i>Settings</a></li>
-            <li><a href="admin/support-executive/list"><i class="fas fa-life-ring" aria-hidden="true"></i>Suppor Executives</a></li>
+            <li routerLinkActive="active"><a routerLink="admin/package/list"><i class="fas fa-handshake" aria-hidden="true"></i>Package</a></li>
+            <li routerLinkActive="active"><a href=""><i class="fas fa-cog" aria-hidden="true"></i>Settings</a></li>
+            <li routerLinkActive="active"><a routerLink="admin/support-executive/list"><i class="fas fa-life-ring" aria-hidden="true"></i>Suppor Executives</a></li>
             <li><a href="#electronicsSubmenu3" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-bell"></i>Notification</a>
                 <ul class="list-unstyled collapse" id="electronicsSubmenu3">
-                        <li>
-                            <a href="admin/notification/send-notification"><i class="fas fa-bell"></i>Send Notification</a>
-                        </li>
-                        <li>
-                            <a href="admin/notification/send-email"><i class="fas fa-envelope"></i>Send Email</a>
-                        </li>
-                        <li>
-                            <a href="admin/notification/send-sms"><i class="fas fa-sms"></i>Send SMS</a>
-                        </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="admin/notification/send-notification"><i class="fas fa-bell"></i>Send Notification</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="admin/notification/send-email"><i class="fas fa-envelope"></i>Send Email</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="admin/notification/send-sms"><i class="fas fa-sms"></i>Send SMS</a>
+                    </li>
                 </ul>
             </li>				
         </ul>
