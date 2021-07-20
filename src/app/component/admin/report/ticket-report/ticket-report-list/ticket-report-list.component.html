@@ -1,1 +1,132 @@
-<p>ticket-report-list works!</p>
+<div class="dashboard-body-content-upper p-0">
+    <div class="row m-0 mt-3 col-12">
+        <div class="card border-0 shadow-sm col-12 p-0">
+            <div class="card-header card-head ">
+                <h5 class="card-head-title">Ticket Report</h5>
+                <div>
+                    <div class="input-group ">
+                        <div class="pr-3 d-flex">
+                            <select class="form-control w-25 mr-1">
+                                <option selected>All</option>
+                                <option>New</option>
+                                <option>Ongoing</option>
+                                <option>Completed</option>
+                            </select>
+                            <div class="start-date ml-1">
+                                <input type="date " placeholder="Start date" id="picker-start" class="form-control">
+                            </div>
+                            <div class="end-date ml-1">
+                                <input type="date " placeholder="End date" id="picker-end" class="form-control">
+                            </div>
+                        </div>
+                        <input type="search" class="form-control" placeholder="Search..."
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary searchbtn" type="button"
+                                id="button-addon2"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive ticket-table">
+                <table class="table table-sm table-hover brand-table">
+                    <thead>
+                        <tr>
+                            <th>Serial No</th>
+                            <th>Ticket Id</th>
+                            <th>Customer Name</th>
+                            <th>Product</th>
+                            <th>Brand</th>
+                            <th>Category</th>
+                            <th>Created At</th>
+                            <th style="width:100px" class="text-center">Status</th>
+                            <th style="width:80px" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>23</td>
+                            <td>Santosh</td>
+                            <td><img src="./assets/img/product3.png"></td>
+                            <td>LG</td>
+                            <td>TV</td>
+                            <td>14/07/2021</td>
+                            <td class="text-center"><span class="badge badge-success">Completed</span></td>
+                            <td class="text-center">
+                                <a href="ticket_details.html"><i class="far fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal"
+                                    data-target="#exampleModal"><i
+                                        class="far fa-trash-alt text-danger"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>23</td>
+                            <td>Santosh</td>
+                            <td><img src="./assets/img/product1.png"></td>
+                            <td>Samsung</td>
+                            <td>Radio</td>
+                            <td>14/07/2021</td>
+                            <td class="text-center"><span class="badge badge-primary">New</span></td>
+                            <td class="text-center">
+                                <a href="ticket_details.html"><i class="far fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal"
+                                    data-target="#exampleModal"><i
+                                        class="far fa-trash-alt text-danger"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>23</td>
+                            <td>Santosh</td>
+                            <td><img src="./assets/img/product3.png"></td>
+                            <td>LG</td>
+                            <td>TV</td>
+                            <td>14/07/2021</td>
+                            <td class="text-center"><span class="badge badge-primary">New</span></td>
+                            <td class="text-center">
+                                <a href="ticket_details.html"><i class="far fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal"
+                                    data-target="#exampleModal"><i
+                                        class="far fa-trash-alt text-danger"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>23</td>
+                            <td>Santosh</td>
+                            <td><img src="./assets/img/product2.png"></td>
+                            <td>Oppo</td>
+                            <td>Mobile</td>
+                            <td>14/07/2021</td>
+                            <td class="text-center"><span class="badge badge-warning">Ongoing</span></td>
+                            <td class="text-center">
+                                <a href="ticket_details.html"><i class="far fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal"
+                                    data-target="#exampleModal"><i
+                                        class="far fa-trash-alt text-danger"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>23</td>
+                            <td>Santosh</td>
+                            <td><img src="./assets/img/product3.png"></td>
+                            <td>LG</td>
+                            <td>TV</td>
+                            <td>14/07/2021</td>
+                            <td class="text-center"><span class="badge badge-warning">Ongoing</span></td>
+                            <td class="text-center">
+                                <a href="ticket_details.html"><i class="far fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal"
+                                    data-target="#exampleModal"><i
+                                        class="far fa-trash-alt text-danger"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
