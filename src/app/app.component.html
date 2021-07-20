@@ -1,3 +1,14 @@
-<app-header *ngIf="showHeaderFooterSidebar"></app-header>
+<!-- <app-header *ngIf="showHeaderFooterSidebar"></app-header>
 <router-outlet></router-outlet>
-<app-sidebar *ngIf="showHeaderFooterSidebar"></app-sidebar>
+<app-sidebar *ngIf="showHeaderFooterSidebar"></app-sidebar> -->
+<div class="customer-details-container" *ngIf="showHeaderFooterSidebar">
+    <div class="row">
+        <app-sidebar></app-sidebar>
+        <div class="dashboard-body" id="content">
+            <div class="dashboard-content">
+                <app-header></app-header><hr>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
