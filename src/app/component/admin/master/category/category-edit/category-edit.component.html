@@ -1,1 +1,41 @@
-<p>category-edit works!</p>
+<div class="dashboard-body-content">
+    <h5>Edit category</h5>
+    <hr>
+    <form class="edit-category-form">
+        <div class="row m-0 pt-3">
+            <div class="col-lg-2">
+                <div class="brand-wrapper">
+                    <input type="file" class="brand-file">
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="category">Category Id</label>
+                            <input type="number" name="category" class="form-control" id="category">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="name">Category Name</label>
+                            <input type="text" name="name" class="form-control" id="name">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="name">Status</label>
+                            <select class="form-control">
+                                <option>Active</option>
+                                <option>Inactive</option>
+                            </select>
+                        </div>
+                        </div>
+                </div>                                                 
+            </div>
+        </div>
+        <div class="form-group d-flex justify-content-end">
+            <button type="submit" class="actionbutton">SAVE</button>
+        </div>
+    </form>
+</div>
