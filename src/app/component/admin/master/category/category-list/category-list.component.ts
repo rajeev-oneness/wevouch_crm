@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ApiService } from "src/app/service/api.service";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _api:ApiService, private _loader:NgxUiLoaderService) { 
+    this._loader.startLoader('loader');
+  }
+  public categoryList: any = [];
 
   ngOnInit(): void {
+    this.getCategoryList();
+  }
+
+  getCategoryList() {
+    this._loader.startLoader('loader');
+    this._api.categoryList().subscribe(
+      res => {
+        console.log(res);
+        this.categoryList = res;
+        this._loader.stopLoader('loader');
+      },err => {} 
+    )
   }
 
 }

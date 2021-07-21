@@ -1,3 +1,4 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content-upper p-0">
     <div class="row m-0 mt-3 col-12">
         <div class="card border-0 shadow-sm col-12 p-0">
@@ -36,74 +37,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>23</td>
-                            <td>Santosh Singh</td>
-                            <td>example@gmail.com</td>
-                            <td>982937774</td>
+                        <tr *ngFor="let customer of customerList; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{customer._id}}</td>
+                            <td>{{customer.name}}</td>
+                            <td>{{customer.email}}</td>
+                            <td>{{customer.mobile}}</td>
                             <td class="text-center"><span class="badge badge-success">Active</span></td>
                             <td>
                                 <a href="customer_details.html"><i class="far fa-eye"></i></a>
-                                <a href="edit_customer.html" class="ml-2"><i class="far fa-edit"></i></a>
-                                <a href="javascript:void(0);" class="ml-2"><i
-                                        class="far fa-trash-alt text-danger"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>23</td>
-                            <td>Santosh Singh</td>
-                            <td>example@gmail.com</td>
-                            <td>982937774</td>
-                            <td class="text-center"><span class="badge badge-success">Active</span></td>
-                            <td>
-                                <a href="customer_details.html"><i class="far fa-eye"></i></a>
-                                <a href="edit_customer.html" class="ml-2"><i class="far fa-edit"></i></a>
-                                <a href="javascript:void(0);" class="ml-2"><i
-                                        class="far fa-trash-alt text-danger"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>23</td>
-                            <td>Santosh Singh</td>
-                            <td>example@gmail.com</td>
-                            <td>982937774</td>
-                            <td class="text-center"><span class="badge badge-success">Active</span></td>
-                            <td class="text-center">
-                                <a href="customer_details.html"><i class="far fa-eye"></i></a>
-                                <a href="edit_customer.html" class="ml-2"><i class="far fa-edit"></i></a>
-                                <a href="javascript:void(0);" class="ml-2"><i
-                                        class="far fa-trash-alt text-danger"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>23</td>
-                            <td>Santosh Singh</td>
-                            <td>example@gmail.com</td>
-                            <td>982937774</td>
-                            <td class="text-center"><span class="badge badge-success">Active</span></td>
-                            <td>
-                                <a href="customer_details.html"><i class="far fa-eye"></i></a>
-                                <a href="edit_customer.html" class="ml-2"><i class="far fa-edit"></i></a>
-                                <a href="javascript:void(0);" class="ml-2"><i
-                                        class="far fa-trash-alt text-danger"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>23</td>
-                            <td>Santosh Singh</td>
-                            <td>example@gmail.com</td>
-                            <td>982937774</td>
-                            <td class="text-center"><span class="badge badge-success">Active</span></td>
-                            <td>
-                                <a href="customer_details.html"><i class="far fa-eye"></i></a>
-                                <a href="edit_customer.html" class="ml-2"><i class="far fa-edit"></i></a>
-                                <a href="javascript:void(0);" class="ml-2"><i
-                                        class="far fa-trash-alt text-danger"></i></a>
+                                <a routerLink="/admin/customer/edit/9" class="ml-2"><i class="far fa-edit"></i></a>
+                                <a href="javascript:void(0);" class="ml-2"><i class="far fa-trash-alt text-danger"></i></a>
                             </td>
                         </tr>
                     </tbody>
