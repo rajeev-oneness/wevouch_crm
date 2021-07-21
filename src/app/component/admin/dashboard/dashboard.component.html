@@ -1,1 +1,199 @@
-<p>dashboard works!</p>
+<div class="dashboard-body-content-upper p-0">
+    <div class="row m-0">
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body gpcVCf">
+                    <div class="icon-sec w-25">
+                        <img src="./assets/img/Total-Customers.png">
+                    </div>
+                    <div class="text-sec">
+                        <h3>761 <span>Total Customers</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body gpcVCf">
+                    <div class="icon-sec w-25">
+                        <img src="./assets/img/new-Customers.png">
+                    </div>
+                    <div class="text-sec">
+                        <h3>61 <span>New Customers</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body gpcVCf">
+                    <div class="icon-sec w-25">
+                        <img src="./assets/img/total-Products.png">
+                    </div>
+                    <div class="text-sec">
+                        <h3>7,461 <span>Total Products</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body gpcVCf">
+                    <div class="icon-sec w-25">
+                        <img src="./assets/img/new-Products.png">
+                    </div>
+                    <div class="text-sec">
+                        <h3>461 <span>New Products</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body gpcVCf">
+                    <div class="icon-sec w-25">
+                        <img src="./assets/img/total-tickets.png">
+                    </div>
+                    <div class="text-sec">
+                        <h3>261 <span>Total Tickets</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body gpcVCf">
+                    <div class="icon-sec w-25">
+                        <img src="./assets/img/new-ticket.png">
+                    </div>
+                    <div class="text-sec">
+                        <h3>75 <span>New Tickets</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body gpcVCf">
+                    <div class="icon-sec w-25">
+                        <img src="./assets/img/Ongoing-Tickets.png">
+                    </div>
+                    <div class="text-sec">
+                        <h3>30 <span>Ongoing Tickets</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body gpcVCf">
+                    <div class="icon-sec w-25">
+                        <img src="./assets/img/complete-ticket.png">
+                    </div>
+                    <div class="text-sec">
+                        <h3>90 <span>Completed Tickets</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-0 mt-3 col-12">
+        <div class="card border-0 shadow-sm col-12 p-0">
+            <div class="card-header card-head">
+                <h5 class="card-head-title">Latest Tickets</h5>
+                <div >
+                    <div class="input-group ">
+                        <div class="pr-3">
+                            <select class="form-control">
+                                <option>10 / page</option>
+                                <option>20 / page</option>
+                                <option>30 / page</option>
+                                <option>40 / page</option>
+                                <option>50 / page</option>
+                            </select>
+                        </div>
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary searchbtn" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive edit-table card-body pt-0 pb-0">
+                <table class="table table-sm table-hover brand-table">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Ticket Id</th>
+                            <th>Customer Name</th>
+                            <th>Product</th>
+                            <th>Brand</th>
+                            <th>Category</th>
+                            <th>Created At</th>
+                            <th style="width:100px" class="text-center">Status</th>
+                            <th style="width:80px" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>03</td>
+                            <td>1CD54</td>
+                            <td>Jon Dow</td>
+                            <td><img src="./assets/img/product3.png"></td>
+                            <td>LG</td>
+                            <td>TV</td>
+                            <td>14/07/2021</td>
+                            <td class="text-center"><span class="badge badge-success">Active</span></td>
+                            <td class="text-center">
+                                <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>1CD54</td>
+                            <td>Jon Dow</td>
+                            <td><img src="./assets/img/product1.png"></td>
+                            <td>Samsung</td>
+                            <td>Radio</td>
+                            <td>14/07/2021</td>
+                            <td class="text-center"><span class="badge badge-success">Active</span></td>
+                            <td class="text-center">
+                                <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>1CD54</td>
+                            <td>Jon Dow</td>
+                            <td><img src="./assets/img/product3.png"></td>
+                            <td>LG</td>
+                            <td>TV</td>
+                            <td>14/07/2021</td>
+                            <td class="text-center"><span class="badge badge-success">Active</span></td>
+                            <td class="text-center">
+                                <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>1CD54</td>
+                            <td>Jon Dow</td>
+                            <td><img src="./assets/img/product1.png"></td>
+                            <td>Samsung</td>
+                            <td>Radio</td>
+                            <td>14/07/2021</td>
+                            <td class="text-center"><span class="badge badge-success">Active</span></td>
+                            <td class="text-center">
+                                <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
