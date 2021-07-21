@@ -28,6 +28,7 @@ import { PackageListComponent } from './component/admin/package/package-list/pac
 import { PackageAddComponent } from './component/admin/package/package-add/package-add.component';
 import { SupportListComponent } from './component/admin/support/support-list/support-list.component';
 import { SupportAddComponent } from './component/admin/support/support-add/support-add.component';
+import { SupportEditComponent } from './component/admin/support/support-edit/support-edit.component';
 import { SendNotificationComponent } from './component/admin/notification/send-notification/send-notification.component';
 import { SendEmailComponent } from './component/admin/notification/send-email/send-email.component';
 import { SendSmsComponent } from './component/admin/notification/send-sms/send-sms.component';
@@ -44,7 +45,7 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,CustomerListComponent,CustomerAddComponent,TicketListComponent,CustomerDetailComponent,TicketDetailComponent,ProductListComponent,ProductDetailComponent,CustomerReportListComponent,CustomerReportDeatilComponent,TicketReportListComponent,TicketReportDetailComponent,ProductReportListComponent,ProductReportDetailComponent,CategoryListComponent,CategoryAddComponent,BrandListComponent,BrandAddComponent,PackageListComponent,PackageAddComponent,SupportListComponent,SupportAddComponent,SendNotificationComponent,SendEmailComponent,SendSmsComponent,CustomerEditComponent,CategoryEditComponent,BrandEditComponent,PackageEditComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent,
+    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,CustomerListComponent,CustomerAddComponent,TicketListComponent,CustomerDetailComponent,TicketDetailComponent,ProductListComponent,ProductDetailComponent,CustomerReportListComponent,CustomerReportDeatilComponent,TicketReportListComponent,TicketReportDetailComponent,ProductReportListComponent,ProductReportDetailComponent,CategoryListComponent,CategoryAddComponent,BrandListComponent,BrandAddComponent,PackageListComponent,PackageAddComponent,SupportListComponent,SupportAddComponent,SendNotificationComponent,SendEmailComponent,SendSmsComponent,CustomerEditComponent,CategoryEditComponent,BrandEditComponent,PackageEditComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent,
   ],
   imports: [
     BrowserModule,
