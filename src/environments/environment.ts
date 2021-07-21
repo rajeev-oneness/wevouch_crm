@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl : 'https://demo91.co.in/dev/winz-v2/public/',
+  apiUrl : '',
 };
 
 /*

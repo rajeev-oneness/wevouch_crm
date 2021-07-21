@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Router } from '@angular/router';
 
 var originalURL = environment.apiUrl;
-var _apiUrl = originalURL + 'api/v1/';
+var _apiUrl = originalURL + '';
 
 @Injectable({
   providedIn: 'root'
