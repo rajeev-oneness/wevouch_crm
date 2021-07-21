@@ -40,16 +40,18 @@ import { RegistrationComponent } from './component/auth/registration/registratio
 import { ForgetComponent } from './component/auth/password/forget/forget.component';
 import { ChangeComponent } from './component/auth/password/change/change.component';
 import { NgxUiLoaderModule } from "ngx-ui-loader";
-
+import { FormsModule , ReactiveFormsModule, FormControl} from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,CustomerListComponent,CustomerAddComponent,TicketListComponent,CustomerDetailComponent,TicketDetailComponent,ProductListComponent,ProductDetailComponent,CustomerReportListComponent,CustomerReportDeatilComponent,TicketReportListComponent,TicketReportDetailComponent,ProductReportListComponent,ProductReportDetailComponent,CategoryListComponent,CategoryAddComponent,BrandListComponent,BrandAddComponent,PackageListComponent,PackageAddComponent,SupportListComponent,SupportAddComponent,SendNotificationComponent,SendEmailComponent,SendSmsComponent,CustomerEditComponent,CategoryEditComponent,BrandEditComponent,PackageEditComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgxUiLoaderModule
+    BrowserModule,AppRoutingModule,
+    NgxUiLoaderModule,
+    FormsModule,ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

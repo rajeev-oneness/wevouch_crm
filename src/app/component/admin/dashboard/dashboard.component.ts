@@ -8,13 +8,10 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private _loader: NgxUiLoaderService) {
-    this._loader.startLoader('loader');
-    setTimeout(() => {
-      this._loader.stopLoader("loader"); // stop foreground spinner of the loader "loader-01" with 'default' taskId
-    }, 5000);
-  }
+  constructor(private _loader: NgxUiLoaderService) { }
+  
   ngOnInit(): void {
+    
   }
 
 }
