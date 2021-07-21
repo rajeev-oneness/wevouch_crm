@@ -26,6 +26,7 @@ import { PackageAddComponent } from "./component/admin/package/package-add/packa
 import { PackageEditComponent } from "./component/admin/package/package-edit/package-edit.component";
 import { SupportListComponent } from "./component/admin/support/support-list/support-list.component";
 import { SupportAddComponent } from "./component/admin/support/support-add/support-add.component";
+import { SupportEditComponent } from "./component/admin/support/support-edit/support-edit.component";
 import { SendNotificationComponent } from "./component/admin/notification/send-notification/send-notification.component";
 import { SendEmailComponent } from "./component/admin/notification/send-email/send-email.component";
 import { SendSmsComponent } from "./component/admin/notification/send-sms/send-sms.component";
@@ -88,7 +89,8 @@ const routes: Routes = [
     ]},
     {path: 'support-executive', children: [
       {path: 'list', component: SupportListComponent},
-      {path: 'add', component: SupportAddComponent}
+      {path: 'add', component: SupportAddComponent},
+      {path: 'edit/:supportId', component: SupportEditComponent}
     ]},
     {path: 'notification', children: [
       {path: 'send-notification', component: SendNotificationComponent},
