@@ -40,4 +40,7 @@ export class ApiService {
   brandList() {
     return this._http.get<any>(_apiUrl+'brand/list');
   }
+  packageList() {
+    return this._http.get<any>(_apiUrl+'sub/list');
+  }
 }

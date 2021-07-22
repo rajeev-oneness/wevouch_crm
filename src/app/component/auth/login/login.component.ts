@@ -36,14 +36,16 @@ export class LoginComponent implements OnInit {
           if(res.error == false){
             // this._api.storeUserLocally(res);
             console.log(res);
-            return false;
+            // return false;
           }else{
             this.errorMessage = res.message;
           }
+          console.log(res);
           this._loader.stopLoader('loader');
         },
         err => {
-          this.errorMessage = 'Something went wrong please try after some time';
+          console.log(err.message)
+          this.errorMessage = err.message;
           this._loader.stopLoader('loader');
         }
         
