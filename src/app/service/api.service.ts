@@ -43,4 +43,7 @@ export class ApiService {
   packageList() {
     return this._http.get<any>(_apiUrl+'sub/list');
   }
+  addPacakage(formData) {
+    return this._http.post<any>(_apiUrl+'sub/add', formData);
+  }
 }
