@@ -1,3 +1,4 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content pt-0">
     <div class="card-header card-head pl-0 pr-0">
         <h5 class="card-head-title">Tickets</h5>
@@ -37,84 +38,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>Santosh</td>
+                <tr *ngFor="let ticket of tickets.data; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{ticket._id}}</td>
+                    <!-- <td>{{ticket.users}}</td> -->
+                    <td>Pragati</td>
                     <td><img src="./assets/img/product3.png"></td>
                     <td>LG</td>
                     <td>TV</td>
-                    <td>14/07/2021</td>
-                    <td class="text-center"><span class="badge badge-success">Active</span></td>
+                    <td>{{ticket.createdAt | date}}</td>
+                    <td class="text-center"><span class="badge badge-success">{{ticket.status}}</span></td>
                     <td class="text-center">
                         <a href="ticket_details.html"><i class="far fa-eye"></i></a>
-                        <a href="javascript:void(0);" class="ml-2" data-toggle="modal"
-                            data-target="#exampleModal"><i
-                                class="far fa-trash-alt text-danger"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>Santosh</td>
-                    <td><img src="./assets/img/product1.png"></td>
-                    <td>Samsung</td>
-                    <td>Radio</td>
-                    <td>14/07/2021</td>
-                    <td class="text-center"><span class="badge badge-success">Active</span></td>
-                    <td class="text-center">
-                        <a href="ticket_details.html"><i class="far fa-eye"></i></a>
-                        <a href="javascript:void(0);" class="ml-2" data-toggle="modal"
-                            data-target="#exampleModal"><i
-                                class="far fa-trash-alt text-danger"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>Santosh</td>
-                    <td><img src="./assets/img/product3.png"></td>
-                    <td>LG</td>
-                    <td>TV</td>
-                    <td>14/07/2021</td>
-                    <td class="text-center"><span class="badge badge-success">Active</span></td>
-                    <td class="text-center">
-                        <a href="ticket_details.html"><i class="far fa-eye"></i></a>
-                        <a href="javascript:void(0);" class="ml-2" data-toggle="modal"
-                            data-target="#exampleModal"><i
-                                class="far fa-trash-alt text-danger"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>Santosh</td>
-                    <td><img src="./assets/img/product2.png"></td>
-                    <td>Oppo</td>
-                    <td>Mobile</td>
-                    <td>14/07/2021</td>
-                    <td class="text-center"><span class="badge badge-success">Active</span></td>
-                    <td class="text-center">
-                        <a href="ticket_details.html"><i class="far fa-eye"></i></a>
-                        <a href="javascript:void(0);" class="ml-2" data-toggle="modal"
-                            data-target="#exampleModal"><i
-                                class="far fa-trash-alt text-danger"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>23</td>
-                    <td>Santosh</td>
-                    <td><img src="./assets/img/product3.png"></td>
-                    <td>LG</td>
-                    <td>TV</td>
-                    <td>14/07/2021</td>
-                    <td class="text-center"><span class="badge badge-success">Active</span></td>
-                    <td class="text-center">
-                        <a href="ticket_details.html"><i class="far fa-eye"></i></a>
-                        <a href="javascript:void(0);" class="ml-2" data-toggle="modal"
-                            data-target="#exampleModal"><i
-                                class="far fa-trash-alt text-danger"></i></a>
+                        <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
                 </tr>
             </tbody>

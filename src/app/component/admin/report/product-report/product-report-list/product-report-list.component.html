@@ -1,3 +1,4 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content-upper p-0">
     <div class="row m-0 mt-3 col-12">
         <div class="card border-0 shadow-sm col-12 p-0">
@@ -37,68 +38,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
+                    <tr *ngFor="let product of productList; let i = index">
+                        <td>{{i+1}}</td>
                         <td>23</td>
-                        <td>Santosh ,90129823903</td>
-                        <td>Phone</td>
-                        <td>Brand 1</td>
-                        <td>23dec,2014</td>
+                        <td>{{product.users}} ,{{product.registeredMobileNo}}</td>
+                        <td>{{product.category}}</td>
+                        <td>{{product.brands}}</td>
+                        <td>{{product.createdAt | date}}</td>
                         <td class="text-center"><span class="badge badge-success">Active</span></td>
                         <td class="text-center">
                             <a href="product_details.html"><i class="far fa-eye"></i></a>
-                            <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>23</td>
-                        <td>Santosh ,90129823903</td>
-                        <td>Phone</td>
-                        <td>Brand 1</td>
-                        <td>23dec,2014</td>
-                        <td class="text-center"><span class="badge badge-success">Active</span></td>
-                        <td class="text-center">
-                            <a href="product_details.html"><i class="far fa-eye"></i></a>
-                            <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>23</td>
-                        <td>Santosh ,90129823903</td>
-                        <td>Phone</td>
-                        <td>Brand 1</td>
-                        <td>23dec,2014</td>
-                        <td class="text-center"><span class="badge badge-success">Active</span></td>
-                        <td class="text-center">
-                            <a href="product_details.html"><i class="far fa-eye"></i></a>
-                            <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>23</td>
-                        <td>Santosh ,90129823903</td>
-                        <td>Phone</td>
-                        <td>Brand 1</td>
-                        <td>23dec,2014</td>
-                        <td class="text-center"><span class="badge badge-success">Active</span></td>
-                        <td class="text-center">
-                            <a href="product_details.html"><i class="far fa-eye"></i></a>
-                            <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>23</td>
-                        <td>Santosh ,90129823903</td>
-                        <td>Phone</td>
-                        <td>Brand 1</td>
-                        <td>23dec,2014</td>
-                        <td class="text-center"><span class="badge badge-success">Active</span></td>
-                        <td class="text-center">
-                            <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
                             <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
                         </td>
                     </tr>

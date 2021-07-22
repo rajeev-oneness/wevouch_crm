@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl : '',
+  apiUrl : 'https://boiling-dawn-74925.herokuapp.com/api/',
 };
 
 /*

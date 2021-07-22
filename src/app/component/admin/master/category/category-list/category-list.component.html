@@ -1,3 +1,4 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content">
     <div class="d-flex justify-content-between align-items-center">
         <h5>category</h5>
@@ -26,9 +27,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>category 1</td>
+        <tr *ngFor="let category of categoryList">
+            <td>{{category._id}}</td>
+            <td>{{category.name}}</td>
             <td><img src="./assets/img/brand.png"></td>
             <td class="text-center"><span class="badge badge-success">Active</span></td>
             <td class="text-center">
@@ -37,45 +38,6 @@
             </td>
         </tr>
         <tr>
-            <td>1</td>
-            <td>category 1</td>
-            <td><img src="./assets/img/brand.png"></td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
-            <td class="text-center">
-                <a href="edit_category.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>category 1</td>
-            <td><img src="./assets/img/brand.png"></td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
-            <td class="text-center">
-                <a href="edit_category.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>category 1</td>
-            <td><img src="./assets/img/brand.png"></td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
-            <td class="text-center">
-                <a href="edit_category.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>category 1</td>
-            <td><img src="./assets/img/brand.png"></td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
-            <td class="text-center">
-                <a href="edit_category.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-            </td>
-        </tr>
     </tbody>
 </table>
 </div>

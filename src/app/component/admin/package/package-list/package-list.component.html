@@ -1,3 +1,4 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content">
     <div class="d-flex justify-content-between align-items-center">
         <h5>Packages</h5>
@@ -27,56 +28,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>package 1</td>
-            <td>loreum ipsum is a dummy text</td>
-            <td>&#8377; 300</td>
-            <td><span class="deleted-price">&#8377; 300</span> &#8377; 250</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
-            <td class="text-center">
-                <a href="editPackage.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+        <tr *ngFor="let package of packages.data">
+            <td>{{package.name}}</td>
+            <td>{{package.description}}</td>
+            <td>&#8377; {{package.amount}}</td>
+            <td>
+                <!-- <span class="deleted-price">&#8377; 300</span> &#8377; 250 -->
             </td>
-        </tr>
-        <tr>
-            <td>package 1</td>
-            <td>loreum ipsum is a dummy text</td>
-            <td>&#8377; 300</td>
-            <td><span class="deleted-price">&#8377; 300</span> &#8377; 250</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
             <td class="text-center">
-                <a href="editPackage.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                <!-- <span class="badge badge-success">Active</span> -->
             </td>
-        </tr>
-        <tr>
-            <td>package 1</td>
-            <td>loreum ipsum is a dummy text</td>
-            <td>&#8377; 300</td>
-            <td><span class="deleted-price">&#8377; 300</span> &#8377; 250</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
-            <td class="text-center">
-                <a href="editPackage.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>package 1</td>
-            <td>loreum ipsum is a dummy text</td>
-            <td>&#8377; 300</td>
-            <td><span class="deleted-price">&#8377; 300</span> &#8377; 250</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
-            <td class="text-center">
-                <a href="editPackage.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>package 1</td>
-            <td>loreum ipsum is a dummy text</td>
-            <td>&#8377; 300</td>
-            <td><span class="deleted-price">&#8377; 300</span> &#8377; 250</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
             <td class="text-center">
                 <a href="editPackage.html"><i class="far fa-edit"></i></a>
                 <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>

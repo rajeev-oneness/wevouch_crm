@@ -41,6 +41,7 @@ import { RegistrationComponent } from './component/auth/registration/registratio
 import { ForgetComponent } from './component/auth/password/forget/forget.component';
 import { ChangeComponent } from './component/auth/password/change/change.component';
 import { NgxUiLoaderModule } from "ngx-ui-loader";
+import { CommonModule } from "@angular/common";
 import { FormsModule , ReactiveFormsModule, FormControl} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 
@@ -50,7 +51,7 @@ import { HttpClientModule } from "@angular/common/http";
   ],
   imports: [
     BrowserModule,AppRoutingModule,
-    NgxUiLoaderModule,
+    NgxUiLoaderModule,CommonModule,
     FormsModule,ReactiveFormsModule,
     HttpClientModule
   ],
