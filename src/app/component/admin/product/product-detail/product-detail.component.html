@@ -8,31 +8,31 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="nick-name">Nick Name</label>
-                <input type="text" id="name" value="Santosh Singh" readonly>    
+                <input #name="ngModel" [(ngModel)]="productDetail.name" name="name" id="name" value="Santosh Singh" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="brand">Brand Name</label>
-                <input type="text" id="brand" value="brand 1" readonly>    
+                <input type="text" #brand="ngModel" [(ngModel)]="productDetail.brand" name="name" id="brand" value="brand 1" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="category">Category</label>
-                <input type="text" id="mobile" value="category 1" readonly>    
+                <input type="text" #category="ngModel" [(ngModel)]="productDetail.category" name="category" id="category" value="category 1" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="subcategory">Sub Category</label>
-                <input type="text" id="mobile" value="subcategory 1" readonly>    
+                <input type="text" #subCategory="ngModel" [(ngModel)]="productDetail.subCategory" name="subCategory" id="mobile" value="subcategory 1" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="model">Model</label>
-                <input type="text" id="mobile" value="model 1" readonly>    
+                <input type="text" #modelNo="ngModel" [(ngModel)]="productDetail.modelNo" name="name" id="modelNo" value="model 1" readonly>    
             </div>
         </div>
     </div>
@@ -47,25 +47,25 @@
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="purchase">Purchase Date</label>
-                <input type="text" id="purchase" value="23.07.2021" readonly>    
+                <input type="text" #purchaseDate="ngModel" [(ngModel)]="productDetail.purchaseDate" name="purchaseDate" id="purchase" value="23.07.2021" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="period">Warranty Period</label>
-                <input type="text" id="period" value="2yrs" readonly>    
+                <input type="text" #warrantyPeriod="ngModel" [(ngModel)]="productDetail.warrantyPeriod" name="warrantyPeriod" id="period" value="2yrs" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="serail">Serial No</label>
-                <input type="number" id="mobile" value="1" readonly>    
+                <input type="number" #serialNo="ngModel" [(ngModel)]="productDetail.serialNo" name="serialNo" id="mobile" value="1" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="mobile">Registered Mobile no</label>
-                <input type="mobile" id="mobile" value="987634516" readonly>    
+                <input type="mobile" #registeredMobileNo="ngModel" [(ngModel)]="productDetail.registeredMobileNo" name="registeredMobileNo" id="mobile" value="987634516" readonly>    
             </div>
         </div>
     </div>

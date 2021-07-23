@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { ApiService } from 'src/app/service/api.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-product-detail',
@@ -7,9 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _loader : NgxUiLoaderService,private _api:ApiService,private _activated:ActivatedRoute,private _router: Router) {
+    this._loader.startLoader('loader');
+   }
+
+  public customerId : any = 0;
+  public customerDetail: any = {};
+  public productId : any = 0;
+  public productDetail: any = {};
+  public errorMessage: any = '';
 
   ngOnInit(): void {
+    this.customerId = this._activated.snapshot.paramMap.get('customerId');
+    this.productId = this._activated.snapshot.paramMap.get('productId');
+    this.getProductDetails(this.productId);
+  }
+
+  getProductDetails(productId) {
+    this._loader.startLoader('loader');
+    this._api.productDetail(productId).subscribe(
+      res => {
+        console.log(res);
+        this.customerDetail = res;
+        this._loader.stopLoader('loader');
+      }, err => {}
+    )
   }
 
 }

@@ -96,6 +96,9 @@ export class ApiService {
   productList() {
     return this._http.get<any>(_apiUrl+'product/list');
   }
+  productDetail(productId){
+    return this._http.get<any>(_apiUrl+'product/get-by-user/'+productId);
+  }
 
   //category api
   categoryList() {
