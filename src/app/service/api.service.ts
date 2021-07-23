@@ -104,12 +104,27 @@ export class ApiService {
   brandList() {
     return this._http.get<any>(_apiUrl+'brand/list');
   }
+  brandCreate(formData) {
+    return this._http.post<any>(_apiUrl+'brand/add',formData);
+  }
+  brandDetail(brandId) {
+    return this._http.get<any>(_apiUrl+'brand/get/'+brandId);
+  }
+  brandUpdate(formData,brandId) {
+    return this._http.patch<any>(_apiUrl+'brand/update/'+brandId,formData);
+  }
 
   //package or, subscription api
   packageList() {
     return this._http.get<any>(_apiUrl+'sub/list');
   }
-  addPacakage(formData) {
+  packageCreate(formData) {
     return this._http.post<any>(_apiUrl+'sub/add', formData);
+  }
+  packageDetail(packageId) {
+    return this._http.get<any>(_apiUrl+'sub/get/'+packageId);
+  }
+  packageUpdate(formData,packageId) {
+    return this._http.patch<any>(_apiUrl+'sub/update/'+packageId,formData);
   }
 }
