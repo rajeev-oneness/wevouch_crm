@@ -13,7 +13,7 @@ export class CustomerListComponent implements OnInit {
   }
   
   public customerList : any = [];
-
+ 
 
   ngOnInit(): void {
     this.getCustomerList();

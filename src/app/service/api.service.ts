@@ -79,6 +79,9 @@ export class ApiService {
   customerUpdate(formData,customerId){
     return this._http.patch<any>(_apiUrl+'user/update/'+customerId,formData);
   }
+  deleteCustomer(customerId){
+    return this._http.get<any>(_apiUrl+'user/delete/'+customerId);
+  }
 
 
   // ticket api
