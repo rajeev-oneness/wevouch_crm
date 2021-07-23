@@ -1,3 +1,4 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content-upper p-0">
     <div class="row m-0">
         <div class="col-12 col-md-3 mb-3">
@@ -7,7 +8,7 @@
                         <img src="./assets/img/Total-Customers.png">
                     </div>
                     <div class="text-sec">
-                        <h3>761 <span>Total Customers</span></h3>
+                        <h3>{{dashboard.totalCustomers}} <span>Total Customers</span></h3>
                     </div>
                 </div>
             </div>
@@ -19,7 +20,7 @@
                         <img src="./assets/img/new-Customers.png">
                     </div>
                     <div class="text-sec">
-                        <h3>61 <span>New Customers</span></h3>
+                        <h3>{{dashboard.totalNewCustomers}} <span>New Customers</span></h3>
                     </div>
                 </div>
             </div>
@@ -31,7 +32,7 @@
                         <img src="./assets/img/total-Products.png">
                     </div>
                     <div class="text-sec">
-                        <h3>7,461 <span>Total Products</span></h3>
+                        <h3>{{dashboard.totalProducts}} <span>Total Products</span></h3>
                     </div>
                 </div>
             </div>
@@ -43,7 +44,7 @@
                         <img src="./assets/img/new-Products.png">
                     </div>
                     <div class="text-sec">
-                        <h3>461 <span>New Products</span></h3>
+                        <h3>{{dashboard.totalNewProducts}} <span>New Products</span></h3>
                     </div>
                 </div>
             </div>
@@ -55,7 +56,7 @@
                         <img src="./assets/img/total-tickets.png">
                     </div>
                     <div class="text-sec">
-                        <h3>261 <span>Total Tickets</span></h3>
+                        <h3>{{dashboard.totalTickets}} <span>Total Tickets</span></h3>
                     </div>
                 </div>
             </div>
@@ -67,7 +68,7 @@
                         <img src="./assets/img/new-ticket.png">
                     </div>
                     <div class="text-sec">
-                        <h3>75 <span>New Tickets</span></h3>
+                        <h3>{{dashboard.totalNewTickets}} <span>New Tickets</span></h3>
                     </div>
                 </div>
             </div>
@@ -135,56 +136,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>03</td>
-                            <td>1CD54</td>
-                            <td>Jon Dow</td>
-                            <td><img src="./assets/img/product3.png"></td>
-                            <td>LG</td>
-                            <td>TV</td>
-                            <td>14/07/2021</td>
-                            <td class="text-center"><span class="badge badge-success">Active</span></td>
-                            <td class="text-center">
-                                <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
-                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                        <tr *ngFor="let ticket of dashboard.latestTickets">
+                            <td>1</td>
+                            <td>{{ticket.uniqueId}}</td>
+                            <td>{{ticket.users.name}}</td>
+                            <td><img src="{{ticket.products.productImagesUrl}}"></td>
+                            <td>
+                                <span *ngIf="ticket.brand;else brandNotFound">{{ticket.brand.name}}</span>
+                                <ng-template #brandNotFound>N/A</ng-template>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>04</td>
-                            <td>1CD54</td>
-                            <td>Jon Dow</td>
-                            <td><img src="./assets/img/product1.png"></td>
-                            <td>Samsung</td>
-                            <td>Radio</td>
-                            <td>14/07/2021</td>
-                            <td class="text-center"><span class="badge badge-success">Active</span></td>
-                            <td class="text-center">
-                                <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
-                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>03</td>
-                            <td>1CD54</td>
-                            <td>Jon Dow</td>
-                            <td><img src="./assets/img/product3.png"></td>
-                            <td>LG</td>
-                            <td>TV</td>
-                            <td>14/07/2021</td>
-                            <td class="text-center"><span class="badge badge-success">Active</span></td>
-                            <td class="text-center">
-                                <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
-                                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>04</td>
-                            <td>1CD54</td>
-                            <td>Jon Dow</td>
-                            <td><img src="./assets/img/product1.png"></td>
-                            <td>Samsung</td>
-                            <td>Radio</td>
-                            <td>14/07/2021</td>
+                            <td>{{ticket.category.name}}</td>
+                            <td>{{ticket.createdAt | date}}</td>
                             <td class="text-center"><span class="badge badge-success">Active</span></td>
                             <td class="text-center">
                                 <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
