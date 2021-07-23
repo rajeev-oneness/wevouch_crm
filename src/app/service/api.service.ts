@@ -65,27 +65,47 @@ export class ApiService {
   dashboardData(){
     return this._http.get<any>(_apiUrl+'user/get-dashboard-data');
   }
+
+  // customer Api
   customerList() {
     return this._http.get<any>(_apiUrl+'user/list');
   }
   customerCreate(formdata){
-    return this._http.post<any>(_apiUrl + 'user/add',formdata,{headers: this.header});
+    return this._http.post<any>(_apiUrl + 'user/add',formdata);
   }
+
+  // ticket api
   ticketList() {
     return this._http.get<any>(_apiUrl+'ticket/list');
   }
   ticketDetail(ticketId) {
     return this._http.get<any>(_apiUrl+'ticket/get/'+ticketId);
   }
+
+  //product api
   productList() {
     return this._http.get<any>(_apiUrl+'product/list');
   }
+
+  //category api
   categoryList() {
     return this._http.get<any>(_apiUrl+'category/list');
   }
+  categoryCreate(formData) {
+    return this._http.post<any>(_apiUrl+'category/add',formData);
+  }
+  categoryDetail(catId) {
+    return this._http.get<any>(_apiUrl+'category/get/'+catId);
+  }
+  categoryUpdate(formData,catId) {
+    return this._http.patch<any>(_apiUrl+'category/update/'+catId,formData);
+  }
+  // brand api
   brandList() {
     return this._http.get<any>(_apiUrl+'brand/list');
   }
+
+  //package or, subscription api
   packageList() {
     return this._http.get<any>(_apiUrl+'sub/list');
   }

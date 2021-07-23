@@ -1,0 +1,85 @@
+<div class="dashboard-body-content">
+    <h5>Edit Customer</h5>
+    <hr>
+    <form class="edit-form">
+        <h5 class="text-blue">Basic Information</h5>
+        <div class="row m-0 pt-3">
+            <div class="col-lg-6">
+                <div class="form-group edit-box">
+                    <label for="name">Full Name</label>
+                    <!-- <input type="text" #name [ngModel]="customer.firstName" name="name" class="form-control" id="name"> -->
+                    </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group edit-box">
+                <label for="email">Email Address</label>
+                <!-- <input type="text" #email [ngModel]="customer.email" id="email" class="form-control" name="email"> -->
+                </div>
+            </div>
+        </div>
+        <div class="row m-0">
+            <div class="col-lg-6 form-group edit-box">
+                <label for="mobile">Mobile</label>
+                <!-- <input type="number" #mobile [ngModel]="customer.mobile" id="mobile" class="form-control"> -->
+            </div>
+            <div class="col-lg-6 form-group edit-box">
+                <label for="password">Password</label>
+                <!-- <input type="password" #password [ngModel]="customer.password" id="password" class="form-control"> -->
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group edit-box">
+                    <label for="name">Status</label>
+                    <!-- <select class="form-control" #status [ngModel]="customer.status" name="status"> -->
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                </div>
+
+        </div>
+        <h5 class="text-blue">Address</h5>
+        <div class="row m-0 pt-3">
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="address">Address</label>
+                    <!-- <input type="text" #address [ngModel]="customer.address" class="form-control" id="address"> -->
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="landmark">Landmark</label>
+                    <!-- <input type="text"  #landMark [ngModel]="customer.landMark"  class="form-control" id="landmark"> -->
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="pin">Pin Code</label>
+                    <!-- <input type="number" #pin [ngModel]="customer.pin" class="form-control" name="pin" id="pin"> -->
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="country">Country</label>
+                    <!-- <input type="text" #country [ngModel]="customer.country" name="country" class="form-control" id="country"> -->
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="state">State</label>
+                    <!-- <input type="text" #state [ngModel]="customer.state" name="state" class="form-control" id="state"> -->
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="city">City</label>
+                    <!-- <input type="number"  #city [ngModel]="customer.city" name="city" class="form-control" id="city"> -->
+                </div>
+            </div>
+        </div>
+        <!-- <span class="text-danger">{{errorMsg}}</span>
+        <span class="text-success">{{successMsg}}</span> -->
+        <div class="form-group d-flex justify-content-end">
+            <button type="submit" class="actionbutton">SAVE</button>
+        </div>
+    </form>
+</div>
