@@ -33,14 +33,14 @@
             <tbody>
                 <tr *ngFor="let customer of customerList; let i = index">
                     <td>{{i+1}}</td>
-                    <td>{{customer.uniqueId}}</td>
+                    <td>{{customer._id}}</td>
                     <td>{{customer.name}}</td>
                     <td>{{customer.email}}</td>
                     <td>{{customer.mobile}}</td>
                     <td class="text-center"><span class="badge badge-success">Active</span></td>
                     <td>
                         <a href="customer_details.html"><i class="far fa-eye"></i></a>
-                        <a routerLink="/admin/customer/edit/{{customer.customerId}}" class="ml-2"><i class="far fa-edit"></i></a>
+                        <a routerLink="/admin/customer/edit/9" class="ml-2"><i class="far fa-edit"></i></a>
                         <a href="javascript:void(0);" class="ml-2"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
                 </tr>

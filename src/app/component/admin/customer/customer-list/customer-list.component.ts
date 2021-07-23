@@ -13,6 +13,9 @@ export class CustomerListComponent implements OnInit {
   }
   
   public customerList : any = [];
+  public customerDetails : any = [];
+  public customerId : any = 0;
+  public customer : any = {};
 
   ngOnInit(): void {
     this.getCustomerList();
