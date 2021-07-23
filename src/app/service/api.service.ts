@@ -73,6 +73,16 @@ export class ApiService {
   customerCreate(formdata){
     return this._http.post<any>(_apiUrl + 'user/add',formdata);
   }
+  customerDetail(customerId){
+    return this._http.get<any>(_apiUrl+'user/get/'+customerId);
+  }
+  customerUpdate(formData,customerId){
+    return this._http.patch<any>(_apiUrl+'user/update/'+customerId,formData);
+  }
+  deleteCustomer(customerId){
+    return this._http.get<any>(_apiUrl+'user/delete/'+customerId);
+  }
+
 
   // ticket api
   ticketList() {
