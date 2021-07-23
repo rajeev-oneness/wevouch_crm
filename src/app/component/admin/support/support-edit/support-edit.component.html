@@ -1,7 +1,7 @@
 <div class="dashboard-body-content">
     <h5>Add Customer</h5>
     <hr>
-    <form class="editExecutives-form">
+    <form class="editExecutives-form"  #supExeEditForm="ngForm" (ngSubmit)="supExeFormSubmit(supExeEditForm)">
         <h5 class="text-blue">Basic Information</h5>
     <div class="row m-0 pt-3">
         <div class="col-lg-6">
@@ -13,19 +13,19 @@
         <div class="col-lg-6">
             <div class="form-group edit-box">
         <label for="name">Full Name</label>
-        <input type="text" name="fullname" id="name" placeholder="Enter your full name" class="form-control">
+        <input type="text"  name="name" id="name" placeholder="Enter your full name" class="form-control">
     </div>
         </div>
         <div class="col-lg-6">
         <div class="form-group edit-box">
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" placeholder="Enter your email address" class="form-control">
+        <input type="text"   id="email" placeholder="Enter your email address" class="form-control">
         </div>
         </div>
         <div class="col-lg-6">
             <div class="form-group edit-box">
                 <label for="number">Phone number</label>
-                <input type="number" name="number" id="number" placeholder="Enter your phone number" class="form-control">
+                <input type="text"  name="mobile" id="number" placeholder="Enter your phone number" class="form-control">
                 </div>
         </div>
     </div>
@@ -42,19 +42,19 @@
         <div class="col-lg-6">
             <div class="form-group edit-box">
                 <label for="designation">Designation</label>
-                <input type="number" name="designation" id="designation" placeholder="Enter your designation" class="form-control">
+                <input type="number"  name="designation" id="designation" placeholder="Enter your designation" class="form-control">
                 </div>
         </div>
-        <div class="col-lg-6">
+        <!-- <div class="col-lg-6">
             <div class="form-group edit-box">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="*************" class="form-control">
                 </div>
-        </div>
+        </div> -->
         <div class="col-lg-6">
             <div class="form-group edit-box">
                 <label for="name">Status</label>
-                <select class="form-control">
+                <select class="form-control" >
                     <option>Active</option>
                     <option>Inactive</option>
                 </select>
@@ -67,37 +67,37 @@
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="address">Address</label>
-                <input type="text" class="form-control" id="address">
+                <input type="text"  class="form-control" id="address">
             </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="landmark">Landmark</label>
-                <input type="text" class="form-control" id="landmark">
+                <input type="text"   class="form-control" id="landmark">
             </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="pin">Pin Code</label>
-                <input type="number" class="form-control" id="pin">
+                <input type="text" class="form-control"  id="pin">
             </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="country">Country</label>
-                <input type="text" class="form-control" id="country">
+                <input type="text" class="form-control" >
             </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="state">State</label>
-                <input type="text" class="form-control" id="state">
+                <input type="text" class="form-control">
             </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="city">City</label>
-                <input type="number" class="form-control" id="city">
+                <input type="number" class="form-control">
             </div>
         </div>
     </div>
