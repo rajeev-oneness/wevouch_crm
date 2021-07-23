@@ -33,7 +33,7 @@
             <tbody>
                 <tr *ngFor="let customer of customerList; let i = index">
                     <td>{{i+1}}</td>
-                    <td>{{customer._id}}</td>
+                    <td>{{customer.uniqueId}}</td>
                     <td>{{customer.name}}</td>
                     <td>{{customer.email}}</td>
                     <td>{{customer.mobile}}</td>

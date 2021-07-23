@@ -7,12 +7,12 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
   styleUrls: ['./ticket-list.component.css']
 })
 export class TicketListComponent implements OnInit {
-
-  public tickets : {data : TICKET[]};
+  public tickets :any = [];
+  // public tickets : {data : TICKET[]};
   constructor(private _api:ApiService, private _loader:NgxUiLoaderService) { 
     this._loader.startLoader('loader');
-    // this.tickets.data = [];
-    this.tickets = {data : []};
+    
+    // this.tickets = {data : []};
   }
 
   ngOnInit(): void {
@@ -20,19 +20,19 @@ export class TicketListComponent implements OnInit {
   }
 
   getTicketList() {
-    this.tickets.data = [];
+    // this.tickets.data = [];
     this._loader.startLoader('loader');
     this._api.ticketList().subscribe(
       res => {
         console.log(res);
-        this.tickets.data = res;
+        this.tickets = res;
         this._loader.stopLoader('loader');
       },err => {} 
     )
   }
 }
 
-interface TICKET{
-  _id: number,
-  name : string,
-}
+// interface TICKET{
+//   // _id: number,
+//   name : string,
+// }

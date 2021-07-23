@@ -147,7 +147,7 @@
                             </td>
                             <td>{{ticket.category.name}}</td>
                             <td>{{ticket.createdAt | date}}</td>
-                            <td class="text-center"><span class="badge badge-success">Active</span></td>
+                            <td class="text-center"><span class="badge badge-success">{{ticket.status}}</span></td>
                             <td class="text-center">
                                 <a href="ticketDetails.html"><i class="far fa-eye"></i></a>
                                 <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>

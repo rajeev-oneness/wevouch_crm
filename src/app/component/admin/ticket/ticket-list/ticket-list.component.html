@@ -38,18 +38,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let ticket of tickets.data; let i = index">
+                <tr *ngFor="let ticket of tickets; let i = index">
                     <td>{{i+1}}</td>
-                    <td>{{ticket._id}}</td>
-                    <!-- <td>{{ticket.users}}</td> -->
-                    <td>Pragati</td>
-                    <td><img src="./assets/img/product3.png"></td>
-                    <td>LG</td>
-                    <td>TV</td>
+                    <td>{{ticket.uniqueId}}</td>
+                    <td>{{ticket.users.name}}</td>
+                    <td><img src="{{ticket.products.productImagesUrl}}"></td>
+                    <td>
+                        <span *ngIf="ticket.brand; else brandNotFound">{{ticket.brand.name}}</span>
+                        <ng-template #brandNotFound>N/A</ng-template>
+                    </td>
+                    <td>{{ticket.category.name}}</td>
                     <td>{{ticket.createdAt | date}}</td>
                     <td class="text-center"><span class="badge badge-success">{{ticket.status}}</span></td>
                     <td class="text-center">
-                        <a href="ticket_details.html"><i class="far fa-eye"></i></a>
+                        <a routerLink="/admin/ticket/detail/{{ticket._id}}"><i class="far fa-eye"></i></a>
                         <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
                 </tr>
