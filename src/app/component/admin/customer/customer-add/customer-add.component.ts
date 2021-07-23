@@ -25,10 +25,11 @@ export class CustomerAddComponent implements OnInit {
       formData.controls[i].markAsTouched();
     }
     if( formData?.valid ){
-      const mainForm = new FormData();
-      Object.keys(formData.value).forEach((key)=>{
-        mainForm.append(key,formData.value[key])
-      });
+      // const mainForm = new FormData();
+      // Object.keys(formData.value).forEach((key)=>{
+      //   mainForm.append(key,formData.value[key])
+      // });
+      const mainForm = formData.form.value;
       this._loader.startLoader('loader');
       this._api.customerCreate(mainForm).subscribe(
         res => {
