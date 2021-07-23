@@ -68,6 +68,15 @@ export class ApiService {
   customerList() {
     return this._http.get<any>(_apiUrl+'user/list');
   }
+  customerCreate(formdata){
+    return this._http.post<any>(_apiUrl + 'user/add',formdata,{headers: this.header});
+  }
+  // getCustomerDetails(customerId=0){
+  //   return this._http.get<any>(_apiUrl + 'user/get?userId='+customerId);
+  // }
+  // editCustomer(customerId){
+  //   return this._http.get<any>(_apiUrl+'user/update/userId='+customerId);
+  // }
   ticketList() {
     return this._http.get<any>(_apiUrl+'ticket/list');
   }
