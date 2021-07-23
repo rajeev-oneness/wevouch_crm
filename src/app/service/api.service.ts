@@ -80,6 +80,9 @@ export class ApiService {
   ticketList() {
     return this._http.get<any>(_apiUrl+'ticket/list');
   }
+  ticketDetail(ticketId) {
+    return this._http.get<any>(_apiUrl+'ticket/get/'+ticketId);
+  }
   productList() {
     return this._http.get<any>(_apiUrl+'product/list');
   }
