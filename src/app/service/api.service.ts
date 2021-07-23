@@ -73,6 +73,10 @@ export class ApiService {
   customerCreate(formdata){
     return this._http.post<any>(_apiUrl + 'user/add',formdata);
   }
+  customerDetail(customerId){
+    return this._http.get<any>(_apiUrl+'user/get/'+customerId);
+  }
+
 
   // ticket api
   ticketList() {

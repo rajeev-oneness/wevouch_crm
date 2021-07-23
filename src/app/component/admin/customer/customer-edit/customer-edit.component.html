@@ -7,29 +7,29 @@
             <div class="col-lg-6">
                 <div class="form-group edit-box">
                     <label for="name">Full Name</label>
-                    <!-- <input type="text" #name [ngModel]="customer.firstName" name="name" class="form-control" id="name"> -->
+                    <input type="text" #name="ngModel" [(ngModel)]="customerDetail.name" name="name" class="form-control" id="name" >
                     </div>
             </div>
             <div class="col-lg-6">
                 <div class="form-group edit-box">
                 <label for="email">Email Address</label>
-                <!-- <input type="text" #email [ngModel]="customer.email" id="email" class="form-control" name="email"> -->
+                <input type="text" #email="ngModel" [(ngModel)]="customerDetail.email" id="email" class="form-control" name="email">
                 </div>
             </div>
         </div>
         <div class="row m-0">
             <div class="col-lg-6 form-group edit-box">
                 <label for="mobile">Mobile</label>
-                <!-- <input type="number" #mobile [ngModel]="customer.mobile" id="mobile" class="form-control"> -->
+                <input type="text" #mobile="ngModel" [(ngModel)]="customerDetail.mobile" name="mobile" id="mobile" class="form-control">
             </div>
             <div class="col-lg-6 form-group edit-box">
                 <label for="password">Password</label>
-                <!-- <input type="password" #password [ngModel]="customer.password" id="password" class="form-control"> -->
+                <input type="password" #password="ngModel" [(ngModel)]="customerDetail.password" id="password" class="form-control">
             </div>
             <div class="col-lg-6">
                 <div class="form-group edit-box">
                     <label for="name">Status</label>
-                    <!-- <select class="form-control" #status [ngModel]="customer.status" name="status"> -->
+                    <select class="form-control" #status="ngModel" [(ngModel)]="customerDetail.status" name="status">
                         <option value="active">Active</option>
                         <option value="inactive">Inactive</option>
                     </select>
@@ -42,37 +42,37 @@
             <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="address">Address</label>
-                    <!-- <input type="text" #address [ngModel]="customer.address" class="form-control" id="address"> -->
+                    <input type="text" #address="ngModel" [(ngModel)]="customerDetail.address" name="address" class="form-control" id="address">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="landmark">Landmark</label>
-                    <!-- <input type="text"  #landMark [ngModel]="customer.landMark"  class="form-control" id="landmark"> -->
+                    <input type="text"  #landMark="ngModel" [(ngModel)]="customerDetail.landMark" name="landMark" class="form-control" id="landmark">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="pin">Pin Code</label>
-                    <!-- <input type="number" #pin [ngModel]="customer.pin" class="form-control" name="pin" id="pin"> -->
+                    <input type="text" #pin="ngModel" [(ngModel)]="customerDetail.pin" class="form-control" name="pin" id="pin">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="country">Country</label>
-                    <!-- <input type="text" #country [ngModel]="customer.country" name="country" class="form-control" id="country"> -->
+                    <input type="text" #country="ngModel" [(ngModel)]="customerDetail.country" name="country" class="form-control" id="country">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="state">State</label>
-                    <!-- <input type="text" #state [ngModel]="customer.state" name="state" class="form-control" id="state"> -->
+                    <input type="text" #state="ngModel" [(ngModel)]="customerDetail.state" name="state" class="form-control" id="state">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="city">City</label>
-                    <!-- <input type="number"  #city [ngModel]="customer.city" name="city" class="form-control" id="city"> -->
+                    <input type="text"  #city="ngModel" [(ngModel)]="customerDetail.city" name="city" class="form-control" id="city">
                 </div>
             </div>
         </div>
