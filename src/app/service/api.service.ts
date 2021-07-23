@@ -15,18 +15,58 @@ export class ApiService {
 
   constructor(private _http : HttpClient,private _router : Router) { 
     this.header = new HttpHeaders()
-        .set("Authorization", 'Bearer ')
+        // .set("Authorization", 'Bearer ')
         .set("Accept","application/json");
   }
   // How to send the data + Header Example is below
   // return this.http.post<any>(_apiUrl + 'update/user/profile',data,{headers: this.header});
 
-  userLoginAPI(formData){
-    return this._http.post<any>(_apiUrl+'user/login',formData);
+  routeIntended(path : any = ''){
+    localStorage.setItem('routeIntended',path);
   }
 
+  // Storing the User Info Locally
+  storeUserLocally(data){
+    let routeIntended = localStorage.getItem('routeIntended');
+    localStorage.clear();
+    // localStorage.setItem('accessToken',data.data.accessToken);
+    localStorage.setItem('userInfo',JSON.stringify(data.data));
+    // window.location.href="/dashboard";
+    this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
+  }
+
+  updateUserLocally(data){
+    localStorage.removeItem('userInfo');
+    localStorage.setItem('userInfo',JSON.stringify(data.data));
+  }
+
+  // Logging Out the Current User
+  logoutUser():void{
+    localStorage.clear();
+    window.location.href = environment.projectPath;
+    // this._router.navigate(['/']);
+  }
+
+  // Checking the Authentication for User
+  isAuthenticated(){
+    // return !!localStorage.getItem('accessToken');
+    return !!localStorage.getItem('userInfo');
+  }
+
+  getUserDetailsFromStorage(){
+    let user = localStorage.getItem('userInfo');
+    return JSON.parse(user);
+  }
+
+  adminLoginApi(formData){
+    return this._http.post<any>(_apiUrl+'user/admin-login',formData);
+  }
+
+  dashboardData(){
+    return this._http.get<any>(_apiUrl+'user/get-dashboard-data');
+  }
   customerList() {
-    return this._http.get<any>(_apiUrl+'user/list',{headers: this.header});
+    return this._http.get<any>(_apiUrl+'user/list');
   }
   customerCreate(formdata){
     return this._http.post<any>(_apiUrl + 'user/add',formdata,{headers: this.header});
@@ -51,5 +91,8 @@ export class ApiService {
   }
   packageList() {
     return this._http.get<any>(_apiUrl+'sub/list');
+  }
+  addPacakage(formData) {
+    return this._http.post<any>(_apiUrl+'sub/add', formData);
   }
 }

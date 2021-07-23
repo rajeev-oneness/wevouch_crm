@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
   }
   public errorMessage = '';
   ngOnInit(): void {
-    // if(this._api.isAuthenticated()){
-    //   this._router.navigate(['/dashboard']);
-    // }
+    if(this._api.isAuthenticated()){
+      this._router.navigate(['/admin/dashboard']);
+    }
     this._loader.stopLoader('loader');
   }
 
@@ -26,26 +26,18 @@ export class LoginComponent implements OnInit {
       formData.controls[i].markAsTouched();
     }
     if( formData?.valid ){
-      const mainForm = new FormData();
-      Object.keys(formData.value).forEach((key)=>{
-        mainForm.append(key,formData.value[key])
-      });
+      console.log(formData.form.value);
+      const mainForm = formData.form.value;
       this._loader.startLoader('loader');
-      this._api.userLoginAPI(mainForm).subscribe(
+      this._api.adminLoginApi(mainForm).subscribe(
         res => {
-          if(res.error == false){
-            // this._api.storeUserLocally(res);
-            console.log(res);
-            // return false;
-          }else{
-            this.errorMessage = res.message;
-          }
-          console.log(res);
+          this.errorMessage = res.message;
+          // console.log(res);
+          this._api.storeUserLocally(res);
           this._loader.stopLoader('loader');
         },
         err => {
-          console.log(err.message)
-          this.errorMessage = err.message;
+          this.errorMessage = "something went wrong please check credentials and try after sometimes";
           this._loader.stopLoader('loader');
         }
         
