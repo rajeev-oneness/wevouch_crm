@@ -36,4 +36,39 @@ export class CustomerEditComponent implements OnInit {
     )
   }
 
+
+  customerFormSubmit(formData){
+    console.log(this.customerId);
+    console.log(formData);
+    
+    this.errorMessage = '';
+    for( let i in formData.controls ){
+      formData.controls[i].markAsTouched();
+    }
+    if( formData?.valid ){
+      // console.log(this.categoryId);
+      
+      const mainForm = formData.form.value;
+      this._loader.startLoader('loader');
+      this._api.customerUpdate(mainForm,this.customerId).subscribe(
+        res => {
+          console.log(res);
+          this.errorMessage = res.message;
+          this._loader.stopLoader('loader');
+          this._router.navigate(['/admin/customer/list']);
+        },
+        err => {
+          console.log(err.message)
+          this.errorMessage = err.message;
+          this._loader.stopLoader('loader');
+        }
+        
+      )
+    }
+    else{
+      this.errorMessage = 'Please fill out all the details';
+    }
+    // console.log('Form Data SUbmitted');
+  }
+
 }
