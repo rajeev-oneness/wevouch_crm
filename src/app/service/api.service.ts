@@ -127,4 +127,18 @@ export class ApiService {
   packageUpdate(formData,packageId) {
     return this._http.patch<any>(_apiUrl+'sub/update/'+packageId,formData);
   }
+
+  //support executive api
+  supExeList() {
+    return this._http.get<any>(_apiUrl+'support-executive/list');
+  }
+  supExeCreate(formData) {
+    return this._http.post<any>(_apiUrl+'support-executive/add', formData);
+  }
+  supExeDetail(supExeId) {
+    return this._http.get<any>(_apiUrl+'support-executive/get/'+supExeId);
+  }
+  supExeUpdate(formData,supExeId) {
+    return this._http.patch<any>(_apiUrl+'support-executive/update/'+supExeId,formData);
+  }
 }
