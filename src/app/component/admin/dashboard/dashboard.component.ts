@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 export class DashboardComponent implements OnInit {
 
   // public dashboardData : {data : DASHBOARD[]};
-  constructor(private _api:ApiService, private _loader:NgxUiLoaderService) { 
+  constructor(private _api:ApiService, private _loader:NgxUiLoaderService, private _router:Router) { 
     this._loader.startLoader('loader');
     // this.dashboardData = {data : []};
   }
@@ -33,10 +34,20 @@ export class DashboardComponent implements OnInit {
       },err => {} 
     )
   }
-        // this.dashboardData.data = res;
 
   public dashboard :any = [];
 
+  deleteTicket(ticketId) {
+    if (confirm('Are you sure?')) {
+      this._loader.startLoader('loader');
+      this._api.ticketDelete(ticketId).subscribe(
+          res => {
+            this._router.navigate(['/admin/product/list']);
+            this._loader.stopLoader('loader');
+          },err => {}
+      )
+    }
+  }
 }
 
 // interface DASHBOARD{

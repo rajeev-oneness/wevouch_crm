@@ -32,6 +32,7 @@ export class CustomerAddComponent implements OnInit {
           console.log(res);
           this.errorMessage = res.message;
           this._loader.stopLoader('loader');
+          this._router.navigate(['/admin/customer/list']);
         },
         err => {
           console.log(err.message)

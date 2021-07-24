@@ -11,7 +11,7 @@ export class TicketReportListComponent implements OnInit {
   constructor(private _api:ApiService, private _loader:NgxUiLoaderService) { 
     this._loader.startLoader('loader');
   }
-  public ticketList: any = [];
+  public tickets: any = [];
 
   ngOnInit(): void {
     this.getTicketList();
@@ -22,7 +22,7 @@ export class TicketReportListComponent implements OnInit {
     this._api.ticketList().subscribe(
       res => {
         console.log(res);
-        this.ticketList = res;
+        this.tickets = res;
         this._loader.stopLoader('loader');
       },err => {} 
     )

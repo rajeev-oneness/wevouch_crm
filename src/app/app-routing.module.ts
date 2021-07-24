@@ -34,6 +34,8 @@ import { LoginComponent } from "./component/auth/login/login.component";
 import { RegistrationComponent } from "./component/auth/registration/registration.component";
 import { ForgetComponent } from "./component/auth/password/forget/forget.component";
 import { ChangeComponent } from "./component/auth/password/change/change.component";
+import { AuthGuardService } from "./service/auth-guard.service";
+
 const routes: Routes = [
   {path : '', component : DashboardComponent, pathMatch:'full'},
   {path: 'login', component: LoginComponent},
@@ -42,7 +44,7 @@ const routes: Routes = [
     {path: 'forget', component: ForgetComponent},
     {path: 'change', component: ChangeComponent},
   ]},
-  {path: 'admin', children: [
+  {path: 'admin', canActivate:[AuthGuardService],children: [
     {path : 'dashboard', component : DashboardComponent},
     {path : 'customer', children: [
       {path: 'list', component: CustomerListComponent},

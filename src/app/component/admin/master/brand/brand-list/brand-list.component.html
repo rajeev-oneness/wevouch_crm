@@ -41,7 +41,7 @@
             </td>
             <td class="text-center">
                 <a routerLink="/admin/master/brand/edit/{{brand._id}}"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                <a href="javascript:void(0);" class="ml-2" (click)="deleteBrand(brand._id)"><i class="far fa-trash-alt text-danger"></i></a>
             </td>
         </tr>
     </tbody>

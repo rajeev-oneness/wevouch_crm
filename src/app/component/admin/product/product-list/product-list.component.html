@@ -23,7 +23,7 @@
         </div>
     </div>
 <div class="table-responsive edit-table">
-    <table class="table table-sm table-hover brand-table">
+<table class="table table-sm table-hover brand-table">
     <thead>
         <tr>
             <th>Serial No</th>
@@ -39,7 +39,7 @@
     <tbody>
         <tr *ngFor="let product of productList; let i = index">
             <td>{{i+1}}</td>
-            <td>{{ product._id }}</td>
+            <td>{{ product.uniqueId}}</td>
             <td>{{product.users?.name}} ,{{product.registeredMobileNo}}</td>
             <td>{{product.category?.name}}</td>
             <td>{{product.brands?.name}}</td>
@@ -47,7 +47,7 @@
             <td class="text-center"><span class="badge badge-success">Active</span></td>
             <td class="text-center">
                 <a routerLink="/admin/product/detail/{{ product._id }}"><i class="far fa-eye"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                <a href="javascript:void(0);" class="ml-2" (click)="deleteProduct(product._id)"><i class="far fa-trash-alt text-danger"></i></a>
             </td>
         </tr>
     </tbody>
@@ -77,7 +77,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn close-button" data-dismiss="modal">Close</button>
-          <button type="button" class="btn delete-button">Delete permanently</button>
+          <button type="button" class="btn delete-button" >Delete permanently</button>
         </div>
       </div>
     </div>
