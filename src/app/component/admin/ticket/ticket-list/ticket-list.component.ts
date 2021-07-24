@@ -32,10 +32,10 @@ export class TicketListComponent implements OnInit {
     )
   }
 
-  deleteTicket(ticketId) {
+  deleteTicket(ticket) {
     if (confirm('Are you sure?')) {
       this._loader.startLoader('loader');
-      this._api.ticketDelete(ticketId).subscribe(
+      this._api.ticketDelete(ticket._id).subscribe(
           res => {
             this.getTicketList();
             this._loader.stopLoader('loader');

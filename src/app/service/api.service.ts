@@ -31,7 +31,8 @@ export class ApiService {
     localStorage.clear();
     localStorage.setItem('accessToken', 'accessToken1234567890adminWeVouch');
     localStorage.setItem('userInfo',JSON.stringify(data.data));
-    this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
+    window.location.href = environment.dasboardPath;
+    // this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
   }
 
   updateUserLocally(data){

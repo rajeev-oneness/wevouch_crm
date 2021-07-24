@@ -37,7 +37,7 @@ import { ChangeComponent } from "./component/auth/password/change/change.compone
 import { AuthGuardService } from "./service/auth-guard.service";
 
 const routes: Routes = [
-  {path : '', component : DashboardComponent, pathMatch:'full'},
+  {path : '', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'password', children: [
@@ -99,7 +99,8 @@ const routes: Routes = [
       {path: 'send-email', component: SendEmailComponent},
       {path: 'send-sms', component: SendSmsComponent},
     ]}
-  ]}
+  ]},
+  {path : '**', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
 ];
 
 @NgModule({
