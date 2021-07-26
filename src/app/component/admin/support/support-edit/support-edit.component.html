@@ -1,5 +1,5 @@
 <div class="dashboard-body-content">
-    <h5>Add Customer</h5>
+    <h5>Add Executives</h5>
     <hr>
     <form class="editExecutives-form"  #supExeEditForm="ngForm" (ngSubmit)="supExeFormSubmit(supExeEditForm)">
         <h5 class="text-blue">Basic Information</h5>
@@ -7,25 +7,25 @@
         <div class="col-lg-6">
             <div class="form-group edit-box">
         <label for="employee">Employee Id</label>
-        <input type="text" name="employee" id="employee" placeholder="Enter your Employee Id" class="form-control">
+        <input type="text" #employeeId="ngModel" [(ngModel)]="supExeDetail.employeeId" name="employee" id="employee"  class="form-control">
     </div>
         </div>
         <div class="col-lg-6">
             <div class="form-group edit-box">
         <label for="name">Full Name</label>
-        <input type="text"  name="name" id="name" placeholder="Enter your full name" class="form-control">
+        <input type="text" #name="ngModel" [(ngModel)]="supExeDetail.name" name="name" id="name"  class="form-control">
     </div>
         </div>
         <div class="col-lg-6">
         <div class="form-group edit-box">
         <label for="email">Email</label>
-        <input type="text"   id="email" placeholder="Enter your email address" class="form-control">
+        <input type="text"  #email="ngModel" [(ngModel)]="supExeDetail.email" name="email" id="email"  class="form-control">
         </div>
         </div>
         <div class="col-lg-6">
             <div class="form-group edit-box">
                 <label for="number">Phone number</label>
-                <input type="text"  name="mobile" id="number" placeholder="Enter your phone number" class="form-control">
+                <input type="text" #mobile="ngModel" [(ngModel)]="supExeDetail.mobile" name="mobile" id="number" class="form-control">
                 </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
         <div class="col-lg-6">
             <div class="form-group edit-box">
                 <label for="Reporting">Reporting to</label>
-                <select name="Reporting" id="Reporting" class="form-control">
+                <select name="Reporting" id="Reporting" class="form-control" #Reporting="ngModel" [(ngModel)]="supExeDetail.Reporting">
                     <option value="manager">Manager</option>
                     <option value="Project manager">Project Manager</option>
                 </select>
@@ -42,7 +42,7 @@
         <div class="col-lg-6">
             <div class="form-group edit-box">
                 <label for="designation">Designation</label>
-                <input type="number"  name="designation" id="designation" placeholder="Enter your designation" class="form-control">
+                <input type="number" #designation="ngModel" [(ngModel)]="supExeDetail.designation" name="designation" id="designation" >
                 </div>
         </div>
         <!-- <div class="col-lg-6">
@@ -54,7 +54,7 @@
         <div class="col-lg-6">
             <div class="form-group edit-box">
                 <label for="name">Status</label>
-                <select class="form-control" >
+                <select class="form-control" #status="ngModel" [(ngModel)]="supExeDetail.status">
                     <option>Active</option>
                     <option>Inactive</option>
                 </select>
@@ -67,37 +67,37 @@
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="address">Address</label>
-                <input type="text"  class="form-control" id="address">
+                <input type="text" #address="ngModel" [(ngModel)]="supExeDetail.address" class="form-control" id="address">
             </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="landmark">Landmark</label>
-                <input type="text"   class="form-control" id="landmark">
+                <input type="text"  #landMark="ngModel" [(ngModel)]="supExeDetail.landMark" class="form-control" id="landmark">
             </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="pin">Pin Code</label>
-                <input type="text" class="form-control"  id="pin">
+                <input type="number" class="form-control" #pin="ngModel" [(ngModel)]="supExeDetail.pin" id="pin">
             </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="country">Country</label>
-                <input type="text" class="form-control" >
+                <input type="text" class="form-control" #country="ngModel" [(ngModel)]="supExeDetail.country" id="country">
             </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="state">State</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" #state="ngModel" [(ngModel)]="supExeDetail.state" id="state">
             </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group edit-box">
                 <label for="city">City</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" #city="ngModel" [(ngModel)]="supExeDetail.city" id="city">
             </div>
         </div>
     </div>

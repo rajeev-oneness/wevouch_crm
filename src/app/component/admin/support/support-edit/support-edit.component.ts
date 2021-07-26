@@ -18,7 +18,8 @@ export class SupportEditComponent implements OnInit {
   public supExeId : any = 0;
   public supExeDetail: any = {};
   public errorMessage: any = '';
-
+  public customerId : any = 0;
+  public customerDetail: any = {};
   ngOnInit(): void {
     this.supExeId = this._activated.snapshot.paramMap.get('supExeId');
     this.getsupExeDetails(this.supExeId);
