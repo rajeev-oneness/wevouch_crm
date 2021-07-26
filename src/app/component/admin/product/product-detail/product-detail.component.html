@@ -14,13 +14,13 @@
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="brand">Brand Name</label>
-                <input type="text"  id="brand" value="{{ productDetail.brandId }}" readonly>    
+                <input type="text"  id="brand" value="{{ productDetail.brands?.name }}" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="category">Category</label>
-                <input type="text"  value="{{ productDetail.category }}" id="category"  readonly>    
+                <input type="text"  value="{{ productDetail.category?.name }}" id="category"  readonly>    
             </div>
         </div>
         <div class="col-lg-2">
