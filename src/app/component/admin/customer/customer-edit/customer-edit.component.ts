@@ -71,14 +71,4 @@ export class CustomerEditComponent implements OnInit {
     // console.log('Form Data SUbmitted');
   }
 
-  deleteCustomer(customerId) {
-    this._loader.startLoader('loader');
-    this._api.deleteCustomer(customerId).subscribe(
-      res => {
-        console.log(res);
-        this.customerDetail = res;
-        this._loader.stopLoader('loader');
-      }, err => {}
-    )
-    }
 }

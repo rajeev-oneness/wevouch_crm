@@ -15,14 +15,10 @@ export class ProductDetailComponent implements OnInit {
     this._loader.startLoader('loader');
    }
 
-  // public customerId : any = 0;
-  // public customerDetail: any = {};
   public productId : any = 0;
   public productDetail: any = {};
-  public errorMessage: any = '';
 
   ngOnInit(): void {
-    // this.customerId = this._activated.snapshot.paramMap.get('customerId');
     this.productId = this._activated.snapshot.paramMap.get('productId');
     this.getProductDetail(this.productId);
   }

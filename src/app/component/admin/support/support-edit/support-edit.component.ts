@@ -21,7 +21,7 @@ export class SupportEditComponent implements OnInit {
   public customerId : any = 0;
   public customerDetail: any = {};
   ngOnInit(): void {
-    this.supExeId = this._activated.snapshot.paramMap.get('supExeId');
+    this.supExeId = this._activated.snapshot.paramMap.get('supportId');
     this.getsupExeDetails(this.supExeId);
   }
 
@@ -36,7 +36,7 @@ export class SupportEditComponent implements OnInit {
     )
   }
 
-  supExeFormSubmit(formData){
+  supportFormSubmit(formData){
     console.log(this.supExeId);
     console.log(formData);
     

@@ -29,10 +29,10 @@ export class ApiService {
   storeUserLocally(data){
     let routeIntended = localStorage.getItem('routeIntended');
     localStorage.clear();
-    // localStorage.setItem('accessToken',data.data.accessToken);
+    localStorage.setItem('accessToken', 'accessToken1234567890adminWeVouch');
     localStorage.setItem('userInfo',JSON.stringify(data.data));
-    // window.location.href="/dashboard";
-    this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
+    window.location.href = environment.dasboardPath;
+    // this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
   }
 
   updateUserLocally(data){
@@ -44,13 +44,11 @@ export class ApiService {
   logoutUser():void{
     localStorage.clear();
     window.location.href = environment.projectPath;
-    // this._router.navigate(['/']);
   }
 
   // Checking the Authentication for User
   isAuthenticated(){
-    // return !!localStorage.getItem('accessToken');
-    return !!localStorage.getItem('userInfo');
+    return !!localStorage.getItem('accessToken');
   }
 
   getUserDetailsFromStorage(){
@@ -79,8 +77,8 @@ export class ApiService {
   customerUpdate(formData,customerId){
     return this._http.patch<any>(_apiUrl+'user/update/'+customerId,formData);
   }
-  deleteCustomer(customerId){
-    return this._http.get<any>(_apiUrl+'user/delete/'+customerId);
+  customerDelete(customerId){
+    return this._http.delete<any>(_apiUrl+'user/delete/'+customerId);
   }
 
 
@@ -91,13 +89,19 @@ export class ApiService {
   ticketDetail(ticketId) {
     return this._http.get<any>(_apiUrl+'ticket/get/'+ticketId);
   }
+  ticketDelete(ticketId){
+    return this._http.delete<any>(_apiUrl+'ticket/delete/'+ticketId);
+  }
 
   //product api
   productList() {
     return this._http.get<any>(_apiUrl+'product/list');
   }
   productDetail(productId){
-    return this._http.get<any>(_apiUrl+'product/get-by-user/'+productId);
+    return this._http.get<any>(_apiUrl+'product/get/'+productId);
+  }
+  productDelete(productId){
+    return this._http.delete<any>(_apiUrl+'product/delete/'+productId);
   }
 
   //category api
@@ -113,6 +117,10 @@ export class ApiService {
   categoryUpdate(formData,catId) {
     return this._http.patch<any>(_apiUrl+'category/update/'+catId,formData);
   }
+  categoryDelete(catId) {
+    return this._http.delete<any>(_apiUrl+'category/delete/'+catId);
+  }
+
   // brand api
   brandList() {
     return this._http.get<any>(_apiUrl+'brand/list');
@@ -125,6 +133,9 @@ export class ApiService {
   }
   brandUpdate(formData,brandId) {
     return this._http.patch<any>(_apiUrl+'brand/update/'+brandId,formData);
+  }
+  brandDelete(brandId) {
+    return this._http.delete<any>(_apiUrl+'brand/delete/'+brandId);
   }
 
   //package or, subscription api
@@ -140,6 +151,9 @@ export class ApiService {
   packageUpdate(formData,packageId) {
     return this._http.patch<any>(_apiUrl+'sub/update/'+packageId,formData);
   }
+  packageDelete(packageId) {
+    return this._http.delete<any>(_apiUrl+'sub/delete/'+packageId);
+  }
 
   //support executive api
   supExeList() {
@@ -154,4 +168,8 @@ export class ApiService {
   supExeUpdate(formData,supExeId) {
     return this._http.patch<any>(_apiUrl+'support-executive/update/'+supExeId,formData);
   }
+  supExeDelete(supExeId) {
+    return this._http.delete<any>(_apiUrl+'support-executive/delete/'+supExeId);
+  }
+
 }

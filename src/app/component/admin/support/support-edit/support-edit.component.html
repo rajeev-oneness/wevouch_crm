@@ -1,109 +1,103 @@
 <div class="dashboard-body-content">
     <h5>Add Executives</h5>
     <hr>
-    <form class="editExecutives-form"  #supExeEditForm="ngForm" (ngSubmit)="supExeFormSubmit(supExeEditForm)">
+    <form class="addexecutives-form" #supportEditForm="ngForm" (ngSubmit)="supportFormSubmit(supportEditForm)">
         <h5 class="text-blue">Basic Information</h5>
-    <div class="row m-0 pt-3">
-        <div class="col-lg-6">
-            <div class="form-group edit-box">
-        <label for="employee">Employee Id</label>
-        <input type="text" #employeeId="ngModel" [(ngModel)]="supExeDetail.employeeId" name="employee" id="employee"  class="form-control">
-    </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="form-group edit-box">
-        <label for="name">Full Name</label>
-        <input type="text" #name="ngModel" [(ngModel)]="supExeDetail.name" name="name" id="name"  class="form-control">
-    </div>
-        </div>
-        <div class="col-lg-6">
-        <div class="form-group edit-box">
-        <label for="email">Email</label>
-        <input type="text"  #email="ngModel" [(ngModel)]="supExeDetail.email" name="email" id="email"  class="form-control">
-        </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="form-group edit-box">
-                <label for="number">Phone number</label>
-                <input type="text" #mobile="ngModel" [(ngModel)]="supExeDetail.mobile" name="mobile" id="number" class="form-control">
+        <div class="row m-0 pt-3">
+            <div class="col-lg-6">
+                <div class="form-group edit-box">
+                    <label for="employee">Employee Id</label>
+                    <input type="text" name="employeeId" #employeeId="ngModel" [(ngModel)]="supExeDetail.employeeId" class="form-control" placeholder="Enter employee Id" id="employeeId" required [ngClass]="{'is-invalid':employeeId?.invalid && employeeId?.touched}">
                 </div>
-        </div>
-    </div>
-    <div class="row m-0 mt-0">
-        <div class="col-lg-6">
-            <div class="form-group edit-box">
-                <label for="Reporting">Reporting to</label>
-                <select name="Reporting" id="Reporting" class="form-control" #Reporting="ngModel" [(ngModel)]="supExeDetail.Reporting">
-                    <option value="manager">Manager</option>
-                    <option value="Project manager">Project Manager</option>
-                </select>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group edit-box">
+                    <label for="name">Full Name</label>
+                    <input type="text" name="name" #name="ngModel" [(ngModel)]="supExeDetail.name" class="form-control" placeholder="Enter employee name" id="name" required [ngClass]="{'is-invalid':name?.invalid && name?.touched}">
                 </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="form-group edit-box">
-                <label for="designation">Designation</label>
-                <input type="number" #designation="ngModel" [(ngModel)]="supExeDetail.designation" name="designation" id="designation" >
+            </div>
+            <!-- <div class="col-lg-6">
+                <div class="form-group edit-box">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" #email="ngModel" [(ngModel)]="supExeDetail.email" class="form-control" placeholder="Enter employee email" id="email" required [ngClass]="{'is-invalid':email?.invalid && email?.touched}">
                 </div>
-        </div>
-        <!-- <div class="col-lg-6">
-            <div class="form-group edit-box">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="*************" class="form-control">
+            </div> -->
+            <div class="col-lg-6">
+                <div class="form-group edit-box">
+                    <label for="number">Phone number</label>
+                    <input type="text" name="mobile" #mobile="ngModel" [(ngModel)]="supExeDetail.mobile" class="form-control" placeholder="Enter employee mobile" id="mobile" required [ngClass]="{'is-invalid':mobile?.invalid && mobile?.touched}">
                 </div>
-        </div> -->
-        <div class="col-lg-6">
-            <div class="form-group edit-box">
-                <label for="name">Status</label>
-                <select class="form-control" #status="ngModel" [(ngModel)]="supExeDetail.status">
-                    <option>Active</option>
-                    <option>Inactive</option>
-                </select>
-            </div>
-            </div>
-    </div>
-    <h5 class="text-blue">Address</h5>
-
-    <div class="row m-0 pt-3">
-        <div class="col-lg-4">
-            <div class="form-group edit-box">
-                <label for="address">Address</label>
-                <input type="text" #address="ngModel" [(ngModel)]="supExeDetail.address" class="form-control" id="address">
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="form-group edit-box">
-                <label for="landmark">Landmark</label>
-                <input type="text"  #landMark="ngModel" [(ngModel)]="supExeDetail.landMark" class="form-control" id="landmark">
+        <div class="row m-0 mt-0">
+            <div class="col-lg-6">
+                <div class="form-group edit-box">
+                    <label for="Reporting">Reporting to</label>
+                    <select name="reportingTo" #reportingTo="ngModel" [(ngModel)]="supExeDetail.reportingTo" class="form-control" id="reportingTo" required [ngClass]="{'is-invalid':reportingTo?.invalid && reportingTo?.touched}">
+                        <option value="Manager">Manager</option>
+                        <option value="Project manager">Project Manager</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group edit-box">
+                    <label for="designation">Designation</label>
+                    <input type="text" name="designation" #designation="ngModel" [(ngModel)]="supExeDetail.designation" class="form-control" placeholder="Enter employee designation" id="designation" required [ngClass]="{'is-invalid':designation?.invalid && designation?.touched}">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group edit-box">
+                    <label for="name">Status</label>
+                    <select class="form-control" #status="ngModel" [(ngModel)]="supExeDetail.status" name="status" required [ngClass]="{'is-invalid':status?.invalid && status?.touched}">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="form-group edit-box">
-                <label for="pin">Pin Code</label>
-                <input type="number" class="form-control" #pin="ngModel" [(ngModel)]="supExeDetail.pin" id="pin">
+        <h5 class="text-blue">Address</h5>
+        <div class="row m-0 pt-3">
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="address">Address</label>
+                    <input type="text" #address="ngModel" [(ngModel)]="supExeDetail.address" name="address" class="form-control" id="address" required [ngClass]="{'is-invalid':address?.invalid && address?.touched}">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="landmark">Landmark</label>
+                    <input type="text"  #landMark="ngModel" [(ngModel)]="supExeDetail.landMark" name="landMark" class="form-control" id="landmark" required [ngClass]="{'is-invalid':landMark?.invalid && landMark?.touched}">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="pin">Pin Code</label>
+                    <input type="number"  #pin="ngModel" name="pin" [(ngModel)]="supExeDetail.pin" class="form-control" id="pin" required [ngClass]="{'is-invalid':pin?.invalid && pin?.touched}">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="country">Country</label>
+                    <input type="text" #country="ngModel" [(ngModel)]="supExeDetail.country" name="country" class="form-control" id="country" required [ngClass]="{'is-invalid':country?.invalid && country?.touched}">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="state">State</label>
+                    <input type="text" #state="ngModel" [(ngModel)]="supExeDetail.state" name="state" class="form-control" id="state" required [ngClass]="{'is-invalid':state?.invalid && state?.touched}">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="city">City</label>
+                    <input type="text" #city="ngModel" name="city" [(ngModel)]="supExeDetail.city" class="form-control" id="city" required [ngClass]="{'is-invalid':city?.invalid && city?.touched}">
+                </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="form-group edit-box">
-                <label for="country">Country</label>
-                <input type="text" class="form-control" #country="ngModel" [(ngModel)]="supExeDetail.country" id="country">
-            </div>
+        <span class="text-danger">{{errorMessage}}</span>
+        <div class="mt-3 mb-3 button-container d-flex justify-content-end">
+            <button class="actionbutton" type="reset">Cancel</button>
+            <button class="actionbutton" type="submit">Update</button>
         </div>
-        <div class="col-lg-4">
-            <div class="form-group edit-box">
-                <label for="state">State</label>
-                <input type="text" class="form-control" #state="ngModel" [(ngModel)]="supExeDetail.state" id="state">
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-group edit-box">
-                <label for="city">City</label>
-                <input type="number" class="form-control" #city="ngModel" [(ngModel)]="supExeDetail.city" id="city">
-            </div>
-        </div>
-    </div>
-    <div class="mt-3 mb-3 button-container d-flex justify-content-end">
-        <button class="actionbutton">Cancel</button>
-        <button class="actionbutton">Submit</button>
-    </div>
-</form>
+    </form>
 </div>

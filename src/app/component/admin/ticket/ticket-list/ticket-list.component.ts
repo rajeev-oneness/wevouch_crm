@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from "src/app/service/api.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
+
 @Component({
   selector: 'app-ticket-list',
   templateUrl: './ticket-list.component.html',
@@ -29,6 +30,18 @@ export class TicketListComponent implements OnInit {
         this._loader.stopLoader('loader');
       },err => {} 
     )
+  }
+
+  deleteTicket(ticket) {
+    if (confirm('Are you sure?')) {
+      this._loader.startLoader('loader');
+      this._api.ticketDelete(ticket._id).subscribe(
+          res => {
+            this.getTicketList();
+            this._loader.stopLoader('loader');
+          },err => {}
+      )
+    }
   }
 }
 

@@ -16,10 +16,10 @@ export class SupportListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getpPackageList();
+    this.getSupExeList();
   }
 
-  getpPackageList() {
+  getSupExeList() {
     this.supExes = [];
     this._loader.startLoader('loader');
     this._api.supExeList().subscribe(
@@ -31,4 +31,15 @@ export class SupportListComponent implements OnInit {
     )
   }
 
+  supExeDelete(supExeId) {
+    if (confirm('Are you sure?')) {
+      this._loader.startLoader('loader');
+      this._api.supExeDelete(supExeId).subscribe(
+          res => {
+            this.getSupExeList();
+            this._loader.stopLoader('loader');
+          },err => {}
+      )
+    }
+  }
 }
