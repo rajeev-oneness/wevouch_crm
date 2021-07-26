@@ -47,7 +47,7 @@
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="purchase">Purchase Date</label>
-                <input type="text"  name="purchaseDate" id="purchase" value="23.07.2021" readonly>    
+                <input type="text"  name="purchaseDate" id="purchase" value="{{ productDetail.purchaseDate| date:'dd/MM/yyyy' }}" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
