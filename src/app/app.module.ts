@@ -44,10 +44,20 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
 import { CommonModule } from "@angular/common";
 import { FormsModule , ReactiveFormsModule, FormControl} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
+import { SubCatListComponent } from './component/admin/master/sub-category/sub-cat-list/sub-cat-list.component';
+import { SubCatAddComponent } from './component/admin/master/sub-category/sub-cat-add/sub-cat-add.component';
+import { SubCatEditComponent } from './component/admin/master/sub-category/sub-cat-edit/sub-cat-edit.component';
+import { ModelListComponent } from './component/admin/master/model/model-list/model-list.component';
+import { ModelAddComponent } from './component/admin/master/model/model-add/model-add.component';
+import { ModelEditComponent } from './component/admin/master/model/model-edit/model-edit.component';
+import { ServiceCenListComponent } from './component/admin/master/service-center/service-cen-list/service-cen-list.component';
+import { ServiceCenAddComponent } from './component/admin/master/service-center/service-cen-add/service-cen-add.component';
+import { ServiceCenEditComponent } from './component/admin/master/service-center/service-cen-edit/service-cen-edit.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,CustomerListComponent,CustomerAddComponent,TicketListComponent,CustomerDetailComponent,TicketDetailComponent,ProductListComponent,ProductDetailComponent,CustomerReportListComponent,CustomerReportDeatilComponent,TicketReportListComponent,TicketReportDetailComponent,ProductReportListComponent,ProductReportDetailComponent,CategoryListComponent,CategoryAddComponent,BrandListComponent,BrandAddComponent,PackageListComponent,PackageAddComponent,SupportListComponent,SupportAddComponent,SendNotificationComponent,SendEmailComponent,SendSmsComponent,CustomerEditComponent,CategoryEditComponent,BrandEditComponent,PackageEditComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent,
+    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,CustomerListComponent,CustomerAddComponent,TicketListComponent,CustomerDetailComponent,TicketDetailComponent,ProductListComponent,ProductDetailComponent,CustomerReportListComponent,CustomerReportDeatilComponent,TicketReportListComponent,TicketReportDetailComponent,ProductReportListComponent,ProductReportDetailComponent,CategoryListComponent,CategoryAddComponent,BrandListComponent,BrandAddComponent,PackageListComponent,PackageAddComponent,SupportListComponent,SupportAddComponent,SendNotificationComponent,SendEmailComponent,SendSmsComponent,CustomerEditComponent,CategoryEditComponent,BrandEditComponent,PackageEditComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent, SubCatListComponent, SubCatAddComponent, SubCatEditComponent, ModelListComponent, ModelAddComponent, ModelEditComponent, ServiceCenListComponent, ServiceCenAddComponent, ServiceCenEditComponent,
   ],
   imports: [
     BrowserModule,AppRoutingModule,

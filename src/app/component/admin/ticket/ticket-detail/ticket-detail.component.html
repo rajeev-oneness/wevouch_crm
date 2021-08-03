@@ -44,7 +44,7 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Creation">Creation Date</label>
-                <!-- <input type="text" id="Creation" value="{{ticketDetail.createdAt | date[: 'shortDate']}}" readonly>     -->
+                <input type="text" id="Creation" value="{{ticketDetail.createdAt | date:'d/M/y'}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
@@ -59,19 +59,19 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Name">Name</label>
-                <input type="text" name="Name" id="Name" value="{{ticketDetail.users.name}}">
+                <input type="text" name="Name" id="Name" value="{{ticketDetail.users?.name}}">
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Email">Email</label>
-                <input type="text" id="Email" value="{{ticketDetail.users.email}}" readonly>    
+                <input type="text" id="Email" value="{{ticketDetail.users?.email}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="mobile">Mobile Number</label>
-                <input type="text" id="mobile" value="{{ticketDetail.users.mobile}}" readonly>    
+                <input type="text" id="mobile" value="{{ticketDetail.users?.mobile}}" readonly>    
             </div>
         </div>
     </div>

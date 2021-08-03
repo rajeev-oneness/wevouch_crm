@@ -121,6 +121,29 @@ export class ApiService {
     return this._http.delete<any>(_apiUrl+'category/delete/'+catId);
   }
 
+  //category api
+  subCategoryist() {
+    return this._http.get<any>(_apiUrl+'sub-category/list');
+  }
+  subCategoryCreate(formData) {
+    return this._http.post<any>(_apiUrl+'sub-category/add',formData);
+  }
+  subCategoryDetail(subCatId) {
+    return this._http.get<any>(_apiUrl+'sub-category/get/'+subCatId);
+  }
+  subCategoryUpdate(formData,subCatId) {
+    return this._http.patch<any>(_apiUrl+'sub-category/update/'+subCatId,formData);
+  }
+  subCategoryDelete(subCatId) {
+    return this._http.delete<any>(_apiUrl+'sub-category/delete/'+subCatId);
+  }
+  subCategoryToggleStatus(subCatId, formData) {
+    return this._http.patch<any>(_apiUrl+'sub-category/toggle-sub-category-status/'+subCatId, formData);
+  }
+  subCategoryListByCategoryId(id) {
+    return this._http.get<any>(_apiUrl+'sub-category/get-by-category/'+id);
+  }
+
   // brand api
   brandList() {
     return this._http.get<any>(_apiUrl+'brand/list');
@@ -136,6 +159,26 @@ export class ApiService {
   }
   brandDelete(brandId) {
     return this._http.delete<any>(_apiUrl+'brand/delete/'+brandId);
+  }
+
+  // model management api
+  modelList() {
+    return this._http.get<any>(_apiUrl+'model-mgmt/list');
+  }
+  modelCreate(formData) {
+    return this._http.post<any>(_apiUrl+'model-mgmt/add',formData);
+  }
+  modelDetail(modelId) {
+    return this._http.get<any>(_apiUrl+'model-mgmt/get/'+modelId);
+  }
+  modelUpdate(formData,modelId) {
+    return this._http.patch<any>(_apiUrl+'model-mgmt/update/'+modelId,formData);
+  }
+  modelDelete(modelId) {
+    return this._http.delete<any>(_apiUrl+'model-mgmt/delete/'+modelId);
+  }
+  modelToggleStatus(modelId, status) {
+    return this._http.patch<any>(_apiUrl+'model-mgmt/toggle-model-mgmt-status/'+modelId, status);
   }
 
   //package or, subscription api
