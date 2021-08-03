@@ -1,8 +1,8 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content">
     <div class="d-flex justify-content-between align-items-center">
-        <h5>category</h5>
-     <a routerLink="/admin/master/category/add" class="actionbutton btn btn-sm">ADD CATEGORY</a>
+        <h5>Model</h5>
+     <a routerLink="/admin/master/model/add" class="actionbutton btn btn-sm">ADD MODEL</a>
     </div>
     <hr>
     <div class="row m-0">
@@ -19,29 +19,33 @@
     <table class="table table-sm table-hover category-table">
     <thead>
         <tr>
-            <th>category Id</th>
-            <th>category Name</th>
-            <th>category Image</th>
+            <th>Category</th>
+            <th>Sub Category</th>
+            <th>Brand</th>
+            <th>Model Name</th>
+            <th>Model No</th>
             <th style="width:100px" class="text-center">Status</th>
             <th style="width:80px" class="text-center">Action</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let category of categoryList">
-            <td>{{category._id}}</td>
-            <td>{{category.name}}</td>
-            <td><img src="./assets/img/brand.png"></td>
+        <tr *ngFor="let model of modelList">
+            <td>{{model?.category.name}}</td>
+            <td>{{model?.subCategory.name}}</td>
+            <td>{{model?.brands.name}}</td>
+            <td>{{model.modelName}}</td>
+            <td>{{model.modelId}}</td>
             <td class="text-center">
-                <span *ngIf="category.status=='active'; else inactive">
-                    <span class="badge badge-success">{{category.status}}</span>
+                <span *ngIf="model.status=='active'; else inactive">
+                    <span class="badge badge-success" (click)="toggleStatus(model._id, {'status' : 'inactive'})">{{model.status}}</span>
                 </span>
                 <ng-template #inactive>
-                    <span class="badge badge-danger">{{category.status}}</span>
+                    <span class="badge badge-danger" (click)="toggleStatus(model._id, {'status' : 'active'})">{{model.status}}</span>
                 </ng-template>
             </td>
             <td class="text-center">
-                <a routerLink="/admin/master/category/edit/{{category._id}}"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" (click)="deleteCategory(category._id)"><i class="far fa-trash-alt text-danger"></i></a>
+                <a routerLink="/admin/master/model/edit/{{model._id}}"><i class="far fa-edit"></i></a>
+                <a href="javascript:void(0);" class="ml-2" (click)="deleteModel(model._id)"><i class="far fa-trash-alt text-danger"></i></a>
             </td>
         </tr>
     </tbody>
