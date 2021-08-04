@@ -33,10 +33,10 @@
             <td><img src="./assets/img/brand.png"></td>
             <td class="text-center">
                 <span *ngIf="category.status=='active'; else inactive">
-                    <span class="badge badge-success">{{category.status}}</span>
+                    <span class="badge badge-success" (click)="toggleStatus(category._id, {'status' : 'inactive'})">{{category.status}}</span>
                 </span>
                 <ng-template #inactive>
-                    <span class="badge badge-danger">{{category.status}}</span>
+                    <span class="badge badge-danger" (click)="toggleStatus(category._id, {'status' : 'active'})">{{category.status}}</span>
                 </ng-template>
             </td>
             <td class="text-center">

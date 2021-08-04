@@ -39,4 +39,13 @@ export class CategoryListComponent implements OnInit {
       )
     }
   }
+  toggleStatus(CategoryId, status) {
+    this._loader.startLoader('loader');
+    this._api.categoryToggleStatus(CategoryId, status).subscribe(
+        res => {
+          this.getCategoryList();
+          this._loader.stopLoader('loader');
+        },err => {}
+    )
+  }
 }

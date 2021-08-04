@@ -123,7 +123,10 @@ export class ApiService {
   categoryDelete(catId) {
     return this._http.delete<any>(_apiUrl+'category/delete/'+catId);
   }
-
+  
+  categoryToggleStatus(catId, status) {
+    return this._http.patch<any>(_apiUrl+'category/toggle-category-status/'+catId, status);
+  }
   //category api
   subCategoryist() {
     return this._http.get<any>(_apiUrl+'sub-category/list');
