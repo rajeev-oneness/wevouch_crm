@@ -161,6 +161,23 @@ export class ApiService {
     return this._http.delete<any>(_apiUrl+'brand/delete/'+brandId);
   }
 
+  //Service Center api
+  seviceCennterrCreate(formData) {
+    return this._http.post<any>(_apiUrl+'service-center/add',formData);
+  }
+  serviceCenList() {
+    return this._http.get<any>(_apiUrl+'service-center/list');
+  }
+  serviceCenDetail(serviceCenId) {
+    return this._http.get<any>(_apiUrl+'service-center/get/'+serviceCenId);
+  }
+  serviceCenUpdate(formData,serviceCenId) {
+    return this._http.patch<any>(_apiUrl+'service-center/update/'+serviceCenId,formData);
+  }
+  serviceCenterIdDelete(serviceCenId){
+    return this._http.delete<any>(_apiUrl+'service-center/delete/'+serviceCenId);
+  }
+
   // model management api
   modelList() {
     return this._http.get<any>(_apiUrl+'model-mgmt/list');

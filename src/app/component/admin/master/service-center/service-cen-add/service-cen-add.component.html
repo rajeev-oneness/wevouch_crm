@@ -1,1 +1,96 @@
-<p>service-cen-add works!</p>
+<div class="dashboard-body-content">
+    <h5>Add service center</h5>
+    <hr>
+    <form class="edit-service-center-form" #seviceCennterAddForm="ngForm" (ngSubmit)="seviceCennterFormSubmit(seviceCennterAddForm)">
+        <div class="row m-0 pt-3">
+            <div class="col-lg-2">
+                <div class="brand-wrapper">
+                    <input type="file" class="brand-file">
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="category">Category</label>
+                            <select class="form-control" name="categoryId" #categoryId="ngModel" [(ngModel)]="category_id"   required [ngClass]="{'is-invalid':categoryId?.invalid && categoryId?.touched}" (change)="getSubcategoryData()">
+                                <option *ngFor="let category of categoryData" value="{{category._id}}">{{category.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="sub-category">Sub Category</label>
+                            <select class="form-control" name="subCategoryId" #subCategoryId="ngModel" ngModel  required [ngClass]="{'is-invalid':subCategoryId?.invalid && subCategoryId?.touched}">
+                                <option *ngFor="let subCategory of subCategoryData" value="{{subCategory._id}}">{{subCategory.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box"> 
+                            <label for="brand">Brand</label>
+                            <select class="form-control" #brandId="ngModel" ngModel name="brandId" required [ngClass]="{'is-invalid':brandId?.invalid && brandId?.touched}">
+                                <option *ngFor="let brand of brandData" value="{{brand._id}}">{{brand.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="center-name">Center Name</label>
+                            <input type="text" name="centerName" #centerName="ngModel" ngModel class="form-control" id="centerName" required [ngClass]="{'is-invalid':centerName?.invalid && centerName?.touched}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" name="city" #city="ngModel" ngModel required [ngClass]="{'is-invalid':city?.invalid && city?.touched}">
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="category" name="address" >
+                        </div>
+                    </div> -->
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="pin">Pin</label>
+                            <input type="text" class="form-control" id="pin" name="pin" #pin="ngModel"  ngModel required [ngClass]="{'is-invalid':pin?.invalid && pin?.touched}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="phone">Phone</label>
+                            <input type="number" class="form-control" id="mobile" name="mobile" #mobile="ngModel" ngModel  required [ngClass]="{'is-invalid':mobile?.invalid && mobile?.touched}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" name="email" #email="ngModel" ngModel required [ngClass]="{'is-invalid':email?.invalid && email?.touched}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="category">Contact Person</label>
+                            <!-- <input type="text" class="form-control" id="contactPerson" name="contactPerson" #contactPerson="ngModel" ngModel required [ngClass]="{'is-invalid':contactPerson?.invalid && contactPerson?.touched}"> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="name">Status</label>
+                            <select class="form-control" #status="ngModel"  name="status" ngModel required [ngClass]="{'is-invalid':status?.invalid && status?.touched}">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>                                               
+            </div>
+        </div>
+        <span class="text-danger">{{errorMessage}}</span>
+        <div class="form-group d-flex justify-content-end">
+            <button type="submit" class="actionbutton">SAVE</button>
+        </div>
+    </form>
+</div>

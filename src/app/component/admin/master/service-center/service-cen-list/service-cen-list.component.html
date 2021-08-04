@@ -1,1 +1,68 @@
-<p>service-cen-list works!</p>
+<div class="dashboard-body-content">
+    <div class="d-flex justify-content-between align-items-center">
+        <h5>Service Center</h5>
+     <a routerLink="/admin/master/service-center/add" class="actionbutton btn btn-sm">ADD SERVICE CENTER</a>
+    </div>
+    <hr>
+    <div class="row m-0">
+        <div class="col-12 col-md-3 ml-auto mb-4">
+            <div class="input-group ">
+                <input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary searchbtn" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>	
+    </div>
+<div class="table-responsive edit-table">
+    <table class="table table-sm table-hover service-center-table">
+    <thead>
+        <tr>
+            <th>Serial No</th>
+            <th>Category</th>
+            <th>Sub Category</th>
+            <th>Brand</th>
+            <th>Center Name</th>
+            <th>City</th>
+            <th>Pin</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Contact Person</th>
+            <th style="width:100px" class="text-center">Status</th>
+            <th style="width:80px" class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let serviceCen of serviceCens; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{serviceCen.category.name}}</td>
+            <td>{{serviceCen.subCategory?.name}}</td>
+            <td>{{serviceCen.brands.name}}</td>
+            <td>{{serviceCen.centerName}}</td>
+            <td>{{serviceCen.city}}</td>
+            <td>{{serviceCen.pin}}</td>
+            <td>{{serviceCen.mobile}}</td>
+            <td>{{serviceCen.email}}</td>
+            <td>{{serviceCen.contactPerson}}</td>
+            <td class="text-center"><span class="badge badge-success">Active</span></td>
+            <td class="text-center">
+               
+                <a routerLink="/admin/master/service-center/edit/{{serviceCen._id}}">
+                    <i class="far fa-edit"></i>
+                </a>
+                <a href="javascript:void(0);" class="" data-toggle="modal" (click)="deleteServiceCenter(serviceCen._id)"data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<nav class="pagination-container">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-left previous-img"></i></a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link active" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-right next-img"></i></a></li>
+    </ul>
+</nav>
+</div>
