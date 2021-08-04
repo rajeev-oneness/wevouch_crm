@@ -242,5 +242,8 @@ export class ApiService {
   supExeDelete(supExeId) {
     return this._http.delete<any>(_apiUrl+'support-executive/delete/'+supExeId);
   }
+  supExeToggleStatus(supExeId, status) {
+    return this._http.patch<any>(_apiUrl+'support-executive/toggle-user-status/'+supExeId, status);
+  }
 
 }

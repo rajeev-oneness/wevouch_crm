@@ -42,4 +42,14 @@ export class SupportListComponent implements OnInit {
       )
     }
   }
+
+  toggleStatus(supExeId, status) {
+    this._loader.startLoader('loader');
+    this._api.supExeToggleStatus(supExeId, status).subscribe(
+        res => {
+          this.getSupExeList();
+          this._loader.stopLoader('loader');
+        },err => {}
+    )
+  }
 }

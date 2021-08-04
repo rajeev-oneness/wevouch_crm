@@ -39,10 +39,10 @@
             <td>{{supExe.designation}}</td>
             <td class="text-center">
                 <span *ngIf="supExe.status=='active'; else inactive">
-                    <span class="badge badge-success">{{supExe.status}}</span>
+                    <span class="badge badge-success" (click)="toggleStatus(supExe._id, {'status' : 'inactive'})">{{supExe.status}}</span>
                 </span>
                 <ng-template #inactive>
-                    <span class="badge badge-danger">{{supExe.status}}</span>
+                    <span class="badge badge-danger" (click)="toggleStatus(supExe._id, {'status' : 'active'})">{{supExe.status}}</span>
                 </ng-template>
             </td>
             <td class="text-center">
