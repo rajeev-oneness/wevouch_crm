@@ -39,5 +39,14 @@ export class BrandListComponent implements OnInit {
       )
     }
   }
-
+  
+  toggleStatus(brandId, status) {
+    this._loader.startLoader('loader');
+    this._api.brandToggleStatus(brandId, status).subscribe(
+        res => {
+          this.getBrandList();
+          this._loader.stopLoader('loader');
+        },err => {}
+    )
+  }
 }

@@ -166,7 +166,9 @@ export class ApiService {
   brandDelete(brandId) {
     return this._http.delete<any>(_apiUrl+'brand/delete/'+brandId);
   }
-
+  brandToggleStatus(brandId, formData) {
+    return this._http.patch<any>(_apiUrl+'brand/toggle-brand-status/'+brandId, formData);
+  }
   //Service Center api
   seviceCennterrCreate(formData) {
     return this._http.post<any>(_apiUrl+'service-center/add',formData);
