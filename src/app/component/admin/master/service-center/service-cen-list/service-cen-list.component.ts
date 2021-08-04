@@ -40,5 +40,14 @@ export class ServiceCenListComponent implements OnInit {
       )
     }
   }
+  toggleStatus(ServiceCenterId, status) {
+    this._loader.startLoader('loader');
+    this._api.serviceCenterToggleStatus(ServiceCenterId, status).subscribe(
+        res => {
+          this.getServiceCenList();
+          this._loader.stopLoader('loader');
+        },err => {}
+    )
+  }
 
 }

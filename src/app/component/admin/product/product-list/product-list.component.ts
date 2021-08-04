@@ -41,4 +41,14 @@ export class ProductListComponent implements OnInit {
       )
     }
   }
+
+  toggleStatus( productId,status) {
+    this._loader.startLoader('loader');
+    this._api.productToggleStatus(productId, status).subscribe(
+        res => {
+          this.getProductList();
+          this._loader.stopLoader('loader');
+        },err => {}
+    )
+  }
 }

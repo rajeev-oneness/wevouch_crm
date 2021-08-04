@@ -44,7 +44,14 @@
             <td>{{serviceCen.mobile}}</td>
             <td>{{serviceCen.email}}</td>
             <td>{{serviceCen.contactPerson}}</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
+            <td class="text-center">
+                <span *ngIf="serviceCen.status=='active'; else inactive">
+                    <span class="badge badge-success" (click)="toggleStatus(serviceCen._id, {'status' : 'inactive'})">{{serviceCen.status}}</span>
+                </span>
+                <ng-template #inactive>
+                    <span class="badge badge-danger" (click)="toggleStatus(serviceCen._id, {'status' : 'active'})">{{serviceCen.status}}</span>
+                </ng-template>
+            </td>
             <td class="text-center">
                
                 <a routerLink="/admin/master/service-center/edit/{{serviceCen._id}}">

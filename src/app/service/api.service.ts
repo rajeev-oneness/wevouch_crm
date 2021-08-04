@@ -103,6 +103,9 @@ export class ApiService {
   productDelete(productId){
     return this._http.delete<any>(_apiUrl+'product/delete/'+productId);
   }
+  productToggleStatus(productId, status) {
+    return this._http.patch<any>(_apiUrl+'product/toggle-product-status/'+productId, status);
+  }
 
   //category api
   categoryList() {
@@ -176,6 +179,9 @@ export class ApiService {
   }
   serviceCenterIdDelete(serviceCenId){
     return this._http.delete<any>(_apiUrl+'service-center/delete/'+serviceCenId);
+  }
+  serviceCenterToggleStatus(serviceCenId, status) {
+    return this._http.patch<any>(_apiUrl+'service-center/toggle-srvc-center-status/'+serviceCenId, status);
   }
 
   // model management api
