@@ -28,4 +28,15 @@ export class SendNotificationComponent implements OnInit {
       },err => {} 
     )
   }
+  deleteNotification(notificationId) {
+    if (confirm('Are you sure?')) {
+      this._loader.startLoader('loader');
+      this._api.notificationDelete(notificationId).subscribe(
+          res => {
+            this.getNotificationlist();
+            this._loader.stopLoader('loader');
+          },err => {}
+      )
+    }
+  }
 }
