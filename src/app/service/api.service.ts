@@ -246,4 +246,9 @@ export class ApiService {
     return this._http.patch<any>(_apiUrl+'support-executive/toggle-user-status/'+supExeId, status);
   }
 
+  //notification api
+  notificationList() {
+    return this._http.get<any>(_apiUrl+'notification/list');
+  }
+
 }
