@@ -1,3 +1,4 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content">
     <h5>Edit Model</h5>
     <hr>
@@ -21,7 +22,7 @@
                     <div class="col-lg-6">
                         <div class="form-group edit-box">
                             <label for="sub-category">Sub Category</label>
-                            <select class="form-control" name="subCategoryId" #subCategoryId="ngModel" ngModel required [ngClass]="{'is-invalid':subCategoryId?.invalid && subCategoryId?.touched}">
+                            <select class="form-control" name="subCategoryId" #subCategoryId="ngModel" [(ngModel)]="modelDetail.subCategory._id" required [ngClass]="{'is-invalid':subCategoryId?.invalid && subCategoryId?.touched}">
                                 <option *ngFor="let subCategory of subCategoryData" value="{{subCategory._id}}">{{subCategory.name}}</option>
                             </select>
                         </div>
@@ -29,7 +30,7 @@
                     <div class="col-lg-6">
                         <div class="form-group edit-box">
                             <label for="brand">Brand</label>
-                            <select class="form-control" #brandId="ngModel"  ngModel name="brandId" required [ngClass]="{'is-invalid':brandId?.invalid && brandId?.touched}">
+                            <select class="form-control" #brandId="ngModel" [(ngModel)]="modelDetail.brands._id" name="brandId" required [ngClass]="{'is-invalid':brandId?.invalid && brandId?.touched}">
                                 <option *ngFor="let brand of brandData" value="{{brand._id}}">{{brand.name}}</option>
                             </select>
                         </div>

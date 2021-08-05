@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/service/api.service';
 export class ModelEditComponent implements OnInit {
 
   constructor(private _loader : NgxUiLoaderService,private _api:ApiService,private _activated:ActivatedRoute,private _router: Router) {
-    this._loader.startLoader('loader');
+    // this._loader.startLoader('loader');
    }
 
   public modelId : any = 0;
@@ -23,10 +23,11 @@ export class ModelEditComponent implements OnInit {
   public errorMessage: any = '';
   public fileFormatError = '';   
   ngOnInit(): void {
+    // this._loader.startLoader("loader");
+    this._loader.startLoader('loader');
     this.modelId = this._activated.snapshot.paramMap.get('modelId');
     console.log(this.modelId)
     this.getmodelDetail(this.modelId);
-
     this.getCategoryData();
     this.getBrandData();
   }
@@ -36,7 +37,6 @@ export class ModelEditComponent implements OnInit {
       res => {
         console.log('categories',res);
         this.categoryData = res.filter((t) => t.status === 'active');
-        this._loader.stopLoader('loader');
       },err => {} 
     )
   }
@@ -60,6 +60,8 @@ export class ModelEditComponent implements OnInit {
     this._api.modelDetail(modelId).subscribe(
       res => {
         this.modelDetail = res;
+        this.category_id = res.category._id;
+        this.getSubcategoryData();
         console.log(this.modelDetail);
         this._loader.stopLoader('loader');
       }, err => {}
@@ -78,11 +80,6 @@ export class ModelEditComponent implements OnInit {
       console.log(formData.value);
       
       let mainForm = formData.value;
-      // mainForm.imageUrl = "./assets/img/brand.png";
-      // mainForm.imageUrl = this.selectedFile;
-      // if(this.hasFile){
-      //   mainForm.imageUrl = this.selectedFile;
-      // }
       this._loader.startLoader('loader');
       this._api.modelUpdate(mainForm,this.modelId).subscribe(
         res => {
