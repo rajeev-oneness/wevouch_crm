@@ -61,6 +61,8 @@ export class ServiceCenEditComponent implements OnInit {
     this._api.serviceCenDetail(serviceCenId).subscribe(
       res => {
         this.serviceCenDetail = res;
+        this.category_id = res.category._id;
+        this.getSubcategoryData();
         console.log(this.serviceCenDetail);
         this._loader.stopLoader('loader');
       }, err => {}
@@ -79,11 +81,6 @@ export class ServiceCenEditComponent implements OnInit {
       console.log(formData.value);
       
       let mainForm = formData.value;
-      // mainForm.imageUrl = "./assets/img/brand.png";
-      // mainForm.imageUrl = this.selectedFile;
-      // if(this.hasFile){
-      //   mainForm.imageUrl = this.selectedFile;
-      // }
       this._loader.startLoader('loader');
       this._api.serviceCenUpdate(mainForm,this.serviceCenId).subscribe(
         res => {
@@ -103,7 +100,6 @@ export class ServiceCenEditComponent implements OnInit {
     else{
       this.errorMessage = 'Please fill out all the details';
     }
-    // console.log('Form Data SUbmitted');
   }
 
 

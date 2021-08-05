@@ -60,6 +60,8 @@ export class ModelEditComponent implements OnInit {
     this._api.modelDetail(modelId).subscribe(
       res => {
         this.modelDetail = res;
+        this.category_id = res.category._id;
+        this.getSubcategoryData();
         console.log(this.modelDetail);
         this._loader.stopLoader('loader');
       }, err => {}

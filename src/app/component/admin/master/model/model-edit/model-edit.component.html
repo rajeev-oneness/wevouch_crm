@@ -21,7 +21,7 @@
                     <div class="col-lg-6">
                         <div class="form-group edit-box">
                             <label for="sub-category">Sub Category</label>
-                            <select class="form-control" name="subCategoryId" #subCategoryId="ngModel" ngModel required [ngClass]="{'is-invalid':subCategoryId?.invalid && subCategoryId?.touched}">
+                            <select class="form-control" name="subCategoryId" #subCategoryId="ngModel" [(ngModel)]="modelDetail.subCategory._id" required [ngClass]="{'is-invalid':subCategoryId?.invalid && subCategoryId?.touched}">
                                 <option *ngFor="let subCategory of subCategoryData" value="{{subCategory._id}}">{{subCategory.name}}</option>
                             </select>
                         </div>
