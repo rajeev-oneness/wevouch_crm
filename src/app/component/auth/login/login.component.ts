@@ -29,11 +29,11 @@ export class LoginComponent implements OnInit {
       console.log(formData.form.value);
       const mainForm = formData.form.value;
       this._loader.startLoader('loader');
-      this._api.adminLoginApi(mainForm).subscribe(
+      this._api.supExeLoginApi(mainForm).subscribe(
         res => {
           this.errorMessage = res.message;
-          // console.log(res);
-          this._api.storeUserLocally(res);
+          // console.log(res.user);
+          this._api.storeUserLocally(res.user);
           this._loader.stopLoader('loader');
         },
         err => {

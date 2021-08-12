@@ -37,7 +37,7 @@
                     <th style="width:80px" class="text-center">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="tickets.length != 0; else noDataFound">
                 <tr *ngFor="let ticket of tickets; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{ticket.uniqueId}}</td>
@@ -56,6 +56,11 @@
                     </td>
                 </tr>
             </tbody>
+            <ng-template #noDataFound>
+                <tr>
+                    <td colspan="9" class="text-center"><h3>No Data Found!</h3></td>
+                </tr>
+            </ng-template>
         </table>
     </div>
     <nav class="pagination-container">

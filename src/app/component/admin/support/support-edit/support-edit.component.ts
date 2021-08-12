@@ -11,34 +11,25 @@ import { Router } from "@angular/router";
 })
 export class SupportEditComponent implements OnInit {
 
-  constructor(private _loader : NgxUiLoaderService,private _api:ApiService,private _activated:ActivatedRoute,private _router: Router) { 
-    this._loader.startLoader('loader');
-  }
+  constructor(private _loader : NgxUiLoaderService,private _api:ApiService) {}
 
   public supExeId : any = 0;
   public supExeDetail: any = {};
   public errorMessage: any = '';
-  public customerId : any = 0;
-  public customerDetail: any = {};
+
   ngOnInit(): void {
-    this.supExeId = this._activated.snapshot.paramMap.get('supportId');
-    this.getsupExeDetails(this.supExeId);
+    this._loader.startLoader('loader');
+    this.supExeDetail = JSON.parse(localStorage.getItem('userInfo'));
+    this.supExeId = this.supExeDetail._id;
+    this._loader.stopLoader('loader');
+
   }
 
-  getsupExeDetails(supExeId) {
-    this._loader.startLoader('loader');
-    this._api.supExeDetail(supExeId).subscribe(
-      res => {
-        console.log(res);
-        this.supExeDetail = res;
-        this._loader.stopLoader('loader');
-      }, err => {}
-    )
-  }
 
   supportFormSubmit(formData){
+    this._loader.startLoader('loader');
     console.log(this.supExeId);
-    console.log(formData);
+    console.log(formData.value);
     
     this.errorMessage = '';
     for( let i in formData.controls ){
@@ -46,14 +37,14 @@ export class SupportEditComponent implements OnInit {
     }
     if( formData?.valid ){
       
-      const mainForm = formData.form.value;
-      this._loader.startLoader('loader');
+      const mainForm = formData.value;
+      
       this._api.supExeUpdate(mainForm,this.supExeId).subscribe(
         res => {
           console.log(res);
           this.errorMessage = res.message;
+          this._api.updateUserLocally(res);
           this._loader.stopLoader('loader');
-          this._router.navigate(['/admin/support-executive/list']);
         },
         err => {
           console.log(err.message)

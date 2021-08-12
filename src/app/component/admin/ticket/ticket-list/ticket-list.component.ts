@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from "src/app/service/api.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-ticket-list',
@@ -8,44 +9,48 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
   styleUrls: ['./ticket-list.component.css']
 })
 export class TicketListComponent implements OnInit {
+  
   public tickets :any = [];
-  // public tickets : {data : TICKET[]};
-  constructor(private _api:ApiService, private _loader:NgxUiLoaderService) { 
-    this._loader.startLoader('loader');
-    
-    // this.tickets = {data : []};
-  }
+  public ticketStatus :any = '';
+  public userInfo : any = JSON.parse(localStorage.getItem('userInfo'));
 
+  constructor(private _api:ApiService, private _loader:NgxUiLoaderService,private _activated:ActivatedRoute) { 
+    this._loader.startLoader('loader');
+  }
+  
   ngOnInit(): void {
-    this.getTicketList();
+    this._activated.paramMap.subscribe( params => {
+      this.ticketStatus = params.get("ticketStatus");
+      this.getTicketList(this.ticketStatus);
+    });
   }
 
-  getTicketList() {
-    // this.tickets.data = [];
+  getTicketList(ticketStatus) {
     this._loader.startLoader('loader');
-    this._api.ticketList().subscribe(
+    let formData = {'status': ticketStatus, 'executiveId': this.userInfo._id};
+    this._api.ticketListForSupportExe(formData).subscribe(
       res => {
         console.log(res);
-        this.tickets = res;
+        this.tickets = res.filter(
+          e => e.status == ticketStatus
+        );
+        console.log(this.tickets);
         this._loader.stopLoader('loader');
       },err => {} 
     )
   }
+  
 
   deleteTicket(ticket) {
-    if (confirm('Are you sure?')) {
-      this._loader.startLoader('loader');
-      this._api.ticketDelete(ticket._id).subscribe(
-          res => {
-            this.getTicketList();
-            this._loader.stopLoader('loader');
-          },err => {}
-      )
-    }
+    // if (confirm('Are you sure?')) {
+    //   this._loader.startLoader('loader');
+    //   this._api.ticketDelete(ticket._id).subscribe(
+    //       res => {
+    //         this.getTicketList(this.ticketStatus);
+    //         this._loader.stopLoader('loader');
+    //       },err => {}
+    //   )
+    // }
   }
 }
 
-// interface TICKET{
-//   // _id: number,
-//   name : string,
-// }

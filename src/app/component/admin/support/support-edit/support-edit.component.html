@@ -1,5 +1,6 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content">
-    <h5>Add Executives</h5>
+    <h5>Edit Profile</h5>
     <hr>
     <form class="addexecutives-form" #supportEditForm="ngForm" (ngSubmit)="supportFormSubmit(supportEditForm)">
         <h5 class="text-blue">Basic Information</h5>
@@ -16,12 +17,6 @@
                     <input type="text" name="name" #name="ngModel" [(ngModel)]="supExeDetail.name" class="form-control" placeholder="Enter employee name" id="name" required [ngClass]="{'is-invalid':name?.invalid && name?.touched}">
                 </div>
             </div>
-            <!-- <div class="col-lg-6">
-                <div class="form-group edit-box">
-                    <label for="email">Email</label>
-                    <input type="text" name="email" #email="ngModel" [(ngModel)]="supExeDetail.email" class="form-control" placeholder="Enter employee email" id="email" required [ngClass]="{'is-invalid':email?.invalid && email?.touched}">
-                </div>
-            </div> -->
             <div class="col-lg-6">
                 <div class="form-group edit-box">
                     <label for="number">Phone number</label>
@@ -43,15 +38,6 @@
                 <div class="form-group edit-box">
                     <label for="designation">Designation</label>
                     <input type="text" name="designation" #designation="ngModel" [(ngModel)]="supExeDetail.designation" class="form-control" placeholder="Enter employee designation" id="designation" required [ngClass]="{'is-invalid':designation?.invalid && designation?.touched}">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group edit-box">
-                    <label for="name">Status</label>
-                    <select class="form-control" #status="ngModel" [(ngModel)]="supExeDetail.status" name="status" required [ngClass]="{'is-invalid':status?.invalid && status?.touched}">
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                    </select>
                 </div>
             </div>
         </div>
