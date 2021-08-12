@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  dasboardPath: '/admin/dashboard',
+  dasboardPath: '/support-executive/dashboard',
   projectPath : '/login',
   apiUrl : 'https://boiling-dawn-74925.herokuapp.com/api/',
 };
