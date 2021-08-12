@@ -31,13 +31,19 @@
             <td>{{category._id}}</td>
             <td>{{category.name}}</td>
             <td><img src="./assets/img/brand.png"></td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
             <td class="text-center">
-                <a href="edit_category.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                <span *ngIf="category.status=='active'; else inactive">
+                    <span class="badge badge-success" (click)="toggleStatus(category._id, {'status' : 'inactive'})">{{category.status}}</span>
+                </span>
+                <ng-template #inactive>
+                    <span class="badge badge-danger" (click)="toggleStatus(category._id, {'status' : 'active'})">{{category.status}}</span>
+                </ng-template>
+            </td>
+            <td class="text-center">
+                <a routerLink="/admin/master/category/edit/{{category._id}}"><i class="far fa-edit"></i></a>
+                <a href="javascript:void(0);" class="ml-2" (click)="deleteCategory(category._id)"><i class="far fa-trash-alt text-danger"></i></a>
             </td>
         </tr>
-        <tr>
     </tbody>
 </table>
 </div>

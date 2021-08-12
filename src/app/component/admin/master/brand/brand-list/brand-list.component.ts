@@ -28,4 +28,25 @@ export class BrandListComponent implements OnInit {
     )
   }
 
+  deleteBrand(brandId) {
+    if (confirm('Are you sure?')) {
+      this._loader.startLoader('loader');
+      this._api.brandDelete(brandId).subscribe(
+          res => {
+            this.getBrandList();
+            this._loader.stopLoader('loader');
+          },err => {}
+      )
+    }
+  }
+  
+  toggleStatus(brandId, status) {
+    this._loader.startLoader('loader');
+    this._api.brandToggleStatus(brandId, status).subscribe(
+        res => {
+          this.getBrandList();
+          this._loader.stopLoader('loader');
+        },err => {}
+    )
+  }
 }

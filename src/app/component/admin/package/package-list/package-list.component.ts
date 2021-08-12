@@ -30,6 +30,17 @@ export class PackageListComponent implements OnInit {
     )
   }
 
+  packageDelete(packageId) {
+    if (confirm('Are you sure?')) {
+      this._loader.startLoader('loader');
+      this._api.packageDelete(packageId).subscribe(
+          res => {
+            this.getpPackageList();
+            this._loader.stopLoader('loader');
+          },err => {}
+      )
+    }
+  }
 }
 
 interface PACKAGE{

@@ -1,0 +1,67 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+<div class="dashboard-body-content">
+    <h5>Edit Model</h5>
+    <hr>
+    <form class="edit-model-form"  #modelEditForm="ngForm" (ngSubmit)="modelFormSubmit(modelEditForm)">
+        <div class="row m-0 pt-3">
+            <div class="col-lg-2">
+                <div class="brand-wrapper">
+                    <input type="file" class="brand-file">
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="category">Category</label>
+                            <select class="form-control"  name="categoryId" #categoryId="ngModel" [(ngModel)]="category_id" required (change)="getSubcategoryData()">
+                                <option *ngFor="let category of categoryData" value="{{category._id}}">{{category.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="sub-category">Sub Category</label>
+                            <select class="form-control" name="subCategoryId" #subCategoryId="ngModel" [(ngModel)]="modelDetail.subCategory._id" required [ngClass]="{'is-invalid':subCategoryId?.invalid && subCategoryId?.touched}">
+                                <option *ngFor="let subCategory of subCategoryData" value="{{subCategory._id}}">{{subCategory.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="brand">Brand</label>
+                            <select class="form-control" #brandId="ngModel" [(ngModel)]="modelDetail.brands._id" name="brandId" required [ngClass]="{'is-invalid':brandId?.invalid && brandId?.touched}">
+                                <option *ngFor="let brand of brandData" value="{{brand._id}}">{{brand.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="model-name">Model Name</label>
+                            <input type="text" name="modelName" class="form-control" id="modelName" #modelName="ngModel" [(ngModel)]="modelDetail.modelName"  required [ngClass]="{'is-invalid':modelName?.invalid && modelName?.touched}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group edit-box">
+                            <label for="model-no">Model No</label>
+                            <input type="text" name="modelId" id="modelId" #modelId="ngModel" [(ngModel)]="modelDetail.modelId" class="form-control" required [ngClass]="{'is-invalid':modelId?.invalid && modelId?.touched}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div class="form-group edit-box">
+                        <label for="name">Status</label>
+                        <select class="form-control" #status="ngModel" [(ngModel)]="modelDetail.status" name="status" required [ngClass]="{'is-invalid':status?.invalid && status?.touched}">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>                                               
+            </div>
+        </div>
+        <span class="text-danger">{{errorMessage}}</span>
+        <div class="form-group d-flex justify-content-end">
+            <button type="submit" class="actionbutton">SAVE</button>
+        </div>
+    </form>
+</div>

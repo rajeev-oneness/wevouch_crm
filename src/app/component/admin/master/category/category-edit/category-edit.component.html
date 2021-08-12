@@ -1,7 +1,7 @@
 <div class="dashboard-body-content">
     <h5>Edit category</h5>
     <hr>
-    <form class="edit-category-form">
+    <form class="edit-category-form" #categoryEditForm="ngForm" (ngSubmit)="categoryFormSubmit(categoryEditForm)">
         <div class="row m-0 pt-3">
             <div class="col-lg-2">
                 <div class="brand-wrapper">
@@ -12,25 +12,25 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group edit-box">
-                            <label for="category">Category Id</label>
-                            <input type="number" name="category" class="form-control" id="category">
+                            <label for="category">Description</label>
+                            <input type="text" name="description" id="description" #description="ngModel" [(ngModel)]="categoryDetail.description" class="form-control" required [ngClass]="{'is-invalid':description?.invalid && description?.touched}">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group edit-box">
                             <label for="name">Category Name</label>
-                            <input type="text" name="name" class="form-control" id="name">
+                            <input type="text" name="name" id="name" #name="ngModel" [(ngModel)]="categoryDetail.name" class="form-control" required [ngClass]="{'is-invalid':name?.invalid && name?.touched}">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group edit-box">
                             <label for="name">Status</label>
-                            <select class="form-control">
-                                <option>Active</option>
-                                <option>Inactive</option>
+                            <select class="form-control" #status="ngModel" [(ngModel)]="categoryDetail.status" name="status" required [ngClass]="{'is-invalid':status?.invalid && status?.touched}">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
                             </select>
                         </div>
-                        </div>
+                    </div>
                 </div>                                                 
             </div>
         </div>

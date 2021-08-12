@@ -1,3 +1,4 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content">
     <div class="d-flex justify-content-between align-items-center">
         <h5>Ticket Details</h5>
@@ -8,25 +9,30 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Ticket Id">Ticket Id</label>
-                <input type="text" id="Ticket Id" value="1" readonly>    
+                <input type="text" id="Ticket Id" value="{{ticketDetail.uniqueId}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Product">Product</label>
-                <input type="text" id="Product" value="Product 1" readonly>    
+                <input type="text" id="Product" value="{{ticketDetail.products?.name}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="category">Category</label>
-                <input type="text" id="mobile" value="category 1" readonly>    
+                <input type="text" id="mobile" value="{{ticketDetail.category?.name}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Brand">Brand</label>
-                <input type="text" id="Brand" value="Brand 1" readonly>    
+                <!-- <span *ngIf="ticketDetail.brand; else brandNotFound"> -->
+                    <input type="text" id="Brand" value="{{ticketDetail?.brand ? ticketDetail.brand?.name : 'N/A'}}" readonly>    
+                <!-- </span>
+                <ng-template #brandNotFound>
+                    <input type="text" id="Brand" value="N/A" readonly>
+                </ng-template> -->
             </div>
         </div>
         <div class="col-lg-3">
@@ -38,13 +44,13 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Creation">Creation Date</label>
-                <input type="text" id="Creation" value="27.6.2021" readonly>    
+                <input type="text" id="Creation" value="{{ticketDetail.createdAt | date:'d/M/y'}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Status">Status</label>
-                <input type="text" id="Status" value="Active" readonly>    
+                <input type="text" id="Status" value="{{ticketDetail.status}}" readonly>    
             </div>
         </div>
     </div>
@@ -53,19 +59,19 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Name">Name</label>
-                <input type="text" name="Name" id="Name" value="santosh">
+                <input type="text" name="Name" id="Name" value="{{ticketDetail.users?.name}}">
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Email">Email</label>
-                <input type="text" id="Email" value="example@gmail.com" readonly>    
+                <input type="text" id="Email" value="{{ticketDetail.users?.email}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="mobile">Mobile Number</label>
-                <input type="text" id="mobile" value="987654321" readonly>    
+                <input type="text" id="mobile" value="{{ticketDetail.users?.mobile}}" readonly>    
             </div>
         </div>
     </div>

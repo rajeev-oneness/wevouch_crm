@@ -1,3 +1,4 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 <div class="dashboard-body-content">
     <div class="d-flex justify-content-between align-items-center">
         <h5>Support Executives</h5>
@@ -29,69 +30,24 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>23</td>
-            <td>Santosh</td>
-            <td>example@gmail.com</td>
-            <td>987654321</td>
-            <td>Manager</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
+        <tr *ngFor="let supExe of supExes; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{supExe.employeeId}}</td>
+            <td>{{supExe.name}}</td>
+            <td>{{supExe.email}}</td>
+            <td>{{supExe.mobile}}</td>
+            <td>{{supExe.designation}}</td>
             <td class="text-center">
-                <a href="edit_executives.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                <span *ngIf="supExe.status=='active'; else inactive">
+                    <span class="badge badge-success" (click)="toggleStatus(supExe._id, {'status' : 'inactive'})">{{supExe.status}}</span>
+                </span>
+                <ng-template #inactive>
+                    <span class="badge badge-danger" (click)="toggleStatus(supExe._id, {'status' : 'active'})">{{supExe.status}}</span>
+                </ng-template>
             </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>23</td>
-            <td>Santosh</td>
-            <td>example@gmail.com</td>
-            <td>987654321</td>
-            <td>Manager</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
             <td class="text-center">
-                <a href="edit_executives.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>23</td>
-            <td>Santosh</td>
-            <td>example@gmail.com</td>
-            <td>987654321</td>
-            <td>Manager</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
-            <td class="text-center">
-                <a href="edit_executives.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>23</td>
-            <td>Santosh</td>
-            <td>example@gmail.com</td>
-            <td>987654321</td>
-            <td>Manager</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
-            <td class="text-center">
-                <a href="edit_executives.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>23</td>
-            <td>Santosh</td>
-            <td>example@gmail.com</td>
-            <td>987654321</td>
-            <td>Manager</td>
-            <td class="text-center"><span class="badge badge-success">Active</span></td>
-            <td class="text-center">
-                <a href="edit_executives.html"><i class="far fa-edit"></i></a>
-                <a href="javascript:void(0);" class="ml-2" data-toggle="modal" data-target="#exampleModal"><i class="far fa-trash-alt text-danger"></i></a>
+                <a routerLink="/admin/support-executive/edit/{{supExe._id}}"><i class="far fa-edit"></i></a>
+                <a href="javascript:void(0);" class="ml-2" (click)="supExeDelete(supExe._id)"><i class="far fa-trash-alt text-danger"></i></a>
             </td>
         </tr>
     </tbody>

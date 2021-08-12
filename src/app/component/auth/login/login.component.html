@@ -38,7 +38,7 @@
                             <small class="d-block text-muted">Enter your email address and password to access the account</small>
                         </h3>
                         <form id="login-form" #userLoginForm="ngForm" (ngSubmit)="userLoginSubmit(userLoginForm)">
-                            {{userLoginForm.value | json}}
+                            <!-- {{userLoginForm.value | json}} -->
                             <div class="form-group">
                                 <label for="inputEmail">Email address</label>
                                 <input class="form-control" #email="ngModel" ngModel type="email" autocomplete="email" name="email" id="your_name" placeholder="Your Email" required [ngClass]="{'is-invalid':email?.invalid && email?.touched}">

@@ -18,9 +18,18 @@ import { TicketReportDetailComponent } from "./component/admin/report/ticket-rep
 import { CategoryListComponent } from "./component/admin/master/category/category-list/category-list.component";
 import { CategoryAddComponent } from "./component/admin/master/category/category-add/category-add.component";
 import { CategoryEditComponent } from "./component/admin/master/category/category-edit/category-edit.component";
+import { SubCatListComponent } from "./component/admin/master/sub-category/sub-cat-list/sub-cat-list.component";
+import { SubCatAddComponent } from "./component/admin/master/sub-category/sub-cat-add/sub-cat-add.component";
+import { SubCatEditComponent } from "./component/admin/master/sub-category/sub-cat-edit/sub-cat-edit.component";
 import { BrandListComponent } from "./component/admin/master/brand/brand-list/brand-list.component";
 import { BrandAddComponent } from "./component/admin/master/brand/brand-add/brand-add.component";
 import { BrandEditComponent } from "./component/admin/master/brand/brand-edit/brand-edit.component";
+import { ServiceCenListComponent } from "./component/admin/master/service-center/service-cen-list/service-cen-list.component";
+import { ServiceCenAddComponent } from "./component/admin/master/service-center/service-cen-add/service-cen-add.component";
+import { ServiceCenEditComponent } from "./component/admin/master/service-center/service-cen-edit/service-cen-edit.component";
+import { ModelListComponent } from "./component/admin/master/model/model-list/model-list.component";
+import { ModelAddComponent } from "./component/admin/master/model/model-add/model-add.component";
+import { ModelEditComponent } from "./component/admin/master/model/model-edit/model-edit.component";
 import { PackageListComponent } from "./component/admin/package/package-list/package-list.component";
 import { PackageAddComponent } from "./component/admin/package/package-add/package-add.component";
 import { PackageEditComponent } from "./component/admin/package/package-edit/package-edit.component";
@@ -34,15 +43,17 @@ import { LoginComponent } from "./component/auth/login/login.component";
 import { RegistrationComponent } from "./component/auth/registration/registration.component";
 import { ForgetComponent } from "./component/auth/password/forget/forget.component";
 import { ChangeComponent } from "./component/auth/password/change/change.component";
+import { AuthGuardService } from "./service/auth-guard.service";
+
 const routes: Routes = [
-  {path : '', component : DashboardComponent, pathMatch:'full'},
+  {path : '', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'password', children: [
     {path: 'forget', component: ForgetComponent},
     {path: 'change', component: ChangeComponent},
   ]},
-  {path: 'admin', children: [
+  {path: 'admin', canActivate:[AuthGuardService],children: [
     {path : 'dashboard', component : DashboardComponent},
     {path : 'customer', children: [
       {path: 'list', component: CustomerListComponent},
@@ -76,10 +87,25 @@ const routes: Routes = [
         {path: 'add', component: CategoryAddComponent},
         {path: 'edit/:categoryId', component: CategoryEditComponent},
       ]},
+      {path: 'sub-category', children: [
+        {path: 'list', component: SubCatListComponent},
+        {path: 'add', component: SubCatAddComponent},
+        {path: 'edit/:subCategoryId', component: SubCatEditComponent},
+      ]},
       {path: 'brand', children: [
         {path: 'list', component: BrandListComponent},
         {path: 'add', component: BrandAddComponent},
         {path: 'edit/:brandId', component: BrandEditComponent},
+      ]},
+      {path: 'service-center', children: [
+        {path: 'list', component: ServiceCenListComponent},
+        {path: 'add', component: ServiceCenAddComponent},
+        {path: 'edit/:serviceCenterId', component: ServiceCenEditComponent},
+      ]},
+      {path: 'model', children: [
+        {path: 'list', component: ModelListComponent},
+        {path: 'add', component: ModelAddComponent},
+        {path: 'edit/:modelId', component: ModelEditComponent},
       ]}
     ]},
     {path: 'package', children: [
@@ -97,7 +123,8 @@ const routes: Routes = [
       {path: 'send-email', component: SendEmailComponent},
       {path: 'send-sms', component: SendSmsComponent},
     ]}
-  ]}
+  ]},
+  {path : '**', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
 ];
 
 @NgModule({

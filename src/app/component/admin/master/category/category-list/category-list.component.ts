@@ -28,4 +28,24 @@ export class CategoryListComponent implements OnInit {
     )
   }
 
+  deleteCategory(CategoryId) {
+    if (confirm('Are you sure?')) {
+      this._loader.startLoader('loader');
+      this._api.categoryDelete(CategoryId).subscribe(
+          res => {
+            this.getCategoryList();
+            this._loader.stopLoader('loader');
+          },err => {}
+      )
+    }
+  }
+  toggleStatus(CategoryId, status) {
+    this._loader.startLoader('loader');
+    this._api.categoryToggleStatus(CategoryId, status).subscribe(
+        res => {
+          this.getCategoryList();
+          this._loader.stopLoader('loader');
+        },err => {}
+    )
+  }
 }

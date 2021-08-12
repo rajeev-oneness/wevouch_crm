@@ -8,31 +8,31 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="nick-name">Nick Name</label>
-                <input type="text" id="name" value="Santosh Singh" readonly>    
+                <input  type="text" value="{{ productDetail?.name }}" id="name"  readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="brand">Brand Name</label>
-                <input type="text" id="brand" value="brand 1" readonly>    
+                <input type="text"  id="brand" value="{{ productDetail.brands?.name }}" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="category">Category</label>
-                <input type="text" id="mobile" value="category 1" readonly>    
+                <input type="text"  value="{{ productDetail.category?.name }}" id="category"  readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="subcategory">Sub Category</label>
-                <input type="text" id="mobile" value="subcategory 1" readonly>    
+                <input type="text"  name="subCategory" id="mobile" value="{{ productDetail.subCategory?.name }}" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="model">Model</label>
-                <input type="text" id="mobile" value="model 1" readonly>    
+                <input type="text"  name="name" id="modelNo" value="{{ productDetail?.modelNo }}" readonly>    
             </div>
         </div>
     </div>
@@ -41,31 +41,31 @@
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="nick-name">Invoice Photo</label>
-                <img src="./assets/img/invoice.png" alt="" class="w-100">
+                <img src="{{productDetail?.invoicePhotoUrl}}" alt="Invoice Image" class="w-100">
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="purchase">Purchase Date</label>
-                <input type="text" id="purchase" value="23.07.2021" readonly>    
+                <input type="text"  name="purchaseDate" id="purchase" value="{{ productDetail.purchaseDate| date:'dd/MM/yyyy' }}" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="period">Warranty Period</label>
-                <input type="text" id="period" value="2yrs" readonly>    
+                <input type="text"  name="warrantyPeriod" id="period" value="{{productDetail?.warrantyPeriod}}" readonly>    
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
                 <label for="serail">Serial No</label>
-                <input type="number" id="mobile" value="1" readonly>    
+                <input type="text" name="serialNo" id="mobile" value="{{productDetail?.serialNo}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="mobile">Registered Mobile no</label>
-                <input type="mobile" id="mobile" value="987634516" readonly>    
+                <input type="mobile"  name="registeredMobileNo" id="mobile" value="{{productDetail?.registeredMobileNo}}" readonly>    
             </div>
         </div>
     </div>
