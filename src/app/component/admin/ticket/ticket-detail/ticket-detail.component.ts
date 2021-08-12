@@ -16,7 +16,7 @@ export class TicketDetailComponent implements OnInit {
   
   public ticketId : any = 0;
   public ticketDetail: any = {};
-
+  public supExeDetail: any = JSON.parse(localStorage.getItem('userInfo'))
   ngOnInit(): void {
     this.ticketId = this._activated.snapshot.paramMap.get('ticketId');
     this.getTicketDetails(this.ticketId);
