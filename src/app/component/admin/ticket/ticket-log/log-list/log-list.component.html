@@ -1,7 +1,10 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
-<div class="dashboard-body-content pt-0">
+<div class="py-3 pr-4 text-right">
+    <button class="actionbutton" data-toggle="modal" data-target="#exampleModal">Add Log</button>
+</div>
+<div class="dashboard-body-content pt-0">    
     <div class="card-header card-head pl-0 pr-0">
-        <h5 class="card-head-title">Tickets</h5>
+        <h5 class="card-head-title">Ticket Logs - <b>{{ticketUniqueId}}</b></h5>
         <div>
             <div class="input-group ">
                 <div class="pr-3">
@@ -27,39 +30,24 @@
             <thead>
                 <tr>
                     <th>Serial No</th>
-                    <th>Ticket Id</th>
-                    <th>Customer Name</th>
-                    <th>Product</th>
-                    <th>Brand</th>
-                    <th>Category</th>
+                    <th>Comment</th>
                     <th>Created At</th>
-                    <th style="width:100px" class="text-center">Status</th>
-                    <th style="width:100px" class="text-center">Log</th>
                     <th style="width:80px" class="text-center">Action</th>
                 </tr>
             </thead>
-            <tbody *ngIf="tickets.length != 0; else noDataFound">
-                <tr *ngFor="let ticket of tickets; let i = index">
+            <tbody *ngIf="ticketLogs.length != 0; else noDataFound">
+                <tr *ngFor="let log of ticketLogs; let i = index">
                     <td>{{i+1}}</td>
-                    <td>{{ticket.uniqueId}}</td>
-                    <td>{{ticket.users.name}}</td>
-                    <td><img src="{{ticket.products.productImagesUrl}}"></td>
+                    <td>{{log.comment}}</td>
+                    <td>{{log.createdAt | date:'dd MMM, yyyy'}}</td>
                     <td>
-                        <span *ngIf="ticket.brand; else brandNotFound">{{ticket.brand.name}}</span>
-                        <ng-template #brandNotFound>N/A</ng-template>
-                    </td>
-                    <td>{{ticket.category.name}}</td>
-                    <td>{{ticket.createdAt | date}}</td>
-                    <td class="text-center"><span class="badge badge-success">{{ticket.status}}</span></td>
-                    <td><a routerLink="/support-executive/ticket/log/list/{{ticket._id}}"><i class="fas fa-history"></i> Logs</a></td>
-                    <td class="text-center">
-                        <a routerLink="/support-executive/ticket/detail/{{ticket._id}}"><i class="far fa-eye"></i></a>
+                        <a href="javascript:void(0);" class="ml-2" (click)="deleteLog(log._id)"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
                 </tr>
             </tbody>
             <ng-template #noDataFound>
                 <tr>
-                    <td colspan="9" class="text-center"><h3>No Data Found!</h3></td>
+                    <td colspan="9" class="text-center"><h3>No Data Found!</h3><br><button class="actionbutton" data-toggle="modal" data-target="#exampleModal">Add Log</button></td>
                 </tr>
             </ng-template>
         </table>
@@ -81,17 +69,21 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><i class="far fa-trash-alt"></i> Delete Confirmation</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-edit"></i> Add Log</h5>
+          <button type="button" #modalCloseButton class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want to permanently delete this ticket?You <b>CAN NOT</b> view this ticket in your list</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn close-button" data-dismiss="modal">Close</button>
-          <button type="button" class="btn delete-button">Delete permanently</button>
+            <form #addLogForm="ngForm" (ngSubmit)="createLog(addLogForm)">
+                <div class="row m-0 pt-3">
+                    <textarea name="comment" #comment="ngModel" ngModel class="form-control" placeholder="Your comment goes here" id="comment" required [ngClass]="{'is-invalid':comment?.invalid && comment?.touched}"></textarea>
+                </div>
+                <span class="text-danger">{{errorMessage}}</span>
+                <div class="row m-0 pt-3">
+                    <button type="submit" class="btn delete-button">Add Log</button>
+                </div>
+            </form>
         </div>
       </div>
     </div>

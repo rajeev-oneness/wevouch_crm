@@ -74,8 +74,24 @@ export class ApiService {
   ticketDetail(ticketId) {
     return this._http.get<any>(_apiUrl+'ticket/get/'+ticketId);
   }
-  ticketDelete(ticketId){
-    return this._http.delete<any>(_apiUrl+'ticket/delete/'+ticketId);
+  updateTicketStatus(ticketId, formData) {
+    return this._http.patch<any>(_apiUrl+'ticket/update-status/'+ticketId, formData);
+  }
+  //ticket-log
+  ticketLogList() {
+    return this._http.get<any>(_apiUrl+'ticket-log/list');
+  }
+  ticketLogListByTicket(ticketLogId) {
+    return this._http.get<any>(_apiUrl+'ticket-log/get-by-ticket/'+ticketLogId);
+  }
+  ticketLogDetail(ticketLogId) {
+    return this._http.get<any>(_apiUrl+'ticket-log/get/'+ticketLogId);
+  }
+  ticketLogAdd(formData) {
+    return this._http.post<any>(_apiUrl+'ticket-log/add', formData);
+  }
+  ticketLogDelete(ticketLogId) {
+    return this._http.delete<any>(_apiUrl+'ticket-log/delete/'+ticketLogId);
   }
 
 

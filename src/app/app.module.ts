@@ -20,17 +20,17 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
 import { CommonModule } from "@angular/common";
 import { FormsModule , ReactiveFormsModule, FormControl} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
+import { LogListComponent } from './component/admin/ticket/ticket-log/log-list/log-list.component';
+import { LogAddComponent } from './component/admin/ticket/ticket-log/log-add/log-add.component';
+import { LogDetailComponent } from './component/admin/ticket/ticket-log/log-detail/log-detail.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,TicketListComponent,TicketDetailComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent,
+    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,TicketListComponent,TicketDetailComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent, LogListComponent, LogAddComponent, LogDetailComponent,
   ],
   imports: [
-    BrowserModule,AppRoutingModule,
-    NgxUiLoaderModule,CommonModule,
-    FormsModule,ReactiveFormsModule,
-    HttpClientModule
+    BrowserModule,AppRoutingModule,NgxUiLoaderModule,CommonModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

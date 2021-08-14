@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ApiService } from 'src/app/service/api.service';
 import { Router } from "@angular/router";
+import  Swal  from "sweetalert2";
 
 @Component({
   selector: 'app-support-edit',
@@ -16,6 +17,17 @@ export class SupportEditComponent implements OnInit {
   public supExeId : any = 0;
   public supExeDetail: any = {};
   public errorMessage: any = '';
+  public Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: false,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
 
   ngOnInit(): void {
     this._loader.startLoader('loader');
@@ -45,6 +57,10 @@ export class SupportEditComponent implements OnInit {
           this.errorMessage = res.message;
           this._api.updateUserLocally(res);
           this._loader.stopLoader('loader');
+          this.Toast.fire({
+            icon: 'success',
+            title: 'Profile updated successfully!'
+          })
         },
         err => {
           console.log(err.message)

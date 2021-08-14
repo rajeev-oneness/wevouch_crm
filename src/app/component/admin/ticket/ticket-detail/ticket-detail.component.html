@@ -48,10 +48,25 @@
             </div>
         </div>
         <div class="col-lg-3">
-            <div class="form-group">
-                <label for="Status">Status</label>
-                <input type="text" id="Status" value="{{ticketDetail.status}}" readonly>    
-            </div>
+            <form #statusUpdateForm="ngForm" (ngSubmit)="updateTicketStatus(statusUpdateForm)">
+                <div class="form-group">
+                    <label for="Status">Status</label>
+                    <div class="d-flex">
+                        <div>
+                            <select name="status" id="status" #status="ngModel" [ngModel]="ticketDetail.status" required>
+                                <option value="new">New</option>
+                                <option value="ongoing">Ongoing</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                        <div class="pl-2 col-12">
+                            <button type="submit" class="actionbutton">Update status</button>
+                        </div>
+                        <span class="text-danger">{{errorMessage2}}</span>
+                    </div> 
+                </div>
+            </form>
         </div>
     </div>
     <h5 class="text-blue">Customer Details</h5>
@@ -80,25 +95,25 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Name">Name</label>
-                <input type="text" name="Name" id="Name" value="{{supExeDetail.name}}">
+                <input type="text" name="Name" id="Name" value="{{ticketDetail.executive?.name}}">
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Email">Email</label>
-                <input type="text" id="Email" value="{{supExeDetail.email}}" readonly>    
+                <input type="text" id="Email" value="{{ticketDetail.executive?.email}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="mobile">Mobile Number</label>
-                <input type="text" id="mobile" value="{{supExeDetail.mobile}}" readonly>    
+                <input type="text" id="mobile" value="{{ticketDetail.executive?.mobile}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="employee">Employee Id</label>
-                <input type="text" id="employee" value="{{supExeDetail.employeeId}}" readonly>    
+                <input type="text" id="employee" value="{{ticketDetail.executive?.employeeId}}" readonly>    
             </div>
         </div>
     </div>

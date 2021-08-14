@@ -4,6 +4,9 @@ import { DashboardComponent } from "./component/admin/dashboard/dashboard.compon
 
 import { TicketListComponent } from "./component/admin/ticket/ticket-list/ticket-list.component";
 import { TicketDetailComponent } from "./component/admin/ticket/ticket-detail/ticket-detail.component";
+import { LogListComponent } from "./component/admin/ticket/ticket-log/log-list/log-list.component";
+import { LogAddComponent } from "./component/admin/ticket/ticket-log/log-add/log-add.component";
+import { LogDetailComponent } from "./component/admin/ticket/ticket-log/log-detail/log-detail.component";
 import { SupportEditComponent } from "./component/admin/support/support-edit/support-edit.component";
 import { LoginComponent } from "./component/auth/login/login.component";
 import { RegistrationComponent } from "./component/auth/registration/registration.component";
@@ -24,6 +27,11 @@ const routes: Routes = [
     {path: 'ticket', children: [
       {path: 'list/:ticketStatus', component: TicketListComponent},
       {path: 'detail/:ticketId', component: TicketDetailComponent},
+      {path: 'log', children: [
+        {path: 'list/:ticketId', component: LogListComponent},
+        {path: 'add', component: LogAddComponent},
+        {path: 'detail/:ticketLogId', component: LogDetailComponent},
+      ]},
     ]},
     {path: 'edit-profile', component: SupportEditComponent}
   ]},
