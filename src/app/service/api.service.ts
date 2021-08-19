@@ -103,4 +103,12 @@ export class ApiService {
     return this._http.patch<any>(_apiUrl+'support-executive/update/'+supExeId,formData);
   }
 
+  sendNotificationToExecutive(formData){
+    return this._http.post<any>(_apiUrl+'srvc-exec-notification/add',formData)
+  }
+
+  sendNotificationToCustomer(formData){
+    return this._http.post<any>(_apiUrl+ 'notification/add',formData);
+  }
+
 }

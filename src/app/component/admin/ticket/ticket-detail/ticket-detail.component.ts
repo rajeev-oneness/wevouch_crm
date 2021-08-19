@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
@@ -101,14 +102,11 @@ export class TicketDetailComponent implements OnInit {
 
   createLog(formData) {
     this._loader.startLoader('loader');
-    console.log(formData.value);
-    
     this.errorMessage = '';
     for( let i in formData.controls ){
       formData.controls[i].markAsTouched();
     }
     if( formData?.valid ){
-      
       const mainForm = formData.value;
       mainForm.ticketId = this.ticketId;
       mainForm.executiveId = this.userInfo._id;
@@ -124,7 +122,6 @@ export class TicketDetailComponent implements OnInit {
           this.getTicketLogList();
         },
         err => {
-          console.log(err.message)
           this.errorMessage = err.message;
           this._loader.stopLoader('loader');
           this.Toast.fire({
@@ -132,12 +129,35 @@ export class TicketDetailComponent implements OnInit {
             title: 'Log is not added!'
           })
         }
-        
       )
+      if(this.LogType == 'Internal'){
+        const executiveForm = {
+          "title":"Log Created",
+          "executiveId" : this.supExeDetail?._id, 
+          "description": "New Log Created"
+        };
+        this._api.sendNotificationToExecutive(executiveForm).subscribe(
+          res => {}
+        )
+      }else if(this.LogType == 'Go To Customer'){
+        const customerForm = {
+          "title" : "Log Created",
+          "userId": this.ticketDetail?.users?._id,
+          "description" : "New Log Created"
+        };
+        this._api.sendNotificationToCustomer(customerForm).subscribe(
+          res => {}
+        )
+      }
     }
     else{
       this.errorMessage = 'Please fill out all the details';
     }
+  }
+
+  LogType = 'Internal';
+  logTypeStore(selectTag){
+    this.LogType = selectTag.value;
   }
 
   deleteLog(ticketLogId) {

@@ -129,6 +129,7 @@
                 <tr>
                     <th>Serial No</th>
                     <th>Comment</th>
+                    <th>Log Type</th>
                     <th>Created At</th>
                     <th style="width:80px" class="text-center">Action</th>
                 </tr>
@@ -137,6 +138,7 @@
                 <tr *ngFor="let log of ticketLogs; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{log.comment}}</td>
+                    <td>{{log?.logType}}</td>
                     <td>{{log.createdAt | date:'dd MMM, yyyy'}}</td>
                     <td>
                         <a href="javascript:void(0);" class="ml-2" (click)="deleteLog(log._id)"><i class="far fa-trash-alt text-danger"></i></a>
@@ -160,6 +162,13 @@
             <form #addLogForm="ngForm" (ngSubmit)="createLog(addLogForm)">
                 <div class="row m-0 pt-3">
                     <textarea name="comment" #comment="ngModel" ngModel class="form-control" placeholder="Your comment goes here" id="comment" required [ngClass]="{'is-invalid':comment?.invalid && comment?.touched}"></textarea>
+                </div>
+                <div class="row m-0 pt-3">
+                    <label for="">Log Type</label>
+                    <select #log_type name="logType" [ngModel]="'Internal'" id="" class="form-control" (change)="logTypeStore(log_type)">
+                        <option value="Internal">Internal</option>
+                        <option value="Go To Customer">Go To Customer</option>
+                    </select>
                 </div>
                 <span class="text-danger">{{errorMessage}}</span>
                 <div class="row m-0 pt-3">
