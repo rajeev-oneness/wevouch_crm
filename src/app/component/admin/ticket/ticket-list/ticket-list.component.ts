@@ -17,7 +17,6 @@ export class TicketListComponent implements OnInit {
   constructor(private _api:ApiService, private _loader:NgxUiLoaderService,private _activated:ActivatedRoute) { 
     this._loader.startLoader('loader');
   }
-  
   ngOnInit(): void {
     this._activated.paramMap.subscribe( params => {
       this.ticketStatus = params.get("ticketStatus");
@@ -26,16 +25,19 @@ export class TicketListComponent implements OnInit {
   }
 
   getTicketList(ticketStatus) {
+    // $('.table').DataTable().destroy();
     this._loader.startLoader('loader');
     let formData = {'status': ticketStatus, 'executiveId': this.userInfo._id};
     this._api.ticketListForSupportExe(formData).subscribe(
       res => {
-        console.log(res);
         this.tickets = res.filter(
           e => e.status == ticketStatus
         );
-        console.log(this.tickets);
         this._loader.stopLoader('loader');
+        console.log('ticket Status',ticketStatus);
+        $(document).ready(function() {
+          setTimeout(function(){ $('.table').DataTable(); }, 700);
+        });
       },err => {} 
     )
   }

@@ -23,6 +23,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { LogListComponent } from './component/admin/ticket/ticket-log/log-list/log-list.component';
 import { LogAddComponent } from './component/admin/ticket/ticket-log/log-add/log-add.component';
 import { LogDetailComponent } from './component/admin/ticket/ticket-log/log-detail/log-detail.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { LogDetailComponent } from './component/admin/ticket/ticket-log/log-deta
     AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,TicketListComponent,TicketDetailComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent, LogListComponent, LogAddComponent, LogDetailComponent,
   ],
   imports: [
-    BrowserModule,AppRoutingModule,NgxUiLoaderModule,CommonModule,FormsModule,ReactiveFormsModule,HttpClientModule
+    BrowserModule,AppRoutingModule,NgxUiLoaderModule,CommonModule,FormsModule,ReactiveFormsModule,HttpClientModule,DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
