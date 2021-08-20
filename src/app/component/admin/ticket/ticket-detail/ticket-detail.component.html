@@ -68,7 +68,24 @@
                 </div>
             </form>
         </div>
-        
+
+        <div class="col-lg-3">
+            <form #srnUpdate="ngForm" (ngSubmit)="updateSRN(srnUpdate)">
+                <div class="form-group">
+                    <label for="Status">SRN</label>
+                    <div class="d-flex">
+                        <div>
+                            <input type="text" name="srn" id="srnUpdate" #srn [ngModel]="ticketDetail?.srn" required>
+                        </div>
+                        <div class="pl-2 col-12">
+                            <button type="submit" class="actionbutton">Update status</button>
+                        </div>
+                        <span class="text-danger">{{srnError}}</span>
+                    </div> 
+                </div>
+            </form>
+        </div>
+
     </div>
     <h5 class="text-blue">Customer Details</h5>
     <div class="row m-0 details-page">

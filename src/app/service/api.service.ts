@@ -111,4 +111,8 @@ export class ApiService {
     return this._http.post<any>(_apiUrl+ 'notification/add',formData);
   }
 
+  updateSRNDETAILS(ticketId,form){
+    return this._http.patch<any>(_apiUrl + 'ticket/update-srn/'+ticketId, form);
+  }
+
 }

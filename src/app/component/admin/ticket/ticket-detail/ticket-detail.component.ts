@@ -201,4 +201,31 @@ export class TicketDetailComponent implements OnInit {
       }
     })
   }
+
+  /*********************** SRN Update Work ********************/
+  public srnError = '';
+  updateSRN(form){
+    this.srnError = '';
+    if( form?.valid ){
+      const mainForm = form.value;
+      this._api.updateSRNDETAILS(this.ticketId,mainForm).subscribe(
+        res => {
+          this._loader.stopLoader('loader');
+          this.Toast.fire({
+            icon: 'success',
+            title: 'SRN updated successfully!'
+          })
+        },
+        err => {
+          this._loader.stopLoader('loader');
+          this.Toast.fire({
+            icon: 'error',
+            title: 'SRN updated failed!'
+          })
+        }
+      )
+    }else{
+      this.srnError = 'Please fill out all the details';
+    }
+  }
 }
