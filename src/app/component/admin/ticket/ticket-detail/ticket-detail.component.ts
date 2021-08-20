@@ -106,7 +106,6 @@ export class TicketDetailComponent implements OnInit {
   }
 
   createLog(formData) {
-    this._loader.startLoader('loader');
     this.errorMessage = '';
     for( let i in formData.controls ){
       formData.controls[i].markAsTouched();
@@ -115,6 +114,7 @@ export class TicketDetailComponent implements OnInit {
       const mainForm = formData.value;
       mainForm.ticketId = this.ticketId;
       mainForm.executiveId = this.userInfo._id;
+      this._loader.startLoader('loader');
       this._api.ticketLogAdd(mainForm).subscribe(
         res => {
           this.closeButton.nativeElement.click(); // to close the modal
@@ -200,6 +200,14 @@ export class TicketDetailComponent implements OnInit {
         )
       }
     })
+  }
+
+  addLogModalValue = {
+    comment : '',
+  }
+  addLogOpenModalData(){
+    this.errorMessage = '';
+    this.addLogModalValue.comment = '';
   }
 
   /*********************** SRN Update Work ********************/

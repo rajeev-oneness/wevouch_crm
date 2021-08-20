@@ -70,15 +70,15 @@
         </div>
 
         <div class="col-lg-3">
-            <form #srnUpdate="ngForm" (ngSubmit)="updateSRN(srnUpdate)">
+            <form #srnUpdate="ngForm" (ngSubmit)="updateSRN(srnUpdate)" autocomplete="off">
                 <div class="form-group">
                     <label for="Status">SRN</label>
                     <div class="d-flex">
-                        <div>
-                            <input type="text" name="srn" id="srnUpdate" #srn [ngModel]="ticketDetail?.srn" required>
+                        <div class="col-6">
+                            <input type="text" class="form-control" style="border: 1px solid #a5a5a5" name="srn" id="srnUpdate" #srn [ngModel]="ticketDetail?.srn" required>
                         </div>
-                        <div class="pl-2 col-12">
-                            <button type="submit" class="actionbutton">Update status</button>
+                        <div class="pl-2 col-6">
+                            <button type="submit" class="actionbutton">Update</button>
                         </div>
                         <span class="text-danger">{{srnError}}</span>
                     </div> 
@@ -138,7 +138,7 @@
 </div>
 
 <div class="py-3 pr-4 text-right">
-    <button class="actionbutton" data-toggle="modal" data-target="#exampleModal">Add Log</button>
+    <button class="actionbutton" (click)="addLogOpenModalData()" data-toggle="modal" data-target="#exampleModal">Add Log</button>
 </div>
 <div class="dashboard-body-content pt-0">    
     <div class="table-responsive ticket-table">
@@ -179,7 +179,7 @@
         <div class="modal-body">
             <form #addLogForm="ngForm" (ngSubmit)="createLog(addLogForm)">
                 <div class="row m-0 pt-3">
-                    <textarea name="comment" #comment="ngModel" ngModel class="form-control" placeholder="Your comment goes here" id="comment" required [ngClass]="{'is-invalid':comment?.invalid && comment?.touched}"></textarea>
+                    <textarea name="comment" #comment [(ngModel)]="addLogModalValue.comment" class="form-control" placeholder="Your comment goes here" id="comment" required [ngClass]="{'is-invalid':comment?.invalid && comment?.touched}"></textarea>
                 </div>
                 <div class="row m-0 pt-3">
                     <label for="">Log Type</label>
