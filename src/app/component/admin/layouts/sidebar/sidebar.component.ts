@@ -13,26 +13,13 @@ export class SidebarComponent implements OnInit {
 
   constructor(private _api:ApiService,private _activated:ActivatedRoute) { }
 
-  basePath : any = environment.basePath;
-  ticketStatus = '';
-  newButton = '';ongoingButton='';completedButton='';cancelledButton='';
   ngOnInit(): void {
-    this.ticketStatus = localStorage.getItem('buttonClick');
-    this.newButton = '';this.ongoingButton='';this.completedButton='';this.cancelledButton='';
-    if(this.ticketStatus == 'new'){
-      this.newButton = 'active';
-    }else if(this.ticketStatus == 'ongoing'){
-      this.ongoingButton = 'active';
-    }else if(this.ticketStatus == 'completed'){
-      this.completedButton = 'active';
-    }else if(this.ticketStatus == 'cancelled'){
-      this.cancelledButton = 'active';
-    }
-    console.log('new Ticket Status=>'+this.ticketStatus);
+    
   }
-
-  sidebarClick(action){
-    localStorage.setItem('buttonClick',action);
+  
+  currentTicketReportName = '';
+  ticketComponentClick(action){
+    this.currentTicketReportName = action;
   }
 
   

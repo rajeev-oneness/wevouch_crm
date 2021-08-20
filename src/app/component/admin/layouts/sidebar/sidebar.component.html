@@ -8,14 +8,10 @@
         </button> -->
         <ul class="menu">
             <li routerLinkActive="active"><a routerLink="support-executive/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
-            <li class="{{newButton}}"><a (click)="sidebarClick('new')" href="{{basePath}}/support-executive/ticket/list/new"><i class="fa fa-ticket" aria-hidden="true"></i>New Tickets</a></li>
-            <li class="{{ongoingButton}}"><a (click)="sidebarClick('ongoing')" href="{{basePath}}/support-executive/ticket/list/ongoing"><i class="fa fa-ticket" aria-hidden="true"></i>Ongoing Tickets</a></li>
-            <li class="{{completedButton}}"><a (click)="sidebarClick('completed')" href="{{basePath}}/support-executive/ticket/list/completed"><i class="fa fa-ticket" aria-hidden="true"></i>Completed Tickets</a></li>
-            <li class="{{cancelledButton}}"><a (click)="sidebarClick('cancelled')" href="{{basePath}}/support-executive/ticket/list/cancelled"><i class="fa fa-ticket" aria-hidden="true"></i>Cancelled Tickets</a></li>
-            <!-- <li routerLinkActive="active"><a routerLink="support-executive/ticket/list/new"><i class="fa fa-ticket" aria-hidden="true"></i>New Tickets</a></li>
-            <li routerLinkActive="active"><a routerLink="support-executive/ticket/list/ongoing"><i class="fa fa-ticket" aria-hidden="true"></i>Ongoing Tickets</a></li>
-            <li routerLinkActive="active"><a routerLink="support-executive/ticket/list/completed"><i class="fa fa-ticket" aria-hidden="true"></i>Completed Tickets</a></li>
-            <li routerLinkActive="active"><a routerLink="support-executive/ticket/list/cancelled"><i class="fa fa-ticket" aria-hidden="true"></i>Cancelled Tickets</a></li> -->
+            <li routerLinkActive="active" (click)="ticketComponentClick('new')"><a routerLink="support-executive/ticket/list/new"><i class="fa fa-ticket" aria-hidden="true"></i>New Tickets</a></li>
+            <li routerLinkActive="active" (click)="ticketComponentClick('ongoing')"><a routerLink="support-executive/ticket/list/ongoing"><i class="fa fa-ticket" aria-hidden="true"></i>Ongoing Tickets</a></li>
+            <li routerLinkActive="active" (click)="ticketComponentClick('completed')"><a routerLink="support-executive/ticket/list/completed"><i class="fa fa-ticket" aria-hidden="true"></i>Completed Tickets</a></li>
+            <li routerLinkActive="active" (click)="ticketComponentClick('cancelled')"><a routerLink="support-executive/ticket/list/cancelled"><i class="fa fa-ticket" aria-hidden="true"></i>Cancelled Tickets</a></li>
             <!-- <li routerLinkActive="active"><a routerLink="support-executive/ticket/log/list"><i class="fa fa-ticket" aria-hidden="true"></i>Ticket Logs</a></li> -->
             <li routerLinkActive="active"><a routerLink="support-executive/edit-profile"><i class="fas fa-life-ring" aria-hidden="true"></i>Edit Profile</a></li>
             <li routerLinkActive="active"><a href="javascript:void(0);" (click)="logoutAdmin()"><i class="fas fa-sign-out-alt ml-" aria-hidden="true"></i>Log Out</a></li>

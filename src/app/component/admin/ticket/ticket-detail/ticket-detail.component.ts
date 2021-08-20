@@ -66,8 +66,8 @@ export class TicketDetailComponent implements OnInit {
           this.getTicketDetails(this.ticketId);
           this.Toast.fire({
             icon: 'success',
-            title: 'Status updated successfully!'
-          })
+            title: 'Status updated successfully!',
+          });
         },
         err => {
           this.errorMessage2 = "Something went wrong";
@@ -98,6 +98,11 @@ export class TicketDetailComponent implements OnInit {
         this._loader.stopLoader('loader');
       },err => {} 
     )
+  }
+
+  LogType = 'Internal';
+  logTypeStore(selectTag){
+    this.LogType = selectTag.value;
   }
 
   createLog(formData) {
@@ -137,7 +142,12 @@ export class TicketDetailComponent implements OnInit {
           "description": "New Log Created"
         };
         this._api.sendNotificationToExecutive(executiveForm).subscribe(
-          res => {}
+          res => {
+            this.Toast.fire({
+              icon: 'success',
+              title: 'Notification sent successfully!',
+            });
+          }
         )
       }else if(this.LogType == 'Go To Customer'){
         const customerForm = {
@@ -146,18 +156,18 @@ export class TicketDetailComponent implements OnInit {
           "description" : "New Log Created"
         };
         this._api.sendNotificationToCustomer(customerForm).subscribe(
-          res => {}
+          res => {
+            this.Toast.fire({
+              icon: 'success',
+              title: 'Notification sent successfully!',
+            });
+          }
         )
       }
     }
     else{
       this.errorMessage = 'Please fill out all the details';
     }
-  }
-
-  LogType = 'Internal';
-  logTypeStore(selectTag){
-    this.LogType = selectTag.value;
   }
 
   deleteLog(ticketLogId) {
