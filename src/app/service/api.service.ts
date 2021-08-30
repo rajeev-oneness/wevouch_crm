@@ -115,4 +115,11 @@ export class ApiService {
     return this._http.patch<any>(_apiUrl + 'ticket/update-srn/'+ticketId, form);
   }
 
+  //notification 
+  notificationList() {
+    return this._http.get<any>(_apiUrl+'srvc-exec-notification/list');
+  }
+  notificationDelete(notificationId) {
+    return this._http.delete<any>(_apiUrl+'srvc-exec-notification/delete/'+notificationId);
+  }
 }
