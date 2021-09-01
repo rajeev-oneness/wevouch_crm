@@ -7,6 +7,7 @@ import { TicketDetailComponent } from "./component/admin/ticket/ticket-detail/ti
 import { LogListComponent } from "./component/admin/ticket/ticket-log/log-list/log-list.component";
 import { LogAddComponent } from "./component/admin/ticket/ticket-log/log-add/log-add.component";
 import { LogDetailComponent } from "./component/admin/ticket/ticket-log/log-detail/log-detail.component";
+import { NotificationListComponent } from "./component/admin/notification/notification-list/notification-list.component";
 import { SupportEditComponent } from "./component/admin/support/support-edit/support-edit.component";
 import { LoginComponent } from "./component/auth/login/login.component";
 import { RegistrationComponent } from "./component/auth/registration/registration.component";
@@ -32,6 +33,9 @@ const routes: Routes = [
         {path: 'add', component: LogAddComponent},
         {path: 'detail/:ticketLogId', component: LogDetailComponent},
       ]},
+    ]},
+    {path: 'notification', children: [
+      {path: 'list', component: NotificationListComponent},
     ]},
     {path: 'edit-profile', component: SupportEditComponent}
   ]},

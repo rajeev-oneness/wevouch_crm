@@ -44,7 +44,7 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Creation">Creation Date</label>
-                <input type="text" id="Creation" value="{{ticketDetail.createdAt | date:'d/M/y'}}" readonly>    
+                <input type="text" id="Creation" value="{{ticketDetail.createdAt | date:'dd MMM, yyyy'}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
@@ -84,6 +84,43 @@
                     </div> 
                 </div>
             </form>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="Ticket Id">Issue Type</label>
+                <input type="text" id="Ticket Id" value="{{ticketDetail.issueType}}" readonly>    
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="Product">Function Type</label>
+                <input type="text" id="Product" value="{{(ticketDetail.functionType) || 'N/A'}}" readonly>    
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="category">Pickup Date</label>
+                <input type="text" id="mobile" value="{{ticketDetail.selectedDate | date:'dd MMM, yyyy'}}" readonly>    
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="Brand">Pickup Time</label>
+                <input type="text" id="Brand" value="{{ticketDetail.selectedTime}}" readonly>    
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="Brand">Pickup Time</label>
+                <input type="text" id="Brand" value="{{ticketDetail.description}}" readonly>    
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="Brand">Pickup Address</label>
+                <!-- <input type="text" id="Brand" value="{{ticketDetail.description}}" readonly>     -->
+                {{ticketDetail.address.addressLine1}}, {{ticketDetail.address.addressLine2}}, {{ticketDetail.address.location}}, {{ticketDetail.address.city}}, {{ticketDetail.address.state}}, {{ticketDetail.address.country}}, pin - {{ticketDetail.address.pin}}
+            </div>
         </div>
 
     </div>
