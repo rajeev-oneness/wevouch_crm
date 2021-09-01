@@ -21,14 +21,14 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="category">Category</label>
-                <input type="text" id="mobile" value="{{ticketDetail.category?.name}}" readonly>    
+                <input type="text" id="mobile" value="{{ticketDetail?.category}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Brand">Brand</label>
                 <!-- <span *ngIf="ticketDetail.brand; else brandNotFound"> -->
-                    <input type="text" id="Brand" value="{{ticketDetail?.brand ? ticketDetail.brand?.name : 'N/A'}}" readonly>    
+                    <input type="text" id="Brand" value="{{ticketDetail?.brand ? ticketDetail?.brand : 'N/A'}}" readonly>    
                 <!-- </span>
                 <ng-template #brandNotFound>
                     <input type="text" id="Brand" value="N/A" readonly>
@@ -75,7 +75,7 @@
                     <label for="Status">SRN</label>
                     <div class="d-flex">
                         <div class="col-6">
-                            <input type="text" class="form-control" style="border: 1px solid #a5a5a5" name="srn" id="srnUpdate" #srn [ngModel]="ticketDetail?.srn" required>
+                            <input type="text" placeholder="SRN" class="form-control" style="border: 1px solid #a5a5a5" name="srn" id="srnUpdate" #srn [ngModel]="ticketDetail?.srn" required>
                         </div>
                         <div class="pl-2 col-6">
                             <button type="submit" class="actionbutton">Update</button>
