@@ -32,6 +32,7 @@ export class ApiService {
     localStorage.setItem('accessToken', 'accessToken1234567890adminWeVouch');
     localStorage.setItem('userInfo',JSON.stringify(data));
     window.location.href = environment.dasboardPath;
+    location.reload();
     // this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
   }
 
@@ -44,6 +45,7 @@ export class ApiService {
   logoutUser():void{
     localStorage.clear();
     window.location.href = environment.projectPath;
+    location.reload();
   }
 
   // Checking the Authentication for User
@@ -77,6 +79,7 @@ export class ApiService {
   updateTicketStatus(ticketId, formData) {
     return this._http.patch<any>(_apiUrl+'ticket/update-status/'+ticketId, formData);
   }
+
   //ticket-log
   ticketLogList() {
     return this._http.get<any>(_apiUrl+'ticket-log/list');
@@ -101,6 +104,16 @@ export class ApiService {
   }
   supExeUpdate(formData,supExeId) {
     return this._http.patch<any>(_apiUrl+'support-executive/update/'+supExeId,formData);
+  }
+  
+  changePassword(formData : any) {
+    return this._http.post<any>(_apiUrl+'support-executive/change-password', formData);
+    // return this._http.post<any>('https://boiling-dawn-74925.herokuapp.com/api/support-executive/change-password', formData);
+  }
+  
+  forgetPassword(formData : any) {
+    return this._http.post<any>(_apiUrl+'support-executive/forgot-password', formData);
+    // return this._http.post<any>('https://boiling-dawn-74925.herokuapp.com/api/support-executive/forgot-password', formData);
   }
 
   sendNotificationToExecutive(formData){

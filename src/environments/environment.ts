@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  basePath : '',
+  basePath : '/',
   dasboardPath: '/support-executive/dashboard',
   projectPath : '/login',
-  apiUrl : 'https://boiling-dawn-74925.herokuapp.com/api/',
+  apiUrl : 'http://3.138.109.91:5000/api/',
 };
 
 /*

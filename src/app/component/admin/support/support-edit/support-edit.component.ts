@@ -17,6 +17,7 @@ export class SupportEditComponent implements OnInit {
   public supExeId : any = 0;
   public supExeDetail: any = {};
   public errorMessage: any = '';
+  public passwordErrorMessage: any = '';
   public Toast = Swal.mixin({
     toast: true,
     position: 'top-end',
@@ -28,6 +29,7 @@ export class SupportEditComponent implements OnInit {
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
   });
+  public confirmPassword: any = '';
 
   ngOnInit(): void {
     this._loader.startLoader('loader');
@@ -74,6 +76,42 @@ export class SupportEditComponent implements OnInit {
       this.errorMessage = 'Please fill out all the details';
     }
     // console.log('Form Data SUbmitted');
+  }
+
+  changePassword(formData : any) {
+    this.passwordErrorMessage = '';
+    for( let i in formData.controls ){
+      formData.controls[i].markAsTouched();
+    }
+    if (formData?.valid) {
+      if (this.confirmPassword === formData.value.newPassword) {
+        if (formData.value.password === formData.value.newPassword) {
+          this.passwordErrorMessage = 'Old and new passwords cannot be same.';
+        } else {
+          this.passwordErrorMessage = '';
+          this._loader.startLoader('loader');
+          const toSendData = formData.value;
+          toSendData.email = this.supExeDetail.email;
+          this._api.changePassword(toSendData).subscribe(
+            res => {
+              this._loader.stopLoader('loader');
+              this.Toast.fire({
+                icon: 'success',
+                title: 'Password changed successfully!'
+              })
+            },
+            err => {
+              this.passwordErrorMessage = err.error.message;
+              this._loader.stopLoader('loader');
+            }
+          );
+        }
+      }else {
+        this.passwordErrorMessage = 'Password confirmation not matched';
+      }
+    } else {
+      this.passwordErrorMessage = 'New and Current Password are required';
+    }
   }
 
 }

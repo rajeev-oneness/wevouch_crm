@@ -80,10 +80,41 @@
                 </div>
             </div>
         </div>
+        
         <span class="text-danger">{{errorMessage}}</span>
         <div class="mt-3 mb-3 button-container d-flex justify-content-end">
-            <button class="actionbutton" type="reset">Cancel</button>
-            <button class="actionbutton" type="submit">Update</button>
+            <button class="actionbutton" type="submit">Update Profile</button>
+        </div>
+    </form>
+    <form class="addexecutives-form" #changePasswordForm="ngForm" (ngSubmit)="changePassword(changePasswordForm)">
+        <h5 class="text-blue">Change Password</h5>
+        <div class="row m-0 pt-3">
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="address">Current Password</label>
+                    <input class="form-control" type="password" name="password" #password="ngModel" ngModel required [ngClass]="{'is-invalid':password?.invalid && password?.touched}">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="landmark">New Password</label>
+                    <input class="form-control" type="password" name="newPassword" #newPassword="ngModel" ngModel pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required [ngClass]="{'is-invalid':newPassword?.invalid && newPassword?.touched}">
+                    
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group edit-box">
+                    <label for="pin">Confirm Password</label>
+                    <input class="form-control" type="password" #confirmPass="ngModel" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+        </div>
+        <small *ngIf="newPassword?.invalid && newPassword?.touched" [ngClass]="{'text-danger':newPassword?.invalid && newPassword?.touched}">
+            Must contain at least one number, one uppercase, lowercase letter, and at least 6 characters
+        </small>
+        <span class="text-danger">{{errorMessage}}</span>
+        <div class="mt-3 mb-3 button-container d-flex justify-content-end">
+            <button class="actionbutton" type="submit">Change Password</button>
         </div>
     </form>
 </div>
