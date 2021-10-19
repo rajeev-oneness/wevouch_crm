@@ -23,14 +23,14 @@
                 <tr *ngFor="let ticket of tickets; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{ticket.uniqueId}}</td>
-                    <td>{{ticket.users.name}}</td>
-                    <td><img src="{{(ticket.products && ticket.products.productImagesUrl) || ''}}" alt="Product Img"></td>
+                    <td>{{ticket.users?.name}}</td>
+                    <td><img src="{{(ticket.products && ticket.products.productImagesUrl[0]) || ''}}" alt="Product Img"></td>
                     <td>
                         <span *ngIf="ticket.brand; else brandNotFound">{{ticket?.brand}}</span>
                         <ng-template #brandNotFound>N/A</ng-template>
                     </td>
                     <td>{{ticket.category}}</td>
-                    <td>{{ticket.createdAt | date}}</td>
+                    <td>{{ticket.createdAt | date:'MMM d, y, h:mm:ss a'}}</td>
                     <td class="text-center"><span class="badge badge-success">{{ticket.status}}</span></td>
                     <!-- <td><a routerLink="/support-executive/ticket/log/list/{{ticket._id}}"><i class="fas fa-history"></i> Logs</a></td> -->
                     <td class="text-center">

@@ -45,7 +45,7 @@ export class ApiService {
   logoutUser():void{
     localStorage.clear();
     window.location.href = environment.projectPath;
-    // location.reload();
+    location.reload();
   }
 
   // Checking the Authentication for User
