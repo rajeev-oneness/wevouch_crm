@@ -99,14 +99,14 @@
         </div>
         <div class="col-lg-3">
             <div class="form-group">
-                <label for="category">Pickup Date</label>
+                <label for="category">Date</label>
                 <input type="text" id="mobile" value="{{ticketDetail.selectedDate | date:'dd MMM, yyyy'}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
-                <label for="Brand">Pickup Time</label>
-                <input type="text" id="Brand" value="{{ticketDetail.selectedTime}}" readonly>    
+                <label for="Brand">Time</label>
+                {{ticketDetail.selectedTime | date: "h:mm:ss a"}}
             </div>
         </div>
         <div class="col-lg-12">

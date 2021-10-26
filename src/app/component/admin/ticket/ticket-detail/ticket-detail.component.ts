@@ -68,6 +68,18 @@ export class TicketDetailComponent implements OnInit {
             icon: 'success',
             title: 'Status updated successfully!',
           });
+          const customerForm = {
+            "title" : "Ticket Status Update",
+            "userId": this.ticketDetail?.users?._id,
+            "description" : "Dear "+this.ticketDetail?.users?.name+", we have marked your ticket no. "+this.ticketDetail?.uniqueId+" as "+formData.value.status+"."
+          };
+          this._api.sendNotificationToCustomer(customerForm).subscribe();
+          if (formData.value.status === "ongoing") {
+            const logForm: any = [];
+            logForm.value = {comment: 'Wevouch got in touch with '+this.ticketDetail?.products?.brands+' Service team', logType: 'Go To Customer'};
+            this.createLog(logForm);
+            console.log(logForm);
+          }
         },
         err => {
           this.errorMessage2 = "Something went wrong";
@@ -107,10 +119,10 @@ export class TicketDetailComponent implements OnInit {
 
   createLog(formData) {
     this.errorMessage = '';
-    for( let i in formData.controls ){
-      formData.controls[i].markAsTouched();
-    }
-    if( formData?.valid ){
+    // for( let i in formData.controls ){
+    //   formData.controls[i].markAsTouched();
+    // }
+    // if( formData?.valid ){
       const mainForm = formData.value;
       mainForm.ticketId = this.ticketId;
       mainForm.executiveId = this.userInfo._id;
@@ -164,11 +176,14 @@ export class TicketDetailComponent implements OnInit {
           }
         )
       }
-    }
-    else{
-      this.errorMessage = 'Please fill out all the details';
-    }
+    // }
+    // else{
+    //   this.errorMessage = 'Please fill out all the details';
+    // }
   }
+  // createLog(formData) {
+  //   console.log(formData.value);
+  // }
 
   deleteLog(ticketLogId) {
     Swal.fire({
@@ -222,7 +237,10 @@ export class TicketDetailComponent implements OnInit {
           this.Toast.fire({
             icon: 'success',
             title: 'SRN updated successfully!'
-          })
+          });
+          const logForm: any = [];
+          logForm.value = {comment: 'Service Request No. (SRN) #'+form.value.srn, logType: 'Go To Customer'};
+          this.createLog(logForm);
         },
         err => {
           this._loader.stopLoader('loader');
