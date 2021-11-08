@@ -239,7 +239,7 @@ export class TicketDetailComponent implements OnInit {
             title: 'SRN updated successfully!'
           });
           const logForm: any = [];
-          logForm.value = {comment: 'Service Request No. (SRN) #'+form.value.srn, logType: 'Go To Customer'};
+          logForm.value = {title: 'SRN Generated',comment: 'The SRN for your product '+this.ticketDetail?.products?.name+' is '+form.value.srn, logType: 'Go To Customer'};
           this.createLog(logForm);
         },
         err => {
