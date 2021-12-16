@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { ApiService } from './api.service';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuardService {
+  constructor(private _api: ApiService, private _router: Router) {}
 
-  constructor(private _api:ApiService,private _router:Router) { }
-
-  canActivate():boolean{
+  canActivate(): boolean {
     let token = this._api.isAuthenticated();
-    if(token){
+    // console.log('userToken', token);
+
+    if (token) {
       return true;
-    }else{
+    } else {
       this._router.navigate(['/login']);
+      // location.reload();
       return false;
     }
   }

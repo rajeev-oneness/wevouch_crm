@@ -20,6 +20,7 @@ export class TicketDetailComponent implements OnInit {
   public ticketDetail: any = {};
   public supExeDetail: any = JSON.parse(localStorage.getItem('userInfo'))
   public errorMessage2: any = '';
+  public selectedImg: string = '';
 
   public Toast = Swal.mixin({
     toast: true,
@@ -165,7 +166,7 @@ export class TicketDetailComponent implements OnInit {
         const customerForm = {
           "title" : "Log Created",
           "userId": this.ticketDetail?.users?._id,
-          "description" : "New Log Created"
+          "description" : "New Log added to the ticket assigned with product "+this.ticketDetail?.products?.name
         };
         this._api.sendNotificationToCustomer(customerForm).subscribe(
           res => {
@@ -225,6 +226,11 @@ export class TicketDetailComponent implements OnInit {
     this.addLogModalValue.comment = '';
   }
 
+  /**************img modal open ********/
+  selectImg(imgUrl: any) {
+    this.selectedImg = imgUrl;
+  }
+
   /*********************** SRN Update Work ********************/
   public srnError = '';
   updateSRN(form){
@@ -239,8 +245,21 @@ export class TicketDetailComponent implements OnInit {
             title: 'SRN updated successfully!'
           });
           const logForm: any = [];
-          logForm.value = {title: 'SRN Generated',comment: 'The SRN for your product '+this.ticketDetail?.products?.name+' is '+form.value.srn, logType: 'Go To Customer'};
+          logForm.value = {title: 'SRN Generated',comment: 'We have successfully registered SRN no. '+form.value.srn+' with '+this.ticketDetail?.products?.brands+' for your product '+this.ticketDetail?.products?.name, logType: 'Go To Customer'};
           this.createLog(logForm);
+          const customerForm = {
+            "title" : "SRN Generated",
+            "userId": this.ticketDetail?.users?._id,
+            "description" : 'Please keep your invoice copy & warranty card handy for a hassle free service experience'
+          };
+          this._api.sendNotificationToCustomer(customerForm).subscribe(
+            res => {
+              this.Toast.fire({
+                icon: 'success',
+                title: 'Notification sent successfully!',
+              });
+            }
+          )
         },
         err => {
           this._loader.stopLoader('loader');

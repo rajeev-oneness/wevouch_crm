@@ -26,18 +26,18 @@ const routes: Routes = [
   {path: 'support-executive', canActivate:[AuthGuardService], children:[
     {path : 'dashboard', component : DashboardComponent},
     {path: 'ticket', children: [
-      {path: 'list/:ticketStatus', component: TicketListComponent},
-      {path: 'detail/:ticketId', component: TicketDetailComponent},
-      {path: 'log', children: [
+      {path: 'list/:ticketStatus', canActivate:[AuthGuardService], component: TicketListComponent},
+      {path: 'detail/:ticketId', canActivate:[AuthGuardService], component: TicketDetailComponent},
+      {path: 'log', canActivate:[AuthGuardService], children: [
         {path: 'list/:ticketId', component: LogListComponent},
         {path: 'add', component: LogAddComponent},
         {path: 'detail/:ticketLogId', component: LogDetailComponent},
       ]},
     ]},
     {path: 'notification', children: [
-      {path: 'list', component: NotificationListComponent},
+      {path: 'list', canActivate:[AuthGuardService], component: NotificationListComponent},
     ]},
-    {path: 'edit-profile', component: SupportEditComponent}
+    {path: 'edit-profile', canActivate:[AuthGuardService], component: SupportEditComponent}
   ]},
   {path : '**', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
 ];

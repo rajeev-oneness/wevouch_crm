@@ -28,8 +28,10 @@ export class ApiService {
   // Storing the User Info Locally
   storeUserLocally(data){
     let routeIntended = localStorage.getItem('routeIntended');
+    const dateTime = Date.now(); 
     localStorage.clear();
-    localStorage.setItem('accessToken', 'accessToken1234567890adminWeVouch');
+    // localStorage.setItem('accessToken', 'accessToken1234567890adminWeVouch');
+    localStorage.setItem('lastLoginTime', JSON.stringify(dateTime));
     localStorage.setItem('userInfo',JSON.stringify(data));
     window.location.href = environment.dasboardPath;
     // location.reload();
@@ -50,7 +52,16 @@ export class ApiService {
 
   // Checking the Authentication for User
   isAuthenticated(){
-    return !!localStorage.getItem('accessToken');
+    const start = JSON.parse(localStorage.getItem('lastLoginTime') || '{}');
+    const interval = Date.now() - start;
+    const loginSession = Math.floor(interval / 1000);
+    if (loginSession <= 7200 && localStorage.getItem('userInfo')) {
+      return true;
+    } else {
+      return false;
+    }
+    
+    // return !!localStorage.getItem('userInfo');
   }
 
   getUserDetailsFromStorage(){

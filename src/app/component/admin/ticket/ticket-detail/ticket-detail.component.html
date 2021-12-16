@@ -119,11 +119,29 @@
             <div class="form-group">
                 <label for="Brand">{{ticketDetail.transportationType}} Address</label>
                 <!-- <input type="text" id="Brand" value="{{ticketDetail.description}}" readonly>     -->
-                {{ticketDetail.address.addressLine1}}, {{ticketDetail.address.addressLine2}}, {{ticketDetail.address.location}}, {{ticketDetail.address.city}}, {{ticketDetail.address.state}}, {{ticketDetail.address.country}}, pin - {{ticketDetail.address.pin}}
+                {{ticketDetail?.address?.addressLine1}}, {{ticketDetail?.address?.addressLine2}}, {{ticketDetail?.address?.location}}, {{ticketDetail?.address?.city}}, {{ticketDetail?.address?.state}}, {{ticketDetail?.address?.country}}, pin - {{ticketDetail?.address?.pin}}
             </div>
         </div>
 
     </div>
+    <span *ngIf="ticketDetail?.products?.productImagesUrl?.length">
+        <h5 class="text-blue">Product Images</h5>
+        <div class="row m-0 details-page">
+            <div class="col-lg-3" *ngFor="let item of ticketDetail.products.productImagesUrl; let i=index">
+                <div class="form-group" data-toggle="modal" data-target="#exampleModal" (click)="selectImg(item)">
+                    <img [src]="item" alt="Product Image" width="200" height="200">
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <img [src]="selectedImg" alt="Product Image">
+                </div>
+            </div>
+        </div>
+    </span>
     <h5 class="text-blue">Customer Details</h5>
     <div class="row m-0 details-page">
         <div class="col-lg-3">
