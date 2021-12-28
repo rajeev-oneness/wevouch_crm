@@ -288,4 +288,6 @@ export class TicketDetailComponent implements OnInit {
       this.srnError = 'Please fill out all the details';
     }
   }
+
+  stars: number[] = [1, 2, 3, 4, 5];
 }

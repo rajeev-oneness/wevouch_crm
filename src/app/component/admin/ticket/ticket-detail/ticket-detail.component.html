@@ -190,6 +190,27 @@
             </div>
         </div>
     </div>
+    <div *ngIf="ticketDetail?.rating && ticketDetail?.description">
+        <h5 class="text-blue">User Feedback</h5>
+        <div class="row m-0 details-page">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label for="Name">Rating</label>
+                    <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block" >
+                        <li [ngClass]="{'selected': (star <= ticketDetail?.rating)}">
+                            <i class="fa fa-star fs"></i>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label for="Email">Description</label>
+                    {{ticketDetail?.feedback}}    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="py-3 pr-4 text-right">
@@ -216,7 +237,7 @@
                     <td>{{log?.logType}}</td>
                     <td>{{(log?.userApproval === true)? 'Needed' : 'Not needed'}}</td>
                     <td>
-                        {{((log?.userApproval === true) && (log?.approved === true))? 'Approved' : 'N/A'}}
+                        {{((log?.userApproval === true) && (log?.approved === true))? 'Approved' : ''}}
                         {{((log?.userApproval === true) && (log?.approved === false))? 'Not approved' : ''}}
                     </td>
                     <td>{{log.createdAt | date:'dd MMM, yyyy'}}</td>
