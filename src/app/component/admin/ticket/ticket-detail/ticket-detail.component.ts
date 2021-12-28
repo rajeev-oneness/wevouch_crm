@@ -114,8 +114,14 @@ export class TicketDetailComponent implements OnInit {
   }
 
   LogType = 'Internal';
-  logTypeStore(selectTag){
+  logTypeStore(selectTag: any){
     this.LogType = selectTag.value;
+  }
+  userApprovalType : boolean = false;
+  userApprovalSTore(approvalType: any){
+    this.userApprovalType = approvalType.value;
+    console.log(this.userApprovalType);
+    
   }
 
   createLog(formData) {
@@ -124,7 +130,8 @@ export class TicketDetailComponent implements OnInit {
     //   formData.controls[i].markAsTouched();
     // }
     // if( formData?.valid ){
-      const mainForm = formData.value;
+      let mainForm = formData.value;
+      mainForm.userApproval = (mainForm.userApproval === 'true')? true : false;
       mainForm.ticketId = this.ticketId;
       mainForm.executiveId = this.userInfo._id;
       this._loader.startLoader('loader');
@@ -183,6 +190,8 @@ export class TicketDetailComponent implements OnInit {
     // }
   }
   // createLog(formData) {
+  //   let mainForm = formData.value;
+  //   mainForm.userApproval = (mainForm.userApproval === 'true')? true : false;
   //   console.log(formData.value);
   // }
 
@@ -245,7 +254,13 @@ export class TicketDetailComponent implements OnInit {
             title: 'SRN updated successfully!'
           });
           const logForm: any = [];
-          logForm.value = {title: 'SRN Generated',comment: 'We have successfully registered SRN no. '+form.value.srn+' with '+this.ticketDetail?.products?.brands+' for your product '+this.ticketDetail?.products?.name, logType: 'Go To Customer'};
+          logForm.value = {
+            title: 'SRN Generated',
+            comment: 'We have successfully registered SRN no. '+form.value.srn+' with '+this.ticketDetail?.products?.brands+' for your product '+this.ticketDetail?.products?.name, 
+            logType: 'Go To Customer',
+            userApproval: 'true',
+            approvalQuestion: 'Do you recieve SRN?'
+          };
           this.createLog(logForm);
           const customerForm = {
             "title" : "SRN Generated",

@@ -106,7 +106,7 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Brand">Time</label>
-                {{ticketDetail.selectedTime | date: "h:mm:ss a"}}
+                {{ticketDetail.selectedTime}}
             </div>
         </div>
         <div class="col-lg-12">
@@ -193,7 +193,7 @@
 </div>
 
 <div class="py-3 pr-4 text-right">
-    <button class="actionbutton" (click)="addLogOpenModalData()" data-toggle="modal" data-target="#exampleModal">Add Log</button>
+    <button class="actionbutton" (click)="addLogOpenModalData()" data-toggle="modal" data-target="#exampleModal2">Add Log</button>
 </div>
 <div class="dashboard-body-content pt-0">    
     <div class="table-responsive ticket-table">
@@ -203,6 +203,8 @@
                     <th>Serial No</th>
                     <th>Comment</th>
                     <th>Log Type</th>
+                    <th>User Approval</th>
+                    <th>Approved</th>
                     <th>Created At</th>
                     <th style="width:80px" class="text-center">Action</th>
                 </tr>
@@ -212,6 +214,11 @@
                     <td>{{i+1}}</td>
                     <td>{{log.comment}}</td>
                     <td>{{log?.logType}}</td>
+                    <td>{{(log?.userApproval === true)? 'Needed' : 'Not needed'}}</td>
+                    <td>
+                        {{((log?.userApproval === true) && (log?.approved === true))? 'Approved' : 'N/A'}}
+                        {{((log?.userApproval === true) && (log?.approved === false))? 'Not approved' : ''}}
+                    </td>
                     <td>{{log.createdAt | date:'dd MMM, yyyy'}}</td>
                     <td>
                         <a href="javascript:void(0);" class="ml-2" (click)="deleteLog(log._id)"><i class="far fa-trash-alt text-danger"></i></a>
@@ -222,11 +229,11 @@
     </div>
 </div>
 
-<div class="delete-modal modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="delete-modal modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-edit"></i> Add Log</h5>
+          <h5 class="modal-title" id="exampleModal2Label"><i class="fas fa-edit"></i> Add Log</h5>
           <button type="button" #modalCloseButton class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -238,11 +245,23 @@
                 </div>
                 <div class="row m-0 pt-3">
                     <label for="">Log Type</label>
-                    <select #log_type name="logType" [ngModel]="'Internal'" id="" class="form-control" (change)="logTypeStore(log_type)">
+                    <select #log_type name="logType" [ngModel]="LogType" id="" class="form-control" (change)="logTypeStore(log_type)">
                         <option value="Internal">Internal</option>
                         <option value="Go To Customer">Go To Customer</option>
                     </select>
                 </div>
+                <div class="row m-0 pt-3" *ngIf="LogType === 'Go To Customer'">
+                    <label for="">User approval</label>
+                    <select #approval_type name="userApproval" [ngModel]="userApprovalType" id="" class="form-control" (change)="userApprovalSTore(approval_type)">
+                        <option value="false">Not needed</option>
+                        <option value="true">Needed</option>
+                    </select>
+                </div>
+                <div class="row m-0 pt-3" *ngIf="userApprovalType">
+                    <label for="">Approval question</label>
+                    <textarea name="approvalQuestion" #approvalQuestion ngModel class="form-control" placeholder="Your approval question goes here" id="approvalQuestion" required [ngClass]="{'is-invalid':approvalQuestion?.invalid && approvalQuestion?.touched}"></textarea>
+                </div>
+
                 <span class="text-danger">{{errorMessage}}</span>
                 <div class="row m-0 pt-3">
                     <button type="submit" class="btn delete-button">Add Log</button>

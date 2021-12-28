@@ -34,7 +34,7 @@ export class ApiService {
     localStorage.setItem('lastLoginTime', JSON.stringify(dateTime));
     localStorage.setItem('userInfo',JSON.stringify(data));
     window.location.href = environment.dasboardPath;
-    // location.reload();
+    location.reload();
     // this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
   }
 
