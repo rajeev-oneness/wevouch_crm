@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   basePath : '/',
-  dasboardPath: '/support-executive/dashboard',
-  projectPath : '/login',
+  dasboardPath: '/#/support-executive/dashboard',
+  projectPath : '/#/login',
   apiUrl : 'http://3.138.109.91:5000/api/',
 };
 

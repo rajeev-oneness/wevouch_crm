@@ -104,6 +104,12 @@ export class ApiService {
   ticketLogAdd(formData) {
     return this._http.post<any>(_apiUrl+'ticket-log/add', formData);
   }
+  ticketLogUpdateComment(ticketLogId, formData) {
+    return this._http.patch<any>(_apiUrl+'ticket-log/update-comment/'+ticketLogId, formData);
+  }
+  ticketLogActive(ticketLogId, formData) {
+    return this._http.patch<any>(_apiUrl+'ticket-log/activate-log/'+ticketLogId, formData);
+  }
   ticketLogDelete(ticketLogId) {
     return this._http.delete<any>(_apiUrl+'ticket-log/delete/'+ticketLogId);
   }

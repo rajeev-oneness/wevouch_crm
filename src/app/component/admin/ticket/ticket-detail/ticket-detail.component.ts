@@ -95,6 +95,7 @@ export class TicketDetailComponent implements OnInit {
   /*********************** Ticket Logs ****************************/
   
   public ticketLogs :any = [];
+  public srnLog :any = {};
   public errorMessage :any = '';
   public userInfo : any = JSON.parse(localStorage.getItem('userInfo'));
   @ViewChild('modalCloseButton') closeButton : ElementRef;
@@ -108,6 +109,9 @@ export class TicketDetailComponent implements OnInit {
           setTimeout(function(){ $('.table').DataTable(); }, 700);
         });
         this.ticketLogs = res;
+        this.srnLog = res.filter( (e:any) => e.comment.split(".").includes("Service request No"));
+        // console.log(this.srnLog[0]._id);
+        
         this._loader.stopLoader('loader');
       },err => {} 
     )
@@ -253,15 +257,18 @@ export class TicketDetailComponent implements OnInit {
             icon: 'success',
             title: 'SRN updated successfully!'
           });
-          const logForm: any = [];
-          logForm.value = {
-            title: 'SRN Generated',
-            comment: 'We have successfully registered SRN no. '+form.value.srn+' with '+this.ticketDetail?.products?.brands+' for your product '+this.ticketDetail?.products?.name, 
-            logType: 'Go To Customer',
-            userApproval: 'true',
-            approvalQuestion: 'Do you recieve SRN?'
-          };
-          this.createLog(logForm);
+          const comment = 'Service request No.[SRN] '+form.value.srn;
+          this._api.ticketLogUpdateComment(this.srnLog[0]._id, {comment}).subscribe(
+            res => {
+              console.log(res);
+              this._api.ticketLogActive(this.srnLog[0]._id, {activeLog: true}).subscribe();
+              this.getTicketLogList();
+            }, err => {
+              console.log(err);
+              
+            }
+          )
+          
           const customerForm = {
             "title" : "SRN Generated",
             "userId": this.ticketDetail?.users?._id,
@@ -290,4 +297,24 @@ export class TicketDetailComponent implements OnInit {
   }
 
   stars: number[] = [1, 2, 3, 4, 5];
+
+  activeLog(logId, activeLog) {
+    console.log(logId, activeLog);
+    
+    this._api.ticketLogActive(logId, {activeLog}).subscribe(
+      res => {
+        console.log(res);
+        this.Toast.fire({
+          icon: 'success',
+          title: 'Log active status changed',
+        })
+      }, err => {
+        console.log(err);
+        this.Toast.fire({
+          icon: 'error',
+          title: 'Failed',
+        })
+      }
+    );
+  }
 }

@@ -216,7 +216,7 @@
 <div class="py-3 pr-4 text-right">
     <button class="actionbutton" (click)="addLogOpenModalData()" data-toggle="modal" data-target="#exampleModal2">Add Log</button>
 </div>
-<div class="dashboard-body-content pt-0">    
+<div class="dashboard-body-content">    
     <div class="table-responsive ticket-table">
         <table class="table table-sm table-hover brand-table">
             <thead>
@@ -224,6 +224,7 @@
                     <th>Serial No</th>
                     <th>Comment</th>
                     <th>Log Type</th>
+                    <th>Log Active</th>
                     <th>User Approval</th>
                     <th>Approved</th>
                     <th>Created At</th>
@@ -235,6 +236,7 @@
                     <td>{{i+1}}</td>
                     <td>{{log.comment}}</td>
                     <td>{{log?.logType}}</td>
+                    <td (click)="activeLog(log._id, (log.activeLog = !log?.activeLog))" style="cursor: pointer;">{{log?.activeLog? 'Activate' : 'Inactive'}}</td>
                     <td>{{(log?.userApproval === true)? 'Needed' : 'Not needed'}}</td>
                     <td>
                         {{((log?.userApproval === true) && (log?.approved === true))? 'Approved' : ''}}
