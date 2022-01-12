@@ -47,6 +47,7 @@ export class TicketDetailComponent implements OnInit {
         this.ticketDetail = res;
         // Getting Log against the Ticket
         this.getTicketLogList();
+        this.getTicketIssueList();
         this._loader.stopLoader('loader');
       }, err => {}
     )
@@ -95,6 +96,7 @@ export class TicketDetailComponent implements OnInit {
   /*********************** Ticket Logs ****************************/
   
   public ticketLogs :any = [];
+  public ticketIssues :any = [];
   public srnLog :any = {};
   public errorMessage :any = '';
   public userInfo : any = JSON.parse(localStorage.getItem('userInfo'));
@@ -112,6 +114,23 @@ export class TicketDetailComponent implements OnInit {
         this.srnLog = res.filter( (e:any) => e.comment.split(".").includes("Service request No"));
         // console.log(this.srnLog[0]._id);
         
+        this._loader.stopLoader('loader');
+      },err => {} 
+    )
+  }
+  
+  getTicketIssueList() {
+    this._loader.startLoader('loader');
+    this._api.ticketIssueList(this.ticketId).subscribe(
+      res => {
+        // console.log(res);
+        $(document).ready(function() {
+          setTimeout(function(){ $('.table').DataTable(); }, 700);
+        });
+        if (res.error === false) {
+          this.ticketIssues = res.data;
+        }
+        console.log('issues', res);        
         this._loader.stopLoader('loader');
       },err => {} 
     )
@@ -261,8 +280,12 @@ export class TicketDetailComponent implements OnInit {
           this._api.ticketLogUpdateComment(this.srnLog[0]._id, {comment}).subscribe(
             res => {
               console.log(res);
-              this._api.ticketLogActive(this.srnLog[0]._id, {activeLog: true}).subscribe();
-              this.getTicketLogList();
+              this._api.ticketLogActive(this.srnLog[0]._id, {activeLog: true}).subscribe(
+                res => {
+                  console.log(res);
+                  this.getTicketLogList();
+                }
+              );
             }, err => {
               console.log(err);
               

@@ -114,6 +114,17 @@ export class ApiService {
     return this._http.delete<any>(_apiUrl+'ticket-log/delete/'+ticketLogId);
   }
 
+  //ticket-issue
+  ticketIssueList(ticketId: any) {
+    return this._http.get<any>(_apiUrl + 'ticket-issue/list/' + ticketId);
+  }
+  ticketIssueResolve(ticketId: any, formData: any) {
+    return this._http.patch<any>(_apiUrl+'ticket-issue/toggle-resolve/' + ticketId, formData);
+  }
+  ticketIssueDelete(ticketId: any) {
+    return this._http.delete<any>(_apiUrl+'ticket-issue/delete/' + ticketId);
+  }
+
 
   //support executive api
   supExeDetail(supExeId) {
