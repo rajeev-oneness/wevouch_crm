@@ -113,13 +113,16 @@ export class ApiService {
   ticketLogDelete(ticketLogId) {
     return this._http.delete<any>(_apiUrl+'ticket-log/delete/'+ticketLogId);
   }
+  ticketLogUserApproval(ticketLogId, formData) {
+    return this._http.patch<any>(_apiUrl+'ticket-log/user-approval/'+ticketLogId, formData);
+  }
 
   //ticket-issue
   ticketIssueList(ticketId: any) {
     return this._http.get<any>(_apiUrl + 'ticket-issue/list/' + ticketId);
   }
-  ticketIssueResolve(ticketId: any, formData: any) {
-    return this._http.patch<any>(_apiUrl+'ticket-issue/toggle-resolve/' + ticketId, formData);
+  ticketIssueResolve(issuId: any, formData: any) {
+    return this._http.patch<any>(_apiUrl+'ticket-issue/toggle-resolve/' + issuId, formData);
   }
   ticketIssueDelete(ticketId: any) {
     return this._http.delete<any>(_apiUrl+'ticket-issue/delete/' + ticketId);

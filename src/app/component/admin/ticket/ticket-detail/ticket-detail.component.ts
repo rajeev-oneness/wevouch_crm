@@ -106,7 +106,7 @@ export class TicketDetailComponent implements OnInit {
     this._loader.startLoader('loader');
     this._api.ticketLogListByTicket(this.ticketId).subscribe(
       res => {
-        // console.log(res);
+        console.log('logs',res);
         $(document).ready(function() {
           setTimeout(function(){ $('.table').DataTable(); }, 700);
         });
@@ -339,5 +339,51 @@ export class TicketDetailComponent implements OnInit {
         })
       }
     );
+  }
+  
+  changeUserApproval(logId) {
+    console.log(logId);
+    
+    this._api.ticketLogUserApproval(logId, {approved: undefined}).subscribe(
+      res => {
+        console.log(res);
+        this.Toast.fire({
+          icon: 'success',
+          title: 'Approval status changed',
+        })
+        this.getTicketLogList()
+      }, err => {
+        console.log(err);
+        this.Toast.fire({
+          icon: 'error',
+          title: 'Failed',
+        })
+      }
+    );
+  }
+
+  resolveTicketIssue( issueId, resolved ) {
+    console.log(issueId, resolved);
+    this._loader.startLoader('loader');
+    this._api.ticketIssueResolve(issueId, {resolved}).subscribe(
+      res => {
+        if (res.error === false) {
+          this.Toast.fire({
+            icon: 'success',
+            title: res.message || 'Issue resolved',
+          })
+          this.getTicketIssueList();
+        }
+        this._loader.stopLoader('loader');
+
+      }, err => {
+        this.Toast.fire({
+          icon: 'success',
+          title: 'Something went wrong',
+        })
+        this._loader.stopLoader('loader');
+
+      }
+    )
   }
 }

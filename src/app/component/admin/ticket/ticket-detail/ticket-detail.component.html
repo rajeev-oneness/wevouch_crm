@@ -243,7 +243,7 @@
                     <td>{{log?.logType}}</td>
                     <td (click)="activeLog(log._id, (log.activeLog = !log?.activeLog))" style="cursor: pointer;">{{log?.activeLog? 'Activate' : 'Inactive'}}</td>
                     <td>{{(log?.userApproval === true)? 'Needed' : 'Not needed'}}</td>
-                    <td>
+                    <td (click)="changeUserApproval(log._id)" style="cursor: pointer;">
                         {{((log?.userApproval === true) && (log?.approved === true))? 'Approved' : ''}}
                         {{((log?.userApproval === true) && (log?.approved === false))? 'Not approved' : ''}}
                     </td>
@@ -321,7 +321,7 @@
                 <tr *ngFor="let issue of ticketIssues; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{issue?.comment}}</td>
-                    <td>{{issue?.resolved}}</td>
+                    <td (click)="resolveTicketIssue(issue._id, !issue.resolved)" style="cursor: pointer;">{{issue?.resolved}}</td>
                     <td>{{issue?.createdAt | date:'dd MMM, yyyy'}}</td>
                     <td>
                         <a href="javascript:void(0);" class="ml-2"><i class="far fa-trash-alt text-danger"></i></a>
