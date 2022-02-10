@@ -3,5 +3,5 @@ export const environment = {
   basePath : '/crm/#/',
   dasboardPath: '/crm/#/support-executive/dashboard',
   projectPath : '/crm/#/login',
-  apiUrl : 'http://3.138.109.91:5000/api/',
+  apiUrl : 'http://13.58.153.8:5000/api/',
 };

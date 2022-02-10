@@ -7,7 +7,7 @@ export const environment = {
   basePath : '/',
   dasboardPath: '/#/support-executive/dashboard',
   projectPath : '/#/login',
-  apiUrl : 'http://3.138.109.91:5000/api/',
+  apiUrl : 'http://13.58.153.8:5000/api/',
 };
 
 /*
