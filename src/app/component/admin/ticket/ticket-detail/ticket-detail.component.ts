@@ -362,8 +362,24 @@ export class TicketDetailComponent implements OnInit {
     );
   }
 
-  resolveTicketIssue( issueId, resolved ) {
-    console.log(issueId, resolved);
+  ticketIssueComments: any = []
+
+  getComments(issueId: any) {
+    this._api.ticketIssueResolveCommentGet(issueId).subscribe(
+      res => {
+        console.log(res);
+        
+        if (res.error === false) {
+          this.ticketIssueComments = res.data
+        }
+      }
+    )
+  }
+
+  resolveComment : string = '';
+
+  resolveTicketIssue( issueId: any, resolved: any = true ) {
+    console.log(issueId, resolved, {ticketIssue: issueId, comment: this.resolveComment});
     this._loader.startLoader('loader');
     this._api.ticketIssueResolve(issueId, {resolved}).subscribe(
       res => {
@@ -378,12 +394,35 @@ export class TicketDetailComponent implements OnInit {
 
       }, err => {
         this.Toast.fire({
-          icon: 'success',
+          icon: 'error',
           title: 'Something went wrong',
         })
         this._loader.stopLoader('loader');
 
       }
     )
+
+    this._api.ticketIssueResolveCommentAdd({ticketIssue: issueId, comment: this.resolveComment}).subscribe(
+      res => {
+        if (res.error === false) {
+          this.Toast.fire({
+            icon: 'success',
+            title: res.message || 'Comment Added',
+          })
+          this.getTicketIssueList();
+        }
+        this._loader.stopLoader('loader');
+
+      }, err => {
+        this.Toast.fire({
+          icon: 'error',
+          title: 'Something went wrong',
+        })
+        this._loader.stopLoader('loader');
+
+      }
+    )
+
+    this.closeButton.nativeElement.click();
   }
 }

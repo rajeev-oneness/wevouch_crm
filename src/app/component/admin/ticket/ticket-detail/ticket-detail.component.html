@@ -1,9 +1,68 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
+
+<!-- issue section starts -->
+<div class="dashboard-body-content" style="background-color: #ffdcdf!important">
+    <div class="d-flex justify-content-between align-items-center">
+        <h5>Ticket Issues</h5>
+    </div>  
+    <div class="table-responsive ticket-table">
+        <table class="table table-sm table-hover brand-table">
+            <thead>
+                <tr>
+                    <th>Serial No</th>
+                    <th>Comment</th>
+                    <th>Resolved</th>
+                    <th>Created At</th>
+                    <th style="width:80px" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let issue of ticketIssues; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{issue?.comment}}</td>
+                    
+                    <td style="cursor: pointer;"><button (click)="getComments(issue._id)" class="btn btn-sm" [ngClass]="{'btn-danger' : !issue.resolved, 'btn-info' : issue.resolved}" data-toggle="modal" data-target="#exampleModal">{{issue.resolved ? 'Resolved': 'Not Resolved'}}</button></td>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" #modalCloseButton tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Resolve Issue</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <div *ngFor="let item of ticketIssueComments" class="bg-info p-2 mb-2" style="border-radius: 5px;">
+                                    <span>{{item.comment}}</span>
+                                </div>
+                                <Label>Resolve Comment</Label>
+                                <textarea name="resolvecomment" #resolvecomment [(ngModel)]="resolveComment" id="resolveComment" cols="30" rows="3" class="form-control"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" (click)="resolveTicketIssue(issue._id)">Resolve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <td>{{issue?.createdAt | date:'medium'}}</td>
+                    <td>
+                        <a href="javascript:void(0);" class="ml-2"><i class="far fa-trash-alt text-danger"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- issue section end -->
+
 <div class="dashboard-body-content">
     <div class="d-flex justify-content-between align-items-center">
         <h5>Ticket Details</h5>
     </div>
     <hr>
+
     <h5 class="text-blue">Ticket Details</h5>
     <div class="row m-0 details-page">
         <div class="col-lg-3">
@@ -301,34 +360,3 @@
 </div>
 
 <!-- log section ends -->
-
-<!-- issue section starts -->
-<div class="dashboard-body-content">
-    <div class="d-flex justify-content-between align-items-center">
-        <h5>Ticket Issues</h5>
-    </div>  
-    <div class="table-responsive ticket-table">
-        <table class="table table-sm table-hover brand-table">
-            <thead>
-                <tr>
-                    <th>Serial No</th>
-                    <th>Comment</th>
-                    <th>Resolved</th>
-                    <th>Created At</th>
-                    <th style="width:80px" class="text-center">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let issue of ticketIssues; let i = index">
-                    <td>{{i+1}}</td>
-                    <td>{{issue?.comment}}</td>
-                    <td (click)="resolveTicketIssue(issue._id, !issue.resolved)" style="cursor: pointer;">{{issue?.resolved}}</td>
-                    <td>{{issue?.createdAt | date:'medium'}}</td>
-                    <td>
-                        <a href="javascript:void(0);" class="ml-2"><i class="far fa-trash-alt text-danger"></i></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>

@@ -127,6 +127,13 @@ export class ApiService {
   ticketIssueDelete(ticketId: any) {
     return this._http.delete<any>(_apiUrl+'ticket-issue/delete/' + ticketId);
   }
+  //ticket issue comments
+  ticketIssueResolveCommentGet(ticketIssueId: any) {
+    return this._http.get<any>(_apiUrl+'ticket-issue-comment/list/' + ticketIssueId);
+  }
+  ticketIssueResolveCommentAdd(formData: any) {
+    return this._http.post<any>(_apiUrl+'ticket-issue-comment/create', formData);
+  }
 
 
   //support executive api
