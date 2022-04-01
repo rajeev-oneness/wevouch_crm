@@ -282,7 +282,7 @@ label {
 	padding: 10px 0px;
     margin: 5px auto;
     text-align: center;
-    width: 132px;
+    width: 130px;
 }
 /* .toggle-mob-menu{
 	display: none;
@@ -1533,6 +1533,17 @@ table.dataTable.no-footer {
 .paginate_button{
     color: #fff !important;
 }
+
+.login_Logo{
+	width: 275px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.login_Logo img{
+	object-fit: cover;
+	width: 100%;
+}
+
 /*----------Responsive_CSS---------------*/
 
 
