@@ -1,7 +1,8 @@
 .rating-list li {
     float: right;
     color: #ddd;
-    padding: 0px 17px;
+    padding: 0px 5px;
+    font-size: 26px;
 }
   
 .rating-list li.selected {

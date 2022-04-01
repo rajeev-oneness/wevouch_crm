@@ -5,19 +5,19 @@
     <form class="addexecutives-form" #supportEditForm="ngForm" (ngSubmit)="supportFormSubmit(supportEditForm)">
         <h5 class="text-blue">Basic Information</h5>
         <div class="row m-0 pt-3">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="employee">Employee Id</label>
                     <input type="text" name="employeeId" #employeeId="ngModel" [(ngModel)]="supExeDetail.employeeId" class="form-control" placeholder="Enter employee Id" id="employeeId" required [ngClass]="{'is-invalid':employeeId?.invalid && employeeId?.touched}">
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="name">Full Name</label>
                     <input type="text" name="name" #name="ngModel" [(ngModel)]="supExeDetail.name" class="form-control" placeholder="Enter employee name" id="name" required [ngClass]="{'is-invalid':name?.invalid && name?.touched}">
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="number">Phone number</label>
                     <input type="text" name="mobile" #mobile="ngModel" [(ngModel)]="supExeDetail.mobile" class="form-control" placeholder="Enter employee mobile" id="mobile" required [ngClass]="{'is-invalid':mobile?.invalid && mobile?.touched}">
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="row m-0 mt-0">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="Reporting">Reporting to</label>
                     <select name="reportingTo" #reportingTo="ngModel" [(ngModel)]="supExeDetail.reportingTo" class="form-control" id="reportingTo" required [ngClass]="{'is-invalid':reportingTo?.invalid && reportingTo?.touched}">
@@ -34,7 +34,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="form-group edit-box">
                     <label for="designation">Designation</label>
                     <input type="text" name="designation" #designation="ngModel" [(ngModel)]="supExeDetail.designation" class="form-control" placeholder="Enter employee designation" id="designation" required [ngClass]="{'is-invalid':designation?.invalid && designation?.touched}">

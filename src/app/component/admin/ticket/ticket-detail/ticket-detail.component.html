@@ -1,7 +1,7 @@
 <ngx-ui-loader loaderId="loader" fgsColor="#FFFFFF" bgsOpacity="1" overlayColor="rgba(40,40,40,0.1)"></ngx-ui-loader>
 
 <!-- issue section starts -->
-<div class="dashboard-body-content" style="background-color: #ffdcdf!important">
+<div class="dashboard-body-content" style="background-color: #e5eaee !important">
     <div class="d-flex justify-content-between align-items-center">
         <h5>Ticket Issues</h5>
     </div>  
@@ -120,7 +120,7 @@
                             </select>
                         </div>
                         <div class="pl-2 col-12">
-                            <button type="submit" class="actionbutton">Update status</button>
+                            <button type="submit" class="actionbutton" style="font-size: 12px;">Update status</button>
                         </div>
                         <span class="text-danger">{{errorMessage2}}</span>
                     </div> 
@@ -133,11 +133,11 @@
                 <div class="form-group">
                     <label for="Status">SRN</label>
                     <div class="d-flex">
-                        <div class="col-6">
+                        <div class="col-6 p-0">
                             <input type="text" placeholder="SRN" class="form-control" style="border: 1px solid #a5a5a5" name="srn" id="srnUpdate" #srn [ngModel]="ticketDetail?.srn" required>
                         </div>
                         <div class="pl-2 col-6">
-                            <button type="submit" class="actionbutton">Update</button>
+                            <button type="submit" class="actionbutton" style="font-size: 12px;">Update</button>
                         </div>
                         <span class="text-danger">{{srnError}}</span>
                     </div> 
@@ -274,12 +274,11 @@
 
 
 <!-- log section strats -->
-<div class="py-3 pr-4 text-right">
-    <button class="actionbutton" (click)="addLogOpenModalData()" data-toggle="modal" data-target="#exampleModal2">Add Log</button>
-</div>
+
 <div class="dashboard-body-content">
     <div class="d-flex justify-content-between align-items-center">
         <h5>Ticket Logs</h5>
+        <button class="actionbutton" (click)="addLogOpenModalData()" data-toggle="modal" data-target="#exampleModal2">Add Log</button>
     </div>  
     <div class="table-responsive ticket-table">
         <table class="table table-sm table-hover brand-table">
@@ -307,7 +306,7 @@
                         {{((log?.userApproval === true) && (log?.approved === false))? 'Not approved' : ''}}
                     </td> -->
                     <td>{{log.createdAt | date:'medium'}}</td>
-                    <td>
+                    <td class="text-center">
                         <a href="javascript:void(0);" class="ml-2" (click)="deleteLog(log._id)"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
                 </tr>
