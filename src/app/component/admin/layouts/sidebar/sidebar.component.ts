@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 
@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class SidebarComponent implements OnInit {
 
+  @ViewChild('sideBar') sideBar : ElementRef
   constructor(private _api:ApiService,private _activated:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -25,5 +26,9 @@ export class SidebarComponent implements OnInit {
   
   logoutAdmin() {
     this._api.logoutUser();
+  }
+
+  hideSidebar() {
+    this.sideBar.nativeElement.classList.remove('active')
   }
 }
