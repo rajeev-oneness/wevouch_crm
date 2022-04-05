@@ -12,7 +12,7 @@ export class TicketListComponent implements OnInit {
   
   public tickets :any = [];
   public ticketStatus :any = '';
-  public userInfo : any = JSON.parse(localStorage.getItem('userInfo'));
+  public WEVOUCH_CRM_INFO : any = JSON.parse(localStorage.getItem('WEVOUCH_CRM_INFO'));
 
   constructor(private _api:ApiService, private _loader:NgxUiLoaderService,private _activated:ActivatedRoute) { 
     this._loader.startLoader('loader');
@@ -27,7 +27,7 @@ export class TicketListComponent implements OnInit {
   getTicketList(ticketStatus) {
     // $('.table').DataTable().destroy();
     this._loader.startLoader('loader');
-    let formData = {'status': ticketStatus, 'executiveId': this.userInfo._id};
+    let formData = {'status': ticketStatus, 'executiveId': this.WEVOUCH_CRM_INFO._id};
     this._api.ticketListForSupportExe(formData).subscribe(
       res => {
         this.tickets = res.filter(

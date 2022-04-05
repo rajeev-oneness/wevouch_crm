@@ -32,15 +32,15 @@ export class ApiService {
     localStorage.clear();
     // localStorage.setItem('accessToken', 'accessToken1234567890adminWeVouch');
     localStorage.setItem('lastLoginTime', JSON.stringify(dateTime));
-    localStorage.setItem('userInfo',JSON.stringify(data));
+    localStorage.setItem('WEVOUCH_CRM_INFO',JSON.stringify(data));
     window.location.href = environment.dasboardPath;
     location.reload();
     // this._router.navigate([(routeIntended) ? routeIntended : '/admin/dashboard']);
   }
 
   updateUserLocally(data){
-    localStorage.removeItem('userInfo');
-    localStorage.setItem('userInfo',JSON.stringify(data));
+    localStorage.removeItem('WEVOUCH_CRM_INFO');
+    localStorage.setItem('WEVOUCH_CRM_INFO',JSON.stringify(data));
   }
 
   // Logging Out the Current User
@@ -55,17 +55,17 @@ export class ApiService {
     const start = JSON.parse(localStorage.getItem('lastLoginTime') || '{}');
     const interval = Date.now() - start;
     const loginSession = Math.floor(interval / 1000);
-    if (loginSession <= 7200 && localStorage.getItem('userInfo')) {
+    if (loginSession <= 7200 && localStorage.getItem('WEVOUCH_CRM_INFO')) {
       return true;
     } else {
       return false;
     }
     
-    // return !!localStorage.getItem('userInfo');
+    // return !!localStorage.getItem('WEVOUCH_CRM_INFO');
   }
 
   getUserDetailsFromStorage(){
-    let user = localStorage.getItem('userInfo');
+    let user = localStorage.getItem('WEVOUCH_CRM_INFO');
     return JSON.parse(user);
   }
 

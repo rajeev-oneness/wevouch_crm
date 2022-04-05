@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { ThrowStmt } from '@angular/compiler';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -12,13 +13,13 @@ import  Swal  from "sweetalert2";
 })
 export class TicketDetailComponent implements OnInit {
 
-  constructor(private _loader : NgxUiLoaderService,private _api:ApiService,private _activated:ActivatedRoute) { 
+  constructor(private _loader : NgxUiLoaderService,private _api:ApiService,private _activated:ActivatedRoute, private _location: Location) { 
     this._loader.startLoader('loader');
   }
   
   public ticketId : any = 0;
   public ticketDetail: any = {};
-  public supExeDetail: any = JSON.parse(localStorage.getItem('userInfo'))
+  public supExeDetail: any = JSON.parse(localStorage.getItem('WEVOUCH_CRM_INFO'))
   public errorMessage2: any = '';
   public selectedImg: string = '';
 
@@ -37,6 +38,10 @@ export class TicketDetailComponent implements OnInit {
   ngOnInit(): void {
     this.ticketId = this._activated.snapshot.paramMap.get('ticketId');
     this.getTicketDetails(this.ticketId);
+  }
+
+  back() {
+    this._location.back()
   }
 
   getTicketDetails(ticketId) {
@@ -99,7 +104,7 @@ export class TicketDetailComponent implements OnInit {
   public ticketIssues :any = [];
   public srnLog :any = {};
   public errorMessage :any = '';
-  public userInfo : any = JSON.parse(localStorage.getItem('userInfo'));
+  public WEVOUCH_CRM_INFO : any = JSON.parse(localStorage.getItem('WEVOUCH_CRM_INFO'));
   @ViewChild('modalCloseButton') closeButton : ElementRef;
 
   getTicketLogList() {
@@ -156,7 +161,7 @@ export class TicketDetailComponent implements OnInit {
       let mainForm = formData.value;
       mainForm.userApproval = (mainForm.userApproval === 'true')? true : false;
       mainForm.ticketId = this.ticketId;
-      mainForm.executiveId = this.userInfo._id;
+      mainForm.executiveId = this.WEVOUCH_CRM_INFO._id;
       this._loader.startLoader('loader');
       this._api.ticketLogAdd(mainForm).subscribe(
         res => {

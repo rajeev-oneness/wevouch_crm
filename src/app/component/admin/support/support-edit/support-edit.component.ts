@@ -33,7 +33,7 @@ export class SupportEditComponent implements OnInit {
 
   ngOnInit(): void {
     this._loader.startLoader('loader');
-    this.supExeDetail = JSON.parse(localStorage.getItem('userInfo'));
+    this.supExeDetail = JSON.parse(localStorage.getItem('WEVOUCH_CRM_INFO'));
     this.supExeId = this.supExeDetail._id;
     this._loader.stopLoader('loader');
 

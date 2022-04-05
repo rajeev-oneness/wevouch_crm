@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   }
 
   public dashboardData :any = [];
-  public userInfo : any = JSON.parse(localStorage.getItem('userInfo'));
+  public WEVOUCH_CRM_INFO : any = JSON.parse(localStorage.getItem('WEVOUCH_CRM_INFO'));
 
   ngOnInit(): void {
     this.getDashboardData();
@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
 
   getDashboardData() {
     this._loader.startLoader('loader');
-    let formData = {"executiveId": this.userInfo._id};
+    let formData = {"executiveId": this.WEVOUCH_CRM_INFO._id};
     this._api.dashboardData(formData).subscribe(
       res => {
         console.log(res);

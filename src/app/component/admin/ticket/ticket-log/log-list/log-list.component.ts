@@ -17,7 +17,7 @@ export class LogListComponent implements OnInit {
   public ticketUniqueId :any = '';
   public ticketLogs :any = [];
   public errorMessage :any = '';
-  public userInfo : any = JSON.parse(localStorage.getItem('userInfo'));
+  public WEVOUCH_CRM_INFO : any = JSON.parse(localStorage.getItem('WEVOUCH_CRM_INFO'));
   
   public Toast = Swal.mixin({
     toast: true,
@@ -68,7 +68,7 @@ export class LogListComponent implements OnInit {
       
       const mainForm = formData.value;
       mainForm.ticketId = this.ticketId;
-      mainForm.executiveId = this.userInfo._id;
+      mainForm.executiveId = this.WEVOUCH_CRM_INFO._id;
       this._api.ticketLogAdd(mainForm).subscribe(
         res => {
           this.closeButton.nativeElement.click(); // to close the modal
