@@ -163,12 +163,12 @@
                 <input type="text" id="mobile" value="{{ticketDetail.selectedDate | date:'dd MMM, yyyy'}}" readonly>    
             </div>
         </div>
-        <div class="col-lg-3">
+        <!-- <div class="col-lg-3">
             <div class="form-group">
                 <label for="Brand">Time</label>
                 {{ticketDetail.selectedTime}}
             </div>
-        </div>
+        </div> -->
         <div class="col-lg-12">
             <div class="form-group">
                 <label for="Brand">Description</label>
@@ -202,6 +202,26 @@
             </div>
         </div>
     </span>
+    <h5 class="text-blue"><a [href]="ticketDetail?.products?.documentUrl" target="_blank" *ngIf="ticketDetail?.products?.documentUrl" class="text-info">View Invoice Document</a></h5>
+    <span *ngIf="ticketDetail?.products?.invoicePhotoUrl?.length">
+        <h5 class="text-blue">Product Invoice Images</h5>
+        <div class="row m-0 details-page">
+            <div class="col-lg-3" *ngFor="let item of ticketDetail.products.invoicePhotoUrl; let i=index">
+                <div class="form-group" data-toggle="modal" data-target="#exampleModal" (click)="selectImg(item)">
+                    <img [src]="item" alt="Product Image" width="200" height="200">
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <img [src]="selectedImg" alt="Product Image">
+                </div>
+            </div>
+        </div>
+    </span>
+
     <h5 class="text-blue">Customer Details</h5>
     <div class="row m-0 details-page">
         <div class="col-lg-3">
