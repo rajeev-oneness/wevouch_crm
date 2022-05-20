@@ -72,35 +72,7 @@
                 <input type="text" id="Ticket Id" value="{{ticketDetail.uniqueId}}" readonly>    
             </div>
         </div>
-        <div class="col-lg-3">
-            <div class="form-group">
-                <label for="Product">Product</label>
-                <input type="text" id="Product" value="{{(ticketDetail.products && ticketDetail.products.name) || 'N/A'}}" readonly>    
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="form-group">
-                <label for="category">Category</label>
-                <input type="text" id="mobile" value="{{ticketDetail?.category}}" readonly>    
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="form-group">
-                <label for="Brand">Brand</label>
-                <!-- <span *ngIf="ticketDetail.brand; else brandNotFound"> -->
-                    <input type="text" id="Brand" value="{{ticketDetail?.brand ? ticketDetail?.brand : 'N/A'}}" readonly>    
-                <!-- </span>
-                <ng-template #brandNotFound>
-                    <input type="text" id="Brand" value="N/A" readonly>
-                </ng-template> -->
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="form-group">
-                <label for="model">Model</label>
-                <input type="text" id="mobile" value="model 1" readonly>    
-            </div>
-        </div>
+        
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Creation">Creation Date</label>
@@ -179,14 +151,14 @@
             <div class="form-group">
                 <label for="Brand">{{ticketDetail.transportationType}} Address</label>
                 <!-- <input type="text" id="Brand" value="{{ticketDetail.description}}" readonly>     -->
-                {{ticketDetail?.address?.addressLine1}}, {{ticketDetail?.address?.addressLine2}}, {{ticketDetail?.address?.location}}, {{ticketDetail?.address?.city}}, {{ticketDetail?.address?.state}}, {{ticketDetail?.address?.country}}, pin - {{ticketDetail?.address?.pin}}
+                {{ticketDetail?.address?.addressLine1}}, {{ticketDetail?.address?.addressLine2}}, {{ticketDetail?.address?.location}}, {{ticketDetail?.address?.city}}, {{ticketDetail?.address?.state}}, {{ticketDetail?.address?.country}}, {{ticketDetail?.address?.pin ? 'pin - ' + ticketDetail?.address?.pin : ''}}
             </div>
         </div>
 
     </div>
     <h5 class="text-blue">Product Details</h5>
     <div class="row m-0 details-page">
-        <div class="col-lg-3">
+        <div class="col-lg-3" *ngIf="ticketDetail?.products?.purchaseDate || ticketDetail?.products?.yearOfPurchase">
             <div class="form-group" *ngIf="ticketDetail?.products?.yearOfPurchase">
                 <label for="Ticket Id">Year of Purchase</label>
                 <input type="text" id="Ticket Id" value="{{ticketDetail?.products?.yearOfPurchase}}" readonly>  
