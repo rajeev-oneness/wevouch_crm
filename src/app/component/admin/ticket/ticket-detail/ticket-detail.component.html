@@ -151,7 +151,7 @@
             <div class="form-group">
                 <label for="Brand">{{ticketDetail.transportationType}} Address</label>
                 <!-- <input type="text" id="Brand" value="{{ticketDetail.description}}" readonly>     -->
-                {{ticketDetail?.address?.addressLine1}}, {{ticketDetail?.address?.addressLine2}}, {{ticketDetail?.address?.location}}, {{ticketDetail?.address?.city}}, {{ticketDetail?.address?.state}}, {{ticketDetail?.address?.country}}, {{ticketDetail?.address?.pin ? 'pin - ' + ticketDetail?.address?.pin : ''}}
+                <span *ngIf="ticketDetail?.address?.addressLine1">{{ticketDetail?.address?.addressLine1}}, </span><span *ngIf="ticketDetail?.address?.addressLine2">{{ticketDetail?.address?.addressLine2}}, </span><span *ngIf="ticketDetail?.address?.location">{{ticketDetail?.address?.location}}, </span><span *ngIf="ticketDetail?.address?.city">{{ticketDetail?.address?.city}}, </span><span *ngIf="ticketDetail?.address?.state">{{ticketDetail?.address?.state}}, </span><span *ngIf="ticketDetail?.address?.country">{{ticketDetail?.address?.country}}, </span><span *ngIf="ticketDetail?.address?.pin">Pin - {{ticketDetail?.address?.pin}}</span>
             </div>
         </div>
 
