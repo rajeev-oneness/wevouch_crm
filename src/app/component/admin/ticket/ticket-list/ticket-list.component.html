@@ -30,7 +30,7 @@
                         <ng-template #brandNotFound>N/A</ng-template>
                     </td>
                     <td>{{ticket.category}}</td>
-                    <td>{{ticket.createdAt | date:'MMM d, y, h:mm:ss a'}}</td>
+                    <td>{{ticket.createdAt | date:'dd MMM y'}}</td>
                     <td class="text-center"><span class="badge badge-success">{{ticket.status}}</span></td>
                     <!-- <td><a routerLink="/support-executive/ticket/log/list/{{ticket._id}}"><i class="fas fa-history"></i> Logs</a></td> -->
                     <td class="text-center">

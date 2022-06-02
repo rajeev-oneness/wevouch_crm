@@ -76,7 +76,7 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="Creation">Creation Date</label>
-                <input type="text" id="Creation" value="{{ticketDetail.createdAt | date:'dd MMM, yyyy'}}" readonly>    
+                <input type="text" id="Creation" value="{{ticketDetail.createdAt | date:'dd MMM y'}}" readonly>    
             </div>
         </div>
         <div class="col-lg-3">
@@ -132,7 +132,7 @@
         <div class="col-lg-3">
             <div class="form-group">
                 <label for="category">Date</label>
-                <input type="text" id="mobile" value="{{ticketDetail.selectedDate | date:'dd MMM, yyyy'}}" readonly>    
+                <input type="text" id="mobile" value="{{ticketDetail.selectedDate | date:'dd MMM y'}}" readonly>    
             </div>
         </div>
         <!-- <div class="col-lg-3">
@@ -165,7 +165,7 @@
             </div>
             <div class="form-group" *ngIf="ticketDetail?.products?.purchaseDate && !ticketDetail?.products?.yearOfPurchase">
                 <label for="Ticket Id">Purchase Date</label>
-                {{ticketDetail?.products?.purchaseDate | date: 'd M, y'}}   
+                {{ticketDetail?.products?.purchaseDate | date: 'dd MMM y'}}   
             </div>
         </div>
         <div class="col-lg-3">
