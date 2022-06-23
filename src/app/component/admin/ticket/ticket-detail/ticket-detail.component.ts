@@ -22,6 +22,7 @@ export class TicketDetailComponent implements OnInit {
   public supExeDetail: any = JSON.parse(localStorage.getItem('WEVOUCH_CRM_INFO'))
   public errorMessage2: any = '';
   public selectedImg: string = '';
+  public selectedIssue: string = '';
 
   public Toast = Swal.mixin({
     toast: true,
@@ -370,6 +371,8 @@ export class TicketDetailComponent implements OnInit {
   ticketIssueComments: any = []
 
   getComments(issueId: any) {
+    console.log('Selected issue', issueId);
+    this.selectedIssue = issueId;
     this._api.ticketIssueResolveCommentGet(issueId).subscribe(
       res => {
         console.log(res);
@@ -391,7 +394,7 @@ export class TicketDetailComponent implements OnInit {
         if (res.error === false) {
           this.Toast.fire({
             icon: 'success',
-            title: res.message || 'Issue resolved',
+            title: 'Issue resolved',
           })
           this.getTicketIssueList();
         }
@@ -412,7 +415,7 @@ export class TicketDetailComponent implements OnInit {
         if (res.error === false) {
           this.Toast.fire({
             icon: 'success',
-            title: res.message || 'Comment Added',
+            title: 'Comment Added',
           })
           this.getTicketIssueList();
         }

@@ -20,7 +20,7 @@
                 <tr *ngFor="let issue of ticketIssues; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{issue?.comment}}</td>
-                    
+                    <!-- {{issue._id}} -->
                     <td style="cursor: pointer;"><button (click)="getComments(issue._id)" class="btn btn-sm" [ngClass]="{'btn-danger' : !issue.resolved, 'btn-info' : issue.resolved}" data-toggle="modal" data-target="#exampleModal">{{issue.resolved ? 'Resolved': 'Not Resolved'}}</button></td>
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" #modalCloseButton tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -40,13 +40,14 @@
                                 <textarea name="resolvecomment" #resolvecomment [(ngModel)]="resolveComment" id="resolveComment" cols="30" rows="3" class="form-control"></textarea>
                                 </div>
                                 <div class="modal-footer">
+                                    <!-- {{selectedIssue}} -->
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" (click)="resolveTicketIssue(issue._id)">Resolve</button>
+                                    <button type="button" class="btn btn-primary" (click)="resolveTicketIssue(selectedIssue)">Resolve</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <td>{{issue?.createdAt | date:'medium'}}</td>
+                    <td>{{issue?.createdAt | date:'d MMM, y'}}</td>
                     <td>
                         <a href="javascript:void(0);" class="ml-2"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
@@ -158,12 +159,12 @@
     </div>
     <h5 class="text-blue">Product Details</h5>
     <div class="row m-0 details-page">
-        <div class="col-lg-3" *ngIf="ticketDetail?.products?.purchaseDate || ticketDetail?.products?.yearOfPurchase">
+        <div class="col-lg-3" >
             <div class="form-group" *ngIf="ticketDetail?.products?.yearOfPurchase">
                 <label for="Ticket Id">Year of Purchase</label>
                 <input type="text" id="Ticket Id" value="{{ticketDetail?.products?.yearOfPurchase}}" readonly>  
             </div>
-            <div class="form-group" *ngIf="ticketDetail?.products?.purchaseDate && !ticketDetail?.products?.yearOfPurchase">
+            <div class="form-group" *ngIf="ticketDetail?.products?.purchaseDate">
                 <label for="Ticket Id">Purchase Date</label>
                 {{ticketDetail?.products?.purchaseDate | date: 'dd MMM y'}}   
             </div>
@@ -347,7 +348,7 @@
                         {{((log?.userApproval === true) && (log?.approved === true))? 'Approved' : ''}}
                         {{((log?.userApproval === true) && (log?.approved === false))? 'Not approved' : ''}}
                     </td> -->
-                    <td>{{log.createdAt | date:'medium'}}</td>
+                    <td>{{log.createdAt | date:'d MMM, y'}}</td>
                     <td class="text-center">
                         <a href="javascript:void(0);" class="ml-2" (click)="deleteLog(log._id)"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
