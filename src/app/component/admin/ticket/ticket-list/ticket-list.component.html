@@ -13,7 +13,7 @@
                     <th>Product</th>
                     <th>Brand</th>
                     <th>Category</th>
-                    <th>Created At</th>
+                    <th style="width: 200px;">Created At</th>
                     <th style="width:100px" class="text-center">Status</th>
                     <!-- <th style="width:100px" class="text-center">Log</th> -->
                     <th style="width:80px" class="text-center">Action</th>
@@ -30,7 +30,7 @@
                         <ng-template #brandNotFound>N/A</ng-template>
                     </td>
                     <td>{{ticket.category}}</td>
-                    <td>{{ticket.createdAt | date:'dd MMM y'}}</td>
+                    <td>{{ticket.createdAt | date:'dd MMM y - h:mm a'}}</td>
                     <td class="text-center"><span class="badge badge-success">{{ticket.status}}</span></td>
                     <!-- <td><a routerLink="/support-executive/ticket/log/list/{{ticket._id}}"><i class="fas fa-history"></i> Logs</a></td> -->
                     <td class="text-center">
