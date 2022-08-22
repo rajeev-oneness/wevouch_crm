@@ -81,7 +81,13 @@ export class TicketDetailComponent implements OnInit {
             "userId": this.ticketDetail?.users?._id,
             "description" : "Dear "+this.ticketDetail?.users?.name+", we have marked your ticket no. "+this.ticketDetail?.uniqueId+" as "+formData.value.status+"."
           };
-          this._api.sendNotificationToCustomer(customerForm).subscribe();
+          this._api.sendNotificationToCustomer(customerForm).subscribe(
+            res => {
+              console.log("Tcket status change notification send", res);
+            }, err => {
+              console.log("Tcket status change notification send failed", res);
+            }
+          );
           if (formData.value.status === "ongoing") {
             const logForm: any = [];
             logForm.value = {comment: 'Wevouch got in touch with '+this.ticketDetail?.products?.brands+' Service team', logType: 'Go To Customer'};
@@ -198,18 +204,22 @@ export class TicketDetailComponent implements OnInit {
             });
           }
         )
-      }else if(this.LogType == 'Go To Customer'){
+      }
+      if(this.LogType == 'Go To Customer'){
         const customerForm = {
-          "title" : "Log Created",
+          "title" : "Ticket log for ticket no. " + this.ticketDetail.uniqueId ,
           "userId": this.ticketDetail?.users?._id,
-          "description" : "New Log added to the ticket assigned with product "+this.ticketDetail?.products?.name
+          "description" : formData.value?.comment
         };
         this._api.sendNotificationToCustomer(customerForm).subscribe(
           res => {
+            console.log('User notification sending...', res);
             this.Toast.fire({
               icon: 'success',
               title: 'Notification sent successfully!',
             });
+          }, err => {
+            console.log('User notification sebding failed...', err);
           }
         )
       }
@@ -428,6 +438,15 @@ export class TicketDetailComponent implements OnInit {
         })
         this._loader.stopLoader('loader');
 
+      }
+    )
+
+    this._api.sendNotificationToCustomer({title: 'Issue Resolved', description: this.resolveComment, userId: this.ticketDetail?.users?._id}).subscribe(
+      res => {
+        console.log('User notification sebding...', res);
+        
+      }, err => {
+        console.log('User notification sebding failed...', err);
       }
     )
 

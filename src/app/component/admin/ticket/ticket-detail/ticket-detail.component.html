@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     </div>
-                    <td>{{issue?.createdAt | date:'d MMM, y'}}</td>
+                    <td>{{issue?.createdAt | date:'medium'}}</td>
                     <td>
                         <a href="javascript:void(0);" class="ml-2"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
@@ -348,7 +348,7 @@
                         {{((log?.userApproval === true) && (log?.approved === true))? 'Approved' : ''}}
                         {{((log?.userApproval === true) && (log?.approved === false))? 'Not approved' : ''}}
                     </td> -->
-                    <td>{{log.createdAt | date:'d MMM, y'}}</td>
+                    <td>{{log.createdAt | date:'medium'}}</td>
                     <td class="text-center">
                         <a href="javascript:void(0);" class="ml-2" (click)="deleteLog(log._id)"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
@@ -379,7 +379,7 @@
                         <option value="Go To Customer">Go To Customer</option>
                     </select>
                 </div>
-                <div class="row m-0 pt-3" *ngIf="LogType === 'Go To Customer'">
+                <!-- <div class="row m-0 pt-3" *ngIf="LogType === 'Go To Customer'">
                     <label for="">User approval</label>
                     <select #approval_type name="userApproval" [ngModel]="userApprovalType" id="" class="form-control" (change)="userApprovalSTore(approval_type)">
                         <option value="false">Not needed</option>
@@ -389,7 +389,7 @@
                 <div class="row m-0 pt-3" *ngIf="userApprovalType">
                     <label for="">Approval question</label>
                     <textarea name="approvalQuestion" #approvalQuestion ngModel class="form-control" placeholder="Your approval question goes here" id="approvalQuestion" required [ngClass]="{'is-invalid':approvalQuestion?.invalid && approvalQuestion?.touched}"></textarea>
-                </div>
+                </div> -->
 
                 <span class="text-danger">{{errorMessage}}</span>
                 <div class="row m-0 pt-3">
