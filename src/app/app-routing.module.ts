@@ -14,6 +14,8 @@ import { RegistrationComponent } from "./component/auth/registration/registratio
 import { ForgetComponent } from "./component/auth/password/forget/forget.component";
 import { ChangeComponent } from "./component/auth/password/change/change.component";
 import { AuthGuardService } from "./service/auth-guard.service";
+import { InactiveCustomerComponent } from './component/admin/customer/inactive-customer/inactive-customer.component';
+import { ActiveCustomerComponent } from './component/admin/customer/active-customer/active-customer.component';
 
 const routes: Routes = [
   {path : '', component : DashboardComponent, pathMatch:'full', canActivate:[AuthGuardService],},
@@ -22,6 +24,10 @@ const routes: Routes = [
   {path: 'password', children: [
     {path: 'forget', component: ForgetComponent},
     {path: 'change', component: ChangeComponent},
+  ]},
+  {path: 'customer', children: [
+    {path: 'active', component: ActiveCustomerComponent},
+    {path: 'inactive', component: InactiveCustomerComponent},
   ]},
   {path: 'support-executive', canActivate:[AuthGuardService], children:[
     {path : 'dashboard', component : DashboardComponent},

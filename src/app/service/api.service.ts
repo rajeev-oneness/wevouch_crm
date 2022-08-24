@@ -91,6 +91,11 @@ export class ApiService {
     return this._http.patch<any>(_apiUrl+'ticket/update-status/'+ticketId, formData);
   }
 
+  // customer Api
+  customerList() {
+    return this._http.get<any>(_apiUrl+'user/list');
+  }
+  
   //ticket-log
   ticketLogList() {
     return this._http.get<any>(_apiUrl+'ticket-log/list');
@@ -133,6 +138,9 @@ export class ApiService {
   }
   ticketIssueResolveCommentAdd(formData: any) {
     return this._http.post<any>(_apiUrl+'ticket-issue-comment/create', formData);
+  }
+  ticketIssueLists() {
+    return this._http.get<any>(_apiUrl+'ticket-issue/list-all');
   }
 
 

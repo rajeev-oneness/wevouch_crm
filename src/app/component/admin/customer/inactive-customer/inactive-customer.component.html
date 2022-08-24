@@ -1,0 +1,70 @@
+<ngx-ui-loader loaderId="loader" fgsColor="#00c1d3" bgsOpacity="1" overlayColor="rgba(40,40,40,0.5)"></ngx-ui-loader>
+<div class="dashboard-body-content">
+    <div class="d-block d-lg-flex">
+        <div>
+            <h5 class="card-head-title">Inactive/Incomplete Customer</h5>
+        </div>
+        <div class="ml-auto my-auto">
+
+          <a href="javascript:void(0);" class="ml-1 actionbutton btn btn-sm" (click)="downloadCsv()">EXPORT DATA</a>
+        </div>
+    </div>
+    <hr>
+    <div class="table-responsive edit-table">
+      <!-- <div class="w-100 py-2">
+        <div class="row  justify-content-end">
+          <div class="form-group col-sm-3">
+            <input type="text" name="" id="" placeholder="Search..." class="form-control" [(ngModel)]="this.searchInput" (focus)="this.searchInputDate = undefined">
+          </div>
+          <div class="form-group col-sm-3">
+            <input type="date" name="" id="" class="form-control" [(ngModel)]="this.searchInputDate" (focus)="this.searchInput = undefined">
+          </div>
+        </div>
+      </div> -->
+      <table class="table table-sm table-hover">
+          <thead>
+              <tr>
+                  <th>Sr.</th>
+                  <th>Customer Id</th>
+                  <th width="5%">Name</th>
+                  <th>Email</th>
+                  <th>Mobile</th>
+                  <th>Remaining Ticket</th>
+                  <th>Created At</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let customer of customerList; let i = index" [class.selectedRow]="rowIsSelected(customer._id)">
+                  <td>{{customer?.id}}</td>
+                  <td>{{customer?.uniqueId}}</td>
+                  <td>{{customer?.name}}</td>
+                  <td>{{customer?.email}}</td>
+                  <td>{{customer?.mobile}} <span class="badge badge-success" *ngIf="customer?.is_mobile_verified"><i class="fas fa-check"></i> Verified</span> <span class="badge badge-danger" *ngIf="!customer?.is_mobile_verified"><i class="fas fa-times"></i> Not verified</span></td>
+                  <td>{{customer?.remainingTicketCount}}</td>
+                  <td>{{customer?.createdAt.split('T')[0] | date: 'd MMM y'}}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+
+</div>
+
+<div class="delete-modal modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><i class="far fa-trash-alt"></i> Delete Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to permanently delete this customer?You <b>CAN NOT</b> view this customer in your list</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn close-button" data-dismiss="modal">Close</button>
+          <button type="button" class="btn delete-button" >Delete permanently</button>
+        </div>
+      </div>
+    </div>
+</div>

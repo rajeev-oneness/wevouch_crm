@@ -15,10 +15,20 @@ export class DashboardComponent implements OnInit {
   }
 
   public dashboardData :any = [];
+  public issues :any = [];
+
   public WEVOUCH_CRM_INFO : any = JSON.parse(localStorage.getItem('WEVOUCH_CRM_INFO'));
 
   ngOnInit(): void {
     this.getDashboardData();
+    this._api.ticketIssueLists().subscribe(
+      res => {
+        console.log('ticket issue',res);
+        if (res.error === false) {
+          this.issues = res.data.filter( (e: any) => e.ticket && e.ticket.products && e.ticket.users );
+        }
+      },err => {} 
+    )
   }
 
   getDashboardData() {

@@ -25,11 +25,13 @@ import { LogAddComponent } from './component/admin/ticket/ticket-log/log-add/log
 import { LogDetailComponent } from './component/admin/ticket/ticket-log/log-detail/log-detail.component';
 import { DataTablesModule } from 'angular-datatables';
 import { NotificationListComponent } from './component/admin/notification/notification-list/notification-list.component';
+import { ActiveCustomerComponent } from './component/admin/customer/active-customer/active-customer.component';
+import { InactiveCustomerComponent } from './component/admin/customer/inactive-customer/inactive-customer.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,TicketListComponent,TicketDetailComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent, LogListComponent, LogAddComponent, LogDetailComponent, NotificationListComponent,
+    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,TicketListComponent,TicketDetailComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent, LogListComponent, LogAddComponent, LogDetailComponent, NotificationListComponent, ActiveCustomerComponent, InactiveCustomerComponent,
   ],
   imports: [
     BrowserModule,AppRoutingModule,NgxUiLoaderModule,CommonModule,FormsModule,ReactiveFormsModule,HttpClientModule,DataTablesModule
