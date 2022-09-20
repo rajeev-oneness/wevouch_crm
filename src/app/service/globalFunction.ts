@@ -54,6 +54,23 @@ export function htmlToCSV(html: any, filename: any) {
     downloadCSVFile(data.join("\n"), filename);
 }
 
+export function htmlToCSVWithoutButtons(html: any, filename: any) {
+    var data = [];
+    var rows = document.querySelectorAll("table tr");
+        
+    for (var i = 0; i < rows.length; i++) {
+      var row = [], cols = rows[i].querySelectorAll("td, th");
+          
+        for (var j = 1; j <= cols.length-1; j++) {
+            row.push((<HTMLElement>cols[j]).innerText);
+        }
+                
+        data.push(row.join(",")); 		
+    }
+
+    downloadCSVFile(data.join("\n"), filename);
+}
+
 export function htmlToCSV2(html: any, filename: any) {
     var data = [];
     var rows = document.querySelectorAll("table tr");

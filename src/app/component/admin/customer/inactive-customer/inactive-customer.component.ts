@@ -3,7 +3,7 @@ import { ApiService } from "src/app/service/api.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
-import { csvJSON, htmlToCSV } from 'src/app/service/globalFunction';
+import { csvJSON, htmlToCSV, htmlToCSVWithoutButtons } from 'src/app/service/globalFunction';
 
 @Component({
   selector: 'app-inactive-customer',
@@ -97,7 +97,7 @@ export class InactiveCustomerComponent implements OnInit {
   downloadCsv() {
     let html : any = document.querySelector("table");
     html = (<HTMLElement>html).outerHTML;
-    htmlToCSV(html, "customer.csv");
+    htmlToCSVWithoutButtons(html, "customer.csv");
   }
 
 }
