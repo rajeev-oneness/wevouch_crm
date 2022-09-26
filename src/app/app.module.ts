@@ -27,11 +27,12 @@ import { DataTablesModule } from 'angular-datatables';
 import { NotificationListComponent } from './component/admin/notification/notification-list/notification-list.component';
 import { ActiveCustomerComponent } from './component/admin/customer/active-customer/active-customer.component';
 import { InactiveCustomerComponent } from './component/admin/customer/inactive-customer/inactive-customer.component';
+import { TicketPipe } from './pipes/ticket.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,TicketListComponent,TicketDetailComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent, LogListComponent, LogAddComponent, LogDetailComponent, NotificationListComponent, ActiveCustomerComponent, InactiveCustomerComponent,
+    AppComponent,HeaderComponent,FooterComponent,SidebarComponent,DashboardComponent,TicketListComponent,TicketDetailComponent,LoginComponent,RegistrationComponent,ForgetComponent,ChangeComponent, SupportEditComponent, LogListComponent, LogAddComponent, LogDetailComponent, NotificationListComponent, ActiveCustomerComponent, InactiveCustomerComponent, TicketPipe,
   ],
   imports: [
     BrowserModule,AppRoutingModule,NgxUiLoaderModule,CommonModule,FormsModule,ReactiveFormsModule,HttpClientModule,DataTablesModule

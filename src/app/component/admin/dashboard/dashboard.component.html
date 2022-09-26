@@ -57,6 +57,19 @@
             <div class="card-header card-head">
                 <h5 class="card-head-title">Latest Tickets with issues</h5>
             </div>
+            <div class="w-100 px-4">
+                <div class="row  justify-content-end">
+                  <div class="form-group col-sm-2">
+                    <input type="text" name="" id="" placeholder="Search..." class="form-control" [(ngModel)]="this.searchInput" (focus)="this.searchInputDate = undefined; this.searchInputMonth = undefined;">
+                  </div>
+                  <!-- <div class="form-group col-sm-2">
+                    <input type="date" name="" id="" class="form-control" [(ngModel)]="this.searchInputDate" (focus)="this.searchInput = undefined; this.searchInputMonth = undefined;">
+                  </div> -->
+                  <div class="form-group col-sm-2">
+                    <input type="month" name="" id="" class="form-control" [(ngModel)]="this.searchInputMonth" (focus)="this.searchInput = undefined; this.searchInputDate = undefined;">
+                  </div>
+                </div>
+            </div>
             <div class="table-responsive edit-table card-body pt-0 pb-0">
                 <table class="table table-sm table-hover brand-table">
                     <thead>
@@ -73,7 +86,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of issues; let i = index">
+                        <tr *ngFor="let item of issues | ticket: searchInput : searchInputDate : searchInputMonth; let i = index">
                             <td>{{i+1}}</td>
                             <td>{{item.ticket?.uniqueId}}</td>
                             <td>{{item.ticket?.users?.name}}</td>
@@ -86,8 +99,8 @@
                             <td>{{item.ticket?.createdAt | date: "d MMM y, h:mm a"}}</td>
                             <td class="text-center"> <span class="badge" [ngClass]="{ 'badge-success': item.ticket?.status == 'completed', 'badge-warning': item.ticket?.status == 'new', 'badge-danger': item.ticket?.status == 'cancelled', 'badge-primary': item.ticket?.status == 'ongoing' }">{{item.ticket?.status}}</span></td>
                             <td class="text-center">
-                                <a routerLink="/admin/ticket/detail/{{item.ticket?._id}}"><i class="far fa-eye"></i></a>
-                                <a href="javascript:void(0);" class="ml-2" (click)="deleteTicket(item.ticket?._id)"><i class="far fa-trash-alt text-danger"></i></a>
+                                <a routerLink="/support-executive/ticket/detail/{{item.ticket?._id}}"><i class="far fa-eye"></i></a>
+                                <!-- <a href="javascript:void(0);" class="ml-2" (click)="deleteTicket(item.ticket?._id)"><i class="far fa-trash-alt text-danger"></i></a> -->
                             </td>
                         </tr>
                         <tr *ngIf="!issues.length">

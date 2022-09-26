@@ -16,12 +16,14 @@ export class DashboardComponent implements OnInit {
 
   public dashboardData :any = [];
   public issues :any = [];
-
+  public searchInput: any;
+  public searchInputDate: any;
+  public searchInputMonth: any = `${new Date().getFullYear()}-${(new Date().getMonth()+1).toString().padStart(2, '0')}`;
   public WEVOUCH_CRM_INFO : any = JSON.parse(localStorage.getItem('WEVOUCH_CRM_INFO'));
 
   ngOnInit(): void {
     this.getDashboardData();
-    this._api.ticketIssueLists().subscribe(
+    this._api.ticketIssueUnresolvedList().subscribe(
       res => {
         console.log('ticket issue',res);
         if (res.error === false) {
