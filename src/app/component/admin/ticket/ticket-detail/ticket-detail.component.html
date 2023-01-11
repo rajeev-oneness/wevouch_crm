@@ -210,13 +210,13 @@
         <h5 class="text-blue">Product Images</h5>
         <div class="row m-0 details-page">
             <div class="col-lg-3" *ngFor="let item of ticketDetail.products.productImagesUrl; let i=index">
-                <div class="form-group" data-toggle="modal" data-target="#exampleModal" (click)="selectImg(item)">
+                <div class="form-group" data-toggle="modal" data-target="#ProductImgModal" (click)="selectImg(item)">
                     <img [src]="item" alt="Product Image" width="200" height="200">
                 </div>
                 
             </div>
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+        <div class="modal fade" id="ProductImgModal" tabindex="-1" role="dialog" aria-labelledby="ProductImgModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <img [src]="selectedImg" alt="Product Image">
@@ -229,13 +229,13 @@
         <h5 class="text-blue">Product Invoice Images</h5>
         <div class="row m-0 details-page">
             <div class="col-lg-3" *ngFor="let item of ticketDetail.products.invoicePhotoUrl; let i=index">
-                <div class="form-group" data-toggle="modal" data-target="#exampleModal" (click)="selectImg(item)">
+                <div class="form-group" data-toggle="modal" data-target="#invoiceImgModal" (click)="selectImg(item)">
                     <img [src]="item" alt="Product Image" width="200" height="200">
                 </div>
                 
             </div>
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+        <div class="modal fade" id="invoiceImgModal" tabindex="-1" role="dialog" aria-labelledby="invoiceImgModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <img [src]="selectedImg" alt="Product Image">
@@ -292,10 +292,10 @@
             </div>
         </div>
     </div>
-    <div *ngIf="ticketDetail?.rating && ticketDetail?.description">
-        <h5 class="text-blue">User Feedback</h5>
+    <div>
+        <h5 class="text-blue">Company Feedback By User</h5>
         <div class="row m-0 details-page">
-            <div class="col-lg-12">
+            <div class="col-sm-12 col-lg-3">
                 <div class="form-group">
                     <label for="Name">Rating</label>
                     <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block" >
@@ -305,10 +305,31 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-12">
+            <div class="col-sm-12 col-lg-9">
                 <div class="form-group">
-                    <label for="Email">Description</label>
-                    {{ticketDetail?.feedback}}    
+                    <label for="Email">Feedback</label>
+                    {{ticketDetail?.feedback || 'N/A'}}    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h5 class="text-blue">Brand Feedback By User</h5>
+        <div class="row m-0 details-page">
+            <div class="col-sm-12 col-lg-3">
+                <div class="form-group">
+                    <label for="Name">Rating</label>
+                    <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block" >
+                        <li [ngClass]="{'selected': (star <= ticketDetail?.brandRating)}">
+                            <i class="fa fa-star fs"></i>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-9">
+                <div class="form-group">
+                    <label for="Email">Feedback</label>
+                    {{ticketDetail?.brandFeedback || 'N/A'}}    
                 </div>
             </div>
         </div>
