@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDashboardData();
-    this._api.ticketIssueUnresolvedList().subscribe(
+    this._api.ticketIssueUnresolvedList(this.WEVOUCH_CRM_INFO._id).subscribe(
       res => {
         console.log('ticket issue',res);
         if (res.error === false) {

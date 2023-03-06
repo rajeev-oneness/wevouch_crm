@@ -126,8 +126,8 @@ export class ApiService {
   ticketIssueList(ticketId: any) {
     return this._http.get<any>(_apiUrl + 'ticket-issue/list/' + ticketId);
   }
-  ticketIssueUnresolvedList() {
-    return this._http.get<any>(_apiUrl + 'ticket-issue/unresolved-list');
+  ticketIssueUnresolvedList(executiveId: any) {
+    return this._http.get<any>(_apiUrl + 'ticket-issue/unresolved-list?executive='+executiveId);
   }
   ticketIssueResolve(issuId: any, formData: any) {
     return this._http.patch<any>(_apiUrl+'ticket-issue/toggle-resolve/' + issuId, formData);
