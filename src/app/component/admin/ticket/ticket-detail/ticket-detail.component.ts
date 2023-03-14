@@ -59,7 +59,13 @@ export class TicketDetailComponent implements OnInit {
     )
   }
 
-  updateTicketStatus(formData) {
+  updateTicketStatus(formData: any) {
+
+    // console.log("formData >>>>>>>>> ", formData.value);
+    // console.log("ticketDetail.status >>>>>>>>> ", this.ticketDetail.status);
+    
+    if (formData.value.status == this.ticketDetail.status) return
+    // console.log("here 2");
     this.errorMessage2 = '';
     for( let i in formData.controls ){
       formData.controls[i].markAsTouched();
