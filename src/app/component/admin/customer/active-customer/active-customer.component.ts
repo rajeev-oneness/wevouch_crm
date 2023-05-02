@@ -47,7 +47,7 @@ export class ActiveCustomerComponent implements OnInit {
             }else{
               this.tableDesign = $('.table').DataTable();
             }
-          }, 1500);
+          }, 500);
         });
       },err => {}
     )

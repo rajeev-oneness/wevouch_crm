@@ -40,15 +40,15 @@ export class InactiveCustomerComponent implements OnInit {
         this.customerList.map((e: any, index: any) => e.id = index+1);
         console.log(this.customerList);
         this._loader.stopLoader('loader');
-        // $(document).ready(function() {
-        //   setTimeout(function(){
-        //     if(this.tableDesign != undefined || this.tableDesign != null){
-        //       this.tableDesign = this.tableDesign.draw();
-        //     }else{
-        //       this.tableDesign = $('.table').DataTable();
-        //     }
-        //   }, 1500);
-        // });
+        $(document).ready(function() {
+          setTimeout(function(){
+            if(this.tableDesign != undefined || this.tableDesign != null){
+              this.tableDesign = this.tableDesign.draw();
+            }else{
+              this.tableDesign = $('.table').DataTable();
+            }
+          }, 500);
+        });
       },err => {}
     )
   }

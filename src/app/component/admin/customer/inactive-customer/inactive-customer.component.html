@@ -38,8 +38,8 @@
               <tr *ngFor="let customer of customerList; let i = index" [class.selectedRow]="rowIsSelected(customer._id)">
                   <td>{{customer?.id}}</td>
                   <!-- <td>{{customer?.uniqueId}}</td> -->
-                  <td>{{customer?.name}}</td>
-                  <td>{{customer?.email}}</td>
+                  <td>{{customer?.name || 'N/A'}}</td>
+                  <td>{{customer?.email || 'N/A'}}</td>
                   <td>{{customer?.mobile}} <span class="badge badge-success" *ngIf="customer?.is_mobile_verified"><i class="fas fa-check"></i> Verified</span> <span class="badge badge-danger" *ngIf="!customer?.is_mobile_verified"><i class="fas fa-times"></i> Not verified</span></td>
                   <td>{{customer?.remainingTicketCount}}</td>
                   <td>{{customer?.createdAt?.split('T')[0] | date: 'd MMM y'}}</td>

@@ -31,12 +31,12 @@ export class TicketListComponent implements OnInit {
     this._api.ticketListForSupportExe(formData).subscribe(
       res => {
         this.tickets = res.filter(
-          e => (e.status == ticketStatus) && (e.users)
+          (e: any) => (e.status == ticketStatus) && (e.users)
         );
         this._loader.stopLoader('loader');
         console.log('ticket Status',ticketStatus);
         $(document).ready(function() {
-          setTimeout(function(){ $('.table').DataTable(); }, 700);
+          setTimeout(function(){ $('.table').DataTable(); }, 500);
         });
       },err => {} 
     )
