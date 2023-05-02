@@ -25,7 +25,7 @@
           <thead>
               <tr>
                   <th>Sr.</th>
-                  <th>Customer Id</th>
+                  <!-- <th>Customer Id</th> -->
                   <th width="5%">Name</th>
                   <th>Email</th>
                   <th>Mobile</th>
@@ -37,15 +37,15 @@
           <tbody>
               <tr *ngFor="let customer of customerList; let i = index" [class.selectedRow]="rowIsSelected(customer._id)">
                   <td>{{customer?.id}}</td>
-                  <td>{{customer?.uniqueId}}</td>
+                  <!-- <td>{{customer?.uniqueId}}</td> -->
                   <td>{{customer?.name}}</td>
                   <td>{{customer?.email}}</td>
                   <td>{{customer?.mobile}} <span class="badge badge-success" *ngIf="customer?.is_mobile_verified"><i class="fas fa-check"></i> Verified</span> <span class="badge badge-danger" *ngIf="!customer?.is_mobile_verified"><i class="fas fa-times"></i> Not verified</span></td>
                   <td>{{customer?.remainingTicketCount}}</td>
-                  <td>{{customer?.createdAt.split('T')[0] | date: 'd MMM y'}}</td>
+                  <td>{{customer?.createdAt?.split('T')[0] | date: 'd MMM y'}}</td>
                   <td>
                     <span *ngIf="customer?.lastLogin; else noLastLogin;">
-                      {{customer?.lastLogin.split('T')[0] | date: 'd MMM, y'}}
+                      {{customer?.lastLogin?.split('T')[0] | date: 'd MMM, y'}}
                     </span>
                     <ng-template #noLastLogin>
                       N/A
